@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>EduBasica Shield con Nodejs</title>
+    <title>Aire Madrid - La calidad del Aire en tiempo real</title>
 
 <!--1.1 Estilos -->    
     <!-- Font Awesome -->
@@ -13,77 +13,359 @@
 
     <!-- Bootstrap minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
  </head>
  <body>
-    <div class="container">
+        <!-- Fixed navbar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html">Aire Madrid</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="index.html">Home</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Estaciones <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="28079004.html">Plaza de España</a></li>
+                <li><a href="28079008.html">Escuelas Aguirre</a></li>
+                <li><a href="28079011.html">Ramón y Cajal</a></li>
+                <li><a href="28079016.html">Arturo Soria</a></li>
+                <li><a href="28079017.html">Villaverde</a></li>
+                <li><a href="28079018.html">Farolillo</a></li>
+                <li><a href="28079024.html">Casa de Campo</a></li>                
+                <li><a href="28079027.html">Barajas (Pueblo)</a></li>                
+                <li><a href="28079035.html">Plaza del Carmen</a></li>
+                <li><a href="28079036.html">Moratalaz</a></li>
+                <li><a href="28079038.html">Cuatro Caminos</a></li>                
+                <li><a href="28079039.html">Barrio del Pilar</a></li>
+                <li><a href="28079040.html">Vallecas</a></li>                
+                <li><a href="28079047.html">Méndez Álvaro</a></li>                
+                <li><a href="28079048.html">Castellana</a></li>                
+                <li><a href="28079049.html">Parque del Retiro</a></li>   
+                <li><a href="28079050.html">Plaza Castilla</a></li>        
+                <li><a href="28079054.html">Ensanche de Vallecas</a></li>        
+                <li><a href="28079055.html">Urbanización Embajada</a></li>        
+                <li><a href="28079056.html">Plaza Fernández Ladreda</a></li>        
+                <li><a href="28079057.html">Sanchinarro</a></li>        
+                <li><a href="28079058.html">El Pardo</a></li>        
+                <li><a href="28079059.html">Parque Juan Carlos I</a></li>
+                <li><a href="28079060.html">Tres Olivos</a></li>                
+              </ul>
+            </li>
+            <li><a href="agradecimientos.html">Agradecimientos</a></li>
+            <li><a href="sobre.html">Sobre</a></li>
+            
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+ 
+     
+    <div class="container container-principal">
 
 <!-- 2.1 Contenido Cabecera  -->  
       <div class="page-header">
-        <h1>Madrid <small>Calidad del Aire</small></h1>
+        <h1>Aire de Madrid <small>en tiempo real</small></h1>
       </div>
 
+
       <div class="row"> 
+          <div class="col-lg-12">
+          <img class="img-responsive" src="img/cuatrotorres.jpg"></img> 
+            <div class="desc">
+                <p class="desc_content"><a target="_blank" href="https://www.flickr.com/photos/valento/7734618560/in/photolist-4Ps55f-8VftNh-rRxwVA-cMtWCq-twn89q-pNunmH-pemSEF-pwjMQC-e3BmpM-4BcM7U-7e93ua-6PV6JK-bQTKGD-4DwWcf-aQdR9i-fYVPZY-aQdNGF-9dMTw1-4GmyF6-7Xjokb-4ZaCga-7Lhoju-n6AeRK-n4Vhid-n4Z7Jf-n6AcCi-7nvaY4-5FPz1L-6CKnLg-5RG2v8-5RG2ZM-64REW3-9Dgqed-bt1PTu-p2u6Bu-oxw7yC-ce1mj5-r8nGyg-6rKKGj-qkQxZ-enD8Jc-EGj3j-autCXK-6N8cb5-6N41h2-6YmMLG-6KUz9e-tjFqHt-HVj6e-HV7FC">Cuatro torres</a> de <a target="_blank" href="https://www.flickr.com/photos/valento/">Valentina Roldán</a></p>
+            </div>
+          </div>
       </div>
-    </div>
+      <div class="row"> 
+          <div class="col-lg-12">
+              <h3>Datos:</h3>
+          </div>
+      </div>
+      <div class="row">          
+          <div class="col-lg-6">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                      Contaminantes Medidos
+                    </div>  
+                    <div class="panel-body">
+
+                        <p>Dióxido de Azufre (S02): <span id="SO2Valor"></span> μg/m3 medido por <span id="MEDSO2Valor"></span></p>
+                        <p>Monóxido de Cabono (CO): <span id="COValor"></span> μg/m3 medido por <span id="MEDCOValor"></span></p>
+                        <p>Dióxido de Nitrógeno (NO2): <span id="NO2Valor"></span> μg/m3 medido por <span id="MEDNO2Valor"></span></p>
+                        <p>Partículas en suspensión (<2.5): <span id="PS25Valor"></span> μg/m3 medido por <span id="MEDPS25Valor"></span></p>
+                        <p>Partículas en suspensión (<10): <span id="PS10Valor"></span> μg/m3 medido por <span id="MEDPS10Valor"></span></p>
+                        <p>Óxidos de Nitrógeno totales (NOx): <span id="NOXValor"></span> μg/m3 medido por <span id="MEDNOXValor"></span></p>                        
+                        <p>Ozono (O3): <span id="O3Valor"></span> μg/m3 medido por <span id="MEDO3Valor"></span></p>
+                        <p>Tolueno (TOL): <span id="TOLValor"></span> μg/m3 medido por <span id="MEDTOLValor"></span></p>
+                        <p>Benceno (BEN): <span id="BENValor"></span> μg/m3 medido por <span id="MEDBENValor"></span></p>                        
+                        <p>Etilbenceno (EBE): <span id="EBEValor"></span> μg/m3 medido por <span id="MEDEBEValor"></span></p>
+                        <p>Hidrocarburos Totales (HC): <span id="HCValor"></span> μg/m3 medido por <span id="MEDHCValor"></span></p>
+                        <p>Metano (CH4): <span id="CH4Valor"></span> μg/m3 medido por <span id="MEDCH4Valor"></span></p>
+                        <p>Hidrocarburos No Metánicos (NMH): <span id="NMHValor"></span> μg/m3 medido por <span id="MEDNMHValor"></span></p>                        
+                        
+                    </div>
+                </div>
+          </div>
+          <div class="col-lg-6">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                      Ubicación
+                    </div>  
+                    <div class="panel-body">
+
+                        <p>Longitud: 3° 41′ 31″ O</p>
+                        <p>Latitud: 40° 25′ 08″ N</p>
+                        <p>Altitud: 657m</p>                            
+
+                    </div>
+                </div>
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                      Parametros Meteorológicos
+                    </div>  
+                    <div class="panel-body">
+
+                        <p>Radiación Ultravioleta (UV): <span id="UVValor"></span> μg/m3 medido por <span id="MEDSUVValor"></span></p>
+                        <p>Velocidad del Viento (VV): <span id="VVValor"></span> μg/m3 medido por <span id="MEDVVValor"></span></p>
+                        <p>Dirección del Viento (DD): <span id="DDValor"></span> μg/m3 medido por <span id="MEDDDValor"></span></p>
+                        <p>Temperatura Media (TMP): <span id="TMPValor"></span> μg/m3 medido por <span id="MEDTMPValor"></span></p>
+                        <p>Temperatura Mínima (TMI): <span id="TMIValor"></span> μg/m3 medido por <span id="MEDTMIValor"></span></p>
+                        <p>Humedad Relativa (HR): <span id="HRValor"></span> μg/m3 medido por <span id="MEDHRValor"></span></p>                        
+                        <p>Presión Barométrica (PRB): <span id="PRBValor"></span> μg/m3 medido por <span id="MEDPRBValor"></span></p>
+
+                    </div>
+                </div>
+          </div>
+      </div>      
+      <div class="row"> 
+          <div class="col-lg-12">
+              <h3>Estaciones:</h3>
+          </div>
+      </div>         
+      <div class="row"> 
+          <div class="col-lg-12">
+              <div id="map">
+                  <iframe width='100%' height='520' frameborder='0' src='https://ulisesgascongonzalez.cartodb.com/viz/3c798d44-2ea4-11e5-a934-0e853d047bba/embed_map' allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
+              </div>
+          </div>    
+      </div>
+      <div class="row"> 
+          <div class="col-lg-2"></div>
+          <div class="col-lg-2">
+                <p><a href="28079004.html">Plaza de España</a></p>
+                <p><a href="28079008.html">Escuelas Aguirre</a></p>
+                <p><a href="28079011.html">Ramón y Cajal</a></p>
+                <p><a href="28079016.html">Arturo Soria</a></p>
+                <p><a href="28079017.html">Villaverde</a></p>
+                <p><a href="28079018.html">Faropllo</a></p>
+                 
+          </div>
+          <div class="col-lg-2"> 
+                <p><a href="28079024.html">Casa de Campo</a></p>                
+                <p><a href="28079027.html">Barajas (Pueblo)</a></p>                
+                <p><a href="28079035.html">Plaza del Carmen</a></p>
+                <p><a href="28079036.html">Moratalaz</a></p>
+                <p><a href="28079038.html">Cuatro Caminos</a></p>                
+                <p><a href="28079039.html">Barrio del Pilar</a></p>
+                
+          </div>    
+          <div class="col-lg-2"> 
+                <p><a href="28079040.html">Vallecas</a></p>                
+                <p><a href="28079047.html">Méndez Álvaro</a></p>                
+                <p><a href="28079048.html">Castellana</a></p>                
+                <p><a href="28079049.html">Parque del Retiro</a></p>   
+                <p><a href="28079050.html">Plaza Castilla</a></p>        
+                <p><a href="28079054.html">Ensanche de Vallecas</a></p>        
+                
+          </div>    
+          <div class="col-lg-2"> 
+                <p><a href="28079055.html">Urbanización Embajada</a></p>        
+                <p><a href="28079056.html">Plaza Fernández Ladreda</a></p>        
+                <p><a href="28079057.html">Sanchinarro</a></p>        
+                <p><a href="28079058.html">El Pardo</a></p>        
+                <p><a href="28079059.html">Parque Juan Carlos I</a></p>
+                <p><a href="28079060.html">Tres Opvos</a></p>
+          </div>  
+          <div class="col-lg-2"></div>
+      </div>
+      <div class="row"> 
+          <div class="col-lg-12">
+              <h3>Datos e Imagenes:</h3>
+          </div>
+      </div>
+      <div class="row"> 
+          <div class="col-lg-2"></div>
+          <div class="col-lg-3">
+            <a href="http://www.madrid.es/portal/site/munimadrid" target="_blank"><img class="img-responsive" src="http://www.madrid.es/assets/images/logo-madrid.png"></img></a>
+          </div>
+          <div class="col-lg-2">
+            <a href="https://es.wikipedia.org/wiki/Wikipedia:Portada" target="_blank"><img class="img-responsive" src="http://edcamp.org/wp-content/uploads/2013/01/rsz_1wikipedia-logo.jpg"></img></a>
+          </div>
+          <div class="col-lg-3">
+            <a href="http://www.magrama.gob.es/es/" target="_blank"><img id="ministerio-MA" class="img-responsive" src="http://www.boatdigest.eu/images/ministerio-medio-ambiente.jpg"></img></a>
+          </div>
+          <div class="col-lg-2"></div>
+      </div>
+      <div class="row"> 
+          <div class="col-lg-12">
+              <h3>Construido con:</h3>
+          </div>
+      </div>
+      <div class="row"> 
+          <div class="col-lg-3"></div>
+          <div class="col-lg-1">
+            <a href="https://www.raspberrypi.org/" target="_blank"><img class="img-responsive banda-inferior" src="img/raspi.png"></img></a>
+          </div>
+          <div class="col-lg-1">
+            <a href="https://nodejs.org/" target="_blank"><img class="img-responsive banda-inferior" src="img/nodejs.png"></img></a>
+          </div>
+          <div class="col-lg-1">
+            <a href="http://pillarsjs.com/" target="_blank"><img class="img-responsive banda-inferior" src="img/pillarsjs.png"></img></a>
+          </div>
+          <div class="col-lg-1">
+            <a href="https://www.firebase.com/" target="_blank"><img class="img-responsive banda-inferior" src="img/firebase.png"></img></a>
+          </div>
+          <div class="col-lg-1">
+            <a href="http://getbootstrap.com/" target="_blank"><img class="img-responsive banda-inferior" src="img/Bootstrap.svg"></img></a>
+          </div>
+          <div class="col-lg-1">
+            <a href="https://cartodb.com/" target="_blank"><img class="img-responsive banda-inferior" src="img/cartodb.png"></img></a>
+          </div>
+          <div class="col-lg-3"></div>
+      </div>
+    </div> <!-- FIN container-principal -->
+    
+    <footer class="footer">
+        <div class="container">
+
+            <img  height="30" src="http://www.blog.ulisesgascon.com/wp-content/themes/wordpress-bootstrap-master/logo_ulises.png">
+
+            <a class="pfooter pull-right" target="_blank" href="https://twitter.com/kom_256"><p class="pull-right fa fa-twitter-square"></p></a>
+            <a class="pfooter pull-right" target="_blank" href="https://github.com/UlisesGascon"><p class="pull-right fa fa-github-square" ></p></a>
+
+        </div>
+    </footer>    
+    
 <!-- 3.1 Librerias de terceros -->
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>    
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script> 
+    <!-- Firebase -->
     <script src="https://cdn.firebase.com/js/client/2.2.7/firebase.js"></script>
+
     <script type="text/javascript">
     var debugMode = true;
-    
+
+var hora = "hora23/"
+
+var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/0/"+hora);
+myFirebaseRef.on("value", function(snapshot) {
+  var newChange = snapshot.val();
+  console.log(newChange.valor);
+  $('#SO2Valor').html(newChange.valor);
+});
+
+var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/0/");
+myFirebaseRef.on("value", function(snapshot) {
+  var newChange = snapshot.val();
+  console.log(newChange.tecnica);
+  $('#MEDSO2Valor').html(newChange.tecnica);
+});
+
+
+  
+/* QUERY FUNCIONA BIEN    
 var firebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last");
 var ref = new Firebase("https://dinosaur-facts.firebaseio.com/dinosaurs");
 firebaseRef.orderByChild("estacion").on("child_added", function(snapshot) {
   console.log(snapshot.key() + " es la estación de " + snapshot.val().estacion);
 });
-    
-       // var firebaseRef = new Firebase("https://angularjstestings.firebaseio.com/");
- /*       
-        firebaseRef.on('value', function(dataSnapshot) {
-            if (debugMode) {
-                console.log("Nuevo valor");
-            };
-        });
 
-        // Child added
-        firebaseRef.on('child_added', function(childSnapshot, prevChildKey) {
-            if (debugMode) {
-                console.log("Nuevo Child");
-            };
-        });
-        
-        firebaseRef.on('child_changed', function(childSnapshot, prevChildKey) {
-            if (debugMode) {
-                console.log("Cambios en Child");
-            };
-        });
- */     /*  
-        firebaseRef.on("value", function(snapshot) {
-            var newChange = snapshot.val();
-            newChange.0.estacion)
-            
-            // Modo Debug
-            if (debugMode) {
-              console.log("**************");
-              console.log("Ask($): " + newChange.ask);
-              console.log("Bid($): " + newChange.bid);
-              console.log("Last($): " + newChange.last);
-              console.log("--------------");
-              console.log("Conversion Rate: "+euroRate);
-              console.log("Currency selected: "+currency);      
-              console.log("--------------");
-              console.log("**************");               
-            };
-        });  
-        */
+*/
+    
+
         
 /*
 
-http://leafletjs.com/
+
+== IDs y queries  ==
+Dióxido de Azufre (S02): 
+- SO2Valor
+- MEDSO2Valor
+Monóxido de Cabono (CO): 
+- COValor 
+- MEDCOValor
+Dióxido de Nitrógeno (NO2): 
+- NO2Valor
+- MEDNO2Valor
+Partículas en suspensión (<2.5):
+- PS25Valor
+- MEDPS25Valor
+Partículas en suspensión (<10):
+- PS10Valor
+- MEDPS10Valor
+Óxidos de Nitrógeno totales (NOx):
+- NOXValor
+- MEDNOXValor                     
+Ozono (O3):
+- O3Valor
+- MEDO3Valor
+Tolueno (TOL): 
+- TOLValor
+- MEDTOLValor
+Benceno (BEN):
+- BENValor
+- MEDBENValor
+Etilbenceno (EBE):
+- EBEValor
+- MEDEBEValor
+Hidrocarburos Totales (HC):
+- HCValor
+- MEDHCValor
+Metano (CH4):
+- CH4Valor"
+- MEDCH4Valor
+Hidrocarburos No Metánicos (NMH):
+- NMHValor
+- MEDNMHValor
+
+
+Radiación Ultravioleta (UV):
+- UVValor
+- MEDSUVValor
+Velocidad del Viento (VV):
+- VVValor
+- MEDVVValor
+Dirección del Viento (DD):
+- DDValor
+- MEDDDValor
+Temperatura Media (TMP):
+- TMPValor
+- MEDTMPValor
+Temperatura Mínima (TMI):
+- TMIValor
+- MEDTMIValor
+Humedad Relativa (HR):
+- HRValor
+- MEDHRValor
+Presión Barométrica (PRB):
+- PRBValor
+- MEDPRBValor
+
+
+
+
 == Estrcutura WEB == 
 
 
@@ -109,7 +391,7 @@ http://leafletjs.com/
 20. Plaza Fernández Ladreda (28079056.html)
 21. Sanchinarro (28079057.html)
 22. El Pardo (28079058.html)
-23. Juan Carlos I (28079059.html)
+23. Parque Juan Carlos I  (28079059.html)
 24. Tres Olivos (28079060.html) **
 
 
@@ -706,10 +988,10 @@ El Pardo
 - Estación: 58
 - Longitud: 3º46'28,6"
 - Latitud: 40º31'5"
-- Altitud: 616m
+- Altitud: 616 m
 - Link: http://www.mambiente.munimadrid.es/opencms/opencms/calaire/contenidos/estaciones/estacion58.html
 
-Juan Carlos I
+Parque Juan Carlos I 
 - img: http://www.mambiente.munimadrid.es/opencms/export/sites/default/calaire/imagenes/fotoJCI.jpg
 - Código: 28079059
 - Dirección: Parque Juan Carlos I (frente oficinas mantenimiento)

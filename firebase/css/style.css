@@ -1,0 +1,45 @@
+.navbar {
+min-height: 50px;
+}
+
+.container-principal {
+    margin-top: 50px;
+}
+
+.desc{
+    background-color: #F1F1F1;
+}
+
+.footer{
+    margin-top: 15px;
+    padding-top: 6px;
+    height: 40px;
+    background-color: #FCCD03;
+    color:#363636;
+    font-size: 30px;
+}
+.footer a {
+    color:#363636;
+}
+.footer img {
+    margin-top: -17px;
+}
+.pmt0{
+    margin-top: 20px;
+}
+
+#bandera-madrid {
+    max-height: 80px;
+}
+
+#map { 
+    height: 520px; 
+}
+
+#ministerio-MA{
+    max-height:72px;
+}
+
+.banda-inferior{
+    max-height:75px;
+}
