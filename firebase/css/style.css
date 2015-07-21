@@ -43,3 +43,7 @@ min-height: 50px;
 .banda-inferior{
     max-height:75px;
 }
+
+#img-wikipedia{
+    margin-left: -20px;
+}

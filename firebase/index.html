@@ -13,9 +13,24 @@
 
     <!-- Bootstrap minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <!-- GITHUB RIBBON -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.1.1/gh-fork-ribbon.min.css" />
+    <!--[if lt IE 9]>
+      <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.1.1/gh-fork-ribbon.ie.min.css" />
+    <![endif]-->
+    
     <link rel="stylesheet" href="css/style.css">
  </head>
  <body>
+
+<!-- GitHub Ribbon -->
+    <div class="github-fork-ribbon-wrapper right">
+        <div class="github-fork-ribbon">
+            <a target="_blank" href="https://github.com/UlisesGascon/Aire-Madrid">Fork me on GitHub</a>
+        </div>
+    </div>
+    
         <!-- Fixed navbar -->
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
@@ -100,6 +115,7 @@
 
                         <p>Dióxido de Azufre (S02): <span id="SO2Valor"></span> μg/m3 medido por <span id="MEDSO2Valor"></span></p>
                         <p>Monóxido de Cabono (CO): <span id="COValor"></span> μg/m3 medido por <span id="MEDCOValor"></span></p>
+                        <p>Monóxido de Nitrógeno (NO): <span id="NOValor"></span> μg/m3 medido por <span id="MEDNOValor"></span></p>
                         <p>Dióxido de Nitrógeno (NO2): <span id="NO2Valor"></span> μg/m3 medido por <span id="MEDNO2Valor"></span></p>
                         <p>Partículas en suspensión (<2.5): <span id="PS25Valor"></span> μg/m3 medido por <span id="MEDPS25Valor"></span></p>
                         <p>Partículas en suspensión (<10): <span id="PS10Valor"></span> μg/m3 medido por <span id="MEDPS10Valor"></span></p>
@@ -130,17 +146,17 @@
                 </div>
                 <div class="panel panel-info">
                     <div class="panel-heading">
-                      Parametros Meteorológicos
+                      Parámetros Meteorológicos
                     </div>  
                     <div class="panel-body">
 
-                        <p>Radiación Ultravioleta (UV): <span id="UVValor"></span> μg/m3 medido por <span id="MEDSUVValor"></span></p>
-                        <p>Velocidad del Viento (VV): <span id="VVValor"></span> μg/m3 medido por <span id="MEDVVValor"></span></p>
-                        <p>Dirección del Viento (DD): <span id="DDValor"></span> μg/m3 medido por <span id="MEDDDValor"></span></p>
-                        <p>Temperatura Media (TMP): <span id="TMPValor"></span> μg/m3 medido por <span id="MEDTMPValor"></span></p>
-                        <p>Temperatura Mínima (TMI): <span id="TMIValor"></span> μg/m3 medido por <span id="MEDTMIValor"></span></p>
-                        <p>Humedad Relativa (HR): <span id="HRValor"></span> μg/m3 medido por <span id="MEDHRValor"></span></p>                        
-                        <p>Presión Barométrica (PRB): <span id="PRBValor"></span> μg/m3 medido por <span id="MEDPRBValor"></span></p>
+                        <p>Radiación Ultravioleta (UV): <span id="UVValor"></span> medido por <span id="MEDSUVValor"></span></p>
+                        <p>Velocidad del Viento (VV): <span id="VVValor"></span> Km/h medido por <span id="MEDVVValor"></span></p>
+                        <p>Dirección del Viento (DD): <span id="DDValor"></span> medido por <span id="MEDDDValor"></span></p>
+                        <p>Temperatura Media (TMP): <span id="TMPValor"></span>°C medido por <span id="MEDTMPValor"></span></p>
+                        <p>Temperatura Mínima (TMI): <span id="TMIValor"></span>°C medido por <span id="MEDTMIValor"></span></p>
+                        <p>Humedad Relativa (HR): <span id="HRValor"></span>% medido por <span id="MEDHRValor"></span></p>                        
+                        <p>Presión Barométrica (PRB): <span id="PRBValor"></span> hPa medido por <span id="MEDPRBValor"></span></p>
 
                     </div>
                 </div>
@@ -193,7 +209,7 @@
                 <p><a href="28079057.html">Sanchinarro</a></p>        
                 <p><a href="28079058.html">El Pardo</a></p>        
                 <p><a href="28079059.html">Parque Juan Carlos I</a></p>
-                <p><a href="28079060.html">Tres Opvos</a></p>
+                <p><a href="28079060.html">Tres Olivos</a></p>
           </div>  
           <div class="col-lg-2"></div>
       </div>
@@ -208,7 +224,7 @@
             <a href="http://www.madrid.es/portal/site/munimadrid" target="_blank"><img class="img-responsive" src="http://www.madrid.es/assets/images/logo-madrid.png"></img></a>
           </div>
           <div class="col-lg-2">
-            <a href="https://es.wikipedia.org/wiki/Wikipedia:Portada" target="_blank"><img class="img-responsive" src="http://edcamp.org/wp-content/uploads/2013/01/rsz_1wikipedia-logo.jpg"></img></a>
+            <a href="https://es.wikipedia.org/wiki/Wikipedia:Portada" target="_blank"><img id="img-wikipedia" class="img-responsive" src="http://edcamp.org/wp-content/uploads/2013/01/rsz_1wikipedia-logo.jpg"></img></a>
           </div>
           <div class="col-lg-3">
             <a href="http://www.magrama.gob.es/es/" target="_blank"><img id="ministerio-MA" class="img-responsive" src="http://www.boatdigest.eu/images/ministerio-medio-ambiente.jpg"></img></a>
@@ -269,11 +285,19 @@
 
 var hora = "hora23/"
 
+
+
+/* 
+    == Contaminantes Medidos ==
+*/
+// Dióxido de Azufre (S02): 
 var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/0/"+hora);
 myFirebaseRef.on("value", function(snapshot) {
   var newChange = snapshot.val();
-  console.log(newChange.valor);
-  $('#SO2Valor').html(newChange.valor);
+  if (debugMode) {
+  console.log("Dióxido de Azufre (S02): "+newChange.valor);
+  };
+  $('#SO2Valor').html(parseFloat(newChange.valor));
 });
 
 var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/0/");
@@ -283,8 +307,381 @@ myFirebaseRef.on("value", function(snapshot) {
   $('#MEDSO2Valor').html(newChange.tecnica);
 });
 
+// Monóxido de Cabono (CO): 
+var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/1/"+hora);
+myFirebaseRef.on("value", function(snapshot) {
+  var newChange = snapshot.val();
+  if (debugMode) {
+      console.log("Monóxido de Cabono (CO): "+newChange.valor);
+  };
+  $('#COValor').html(parseFloat(newChange.valor));
+});
 
+var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/1/");
+myFirebaseRef.on("value", function(snapshot) {
+  var newChange = snapshot.val();
+  console.log(newChange.tecnica);
+  $('#MEDCOValor').html(newChange.tecnica);
+});
+
+// Monóxido de Nitrógeno (NO): 
+var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/2/"+hora);
+myFirebaseRef.on("value", function(snapshot) {
+  var newChange = snapshot.val();
+  if (debugMode) {
+      console.log("Monóxido de Nitrógeno (NO): "+newChange.valor);
+  };
+  $('#NOValor').html(parseFloat(newChange.valor));
+});
+
+var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/2/");
+myFirebaseRef.on("value", function(snapshot) {
+  var newChange = snapshot.val();
+  console.log(newChange.tecnica);
+  $('#MEDNOValor').html(newChange.tecnica);
+});
+
+
+// Dióxido de Nitrógeno (NO2): 
+var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/3/"+hora);
+myFirebaseRef.on("value", function(snapshot) {
+  var newChange = snapshot.val();
+  if (debugMode) {
+      console.log("Dióxido de Nitrógeno (NO2): "+newChange.valor);
+  };
+  $('#NO2Valor').html(parseFloat(newChange.valor));
+});
+
+var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/3/");
+myFirebaseRef.on("value", function(snapshot) {
+  var newChange = snapshot.val();
+  console.log(newChange.tecnica);
+  $('#MEDNO2Valor').html(newChange.tecnica);
+});
+
+
+// Partículas en suspensión (<2.5): 
+var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/4/"+hora);
+myFirebaseRef.on("value", function(snapshot) {
+  var newChange = snapshot.val();
+  if (debugMode) {
+      console.log("Partículas en suspensión (<2.5): "+newChange.valor);
+  };
+  $('#PS25Valor').html(parseFloat(newChange.valor));
+});
+
+var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/4/");
+myFirebaseRef.on("value", function(snapshot) {
+  var newChange = snapshot.val();
+  console.log(newChange.tecnica);
+  $('#MEDPS25Valor').html(newChange.tecnica);
+});
+
+
+// Partículas en suspensión (<10): 
+var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/5/"+hora);
+myFirebaseRef.on("value", function(snapshot) {
+  var newChange = snapshot.val();
+  if (debugMode) {
+      console.log("Partículas en suspensión (<10): "+newChange.valor);
+  };
+  $('#PS10Valor').html(parseFloat(newChange.valor));
+});
+
+var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/5/");
+myFirebaseRef.on("value", function(snapshot) {
+  var newChange = snapshot.val();
+  console.log(newChange.tecnica);
+  $('#MEDPS10Valor').html(newChange.tecnica);
+});
+
+
+// Óxidos de Nitrógeno totales (NOx): 
+var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/6/"+hora);
+myFirebaseRef.on("value", function(snapshot) {
+  var newChange = snapshot.val();
+  if (debugMode) {
+      console.log("Óxidos de Nitrógeno totales (NOx): "+newChange.valor);
+  };
+  $('#NOXValor').html(parseFloat(newChange.valor));
+});
+
+var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/6/");
+myFirebaseRef.on("value", function(snapshot) {
+  var newChange = snapshot.val();
+  console.log(newChange.tecnica);
+  $('#MEDNOXValor').html(newChange.tecnica);
+});
+
+
+// Ozono (O3): 
+var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/7/"+hora);
+myFirebaseRef.on("value", function(snapshot) {
+  var newChange = snapshot.val();
+  if (debugMode) {
+      console.log("Ozono (O3): "+newChange.valor);
+  };
+  $('#O3Valor').html(parseFloat(newChange.valor));
+});
+
+var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/7/");
+myFirebaseRef.on("value", function(snapshot) {
+  var newChange = snapshot.val();
+  console.log(newChange.tecnica);
+  $('#MEDO3Valor').html(newChange.tecnica);
+});
+
+
+// Tolueno (TOL): 
+var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/8/"+hora);
+myFirebaseRef.on("value", function(snapshot) {
+  var newChange = snapshot.val();
+  if (debugMode) {
+      console.log("Tolueno (TOL): "+newChange.valor);
+  };
+  $('#TOLValor').html(parseFloat(newChange.valor));
+});
+
+var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/8/");
+myFirebaseRef.on("value", function(snapshot) {
+  var newChange = snapshot.val();
+  console.log(newChange.tecnica);
+  $('#MEDTOLValor').html(newChange.tecnica);
+});
+
+
+// Benceno (BEN): 
+var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/9/"+hora);
+myFirebaseRef.on("value", function(snapshot) {
+  var newChange = snapshot.val();
+  if (debugMode) {
+      console.log("Benceno (BEN): "+newChange.valor);
+  };
+  $('#BENValor').html(parseFloat(newChange.valor));
+});
+
+var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/9/");
+myFirebaseRef.on("value", function(snapshot) {
+  var newChange = snapshot.val();
+  console.log(newChange.tecnica);
+  $('#MEDBENValor').html(newChange.tecnica);
+});
+
+
+// Etilbenceno (EBE): 
+var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/10/"+hora);
+myFirebaseRef.on("value", function(snapshot) {
+  var newChange = snapshot.val();
+  if (debugMode) {
+      console.log("Etilbenceno (EBE): "+newChange.valor);
+  };
+  $('#EBEValor').html(parseFloat(newChange.valor));
+});
+
+var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/10/");
+myFirebaseRef.on("value", function(snapshot) {
+  var newChange = snapshot.val();
+  console.log(newChange.tecnica);
+  $('#MEDEBEValor').html(newChange.tecnica);
+});
+
+
+// Hidrocarburos Totales (HC): 
+var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/11/"+hora);
+myFirebaseRef.on("value", function(snapshot) {
+  var newChange = snapshot.val();
+  if (debugMode) {
+      console.log("Hidrocarburos Totales (HC): "+newChange.valor);
+  };
+  $('#HCValor').html(parseFloat(newChange.valor));
+});
+
+var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/11/");
+myFirebaseRef.on("value", function(snapshot) {
+  var newChange = snapshot.val();
+  console.log(newChange.tecnica);
+  $('#MEDHCValor').html(newChange.tecnica);
+});
+
+
+// Metano (CH4): 
+var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/12/"+hora);
+myFirebaseRef.on("value", function(snapshot) {
+  var newChange = snapshot.val();
+  if (debugMode) {
+      console.log("Metano (CH4): "+newChange.valor);
+  };
+  $('#CH4Valor').html(parseFloat(newChange.valor));
+});
+
+var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/12/");
+myFirebaseRef.on("value", function(snapshot) {
+  var newChange = snapshot.val();
+  console.log(newChange.tecnica);
+  $('#MEDCH4Valor').html(newChange.tecnica);
+});
+
+
+// Hidrocarburos No Metánicos (NMH): 
+var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/13/"+hora);
+myFirebaseRef.on("value", function(snapshot) {
+  var newChange = snapshot.val();
+  if (debugMode) {
+      console.log("Hidrocarburos No Metánicos (NMH): "+newChange.valor);
+  };
+  $('#NMHValor').html(parseFloat(newChange.valor));
+});
+
+var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/13/");
+myFirebaseRef.on("value", function(snapshot) {
+  var newChange = snapshot.val();
+  console.log(newChange.tecnica);
+  $('#MEDNMHValor').html(newChange.tecnica);
+});
+
+
+/* 
+    == Parametros Meteorológicos ==
+*/
+// Radiación Ultravioleta (UV): 
+var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/14/"+hora);
+myFirebaseRef.on("value", function(snapshot) {
+  var newChange = snapshot.val();
+  if (debugMode) {
+      console.log("Radiación Ultravioleta (UV): "+newChange.valor);
+  };
+  $('#UVValor').html(parseFloat(newChange.valor));
+});
+
+var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/14/");
+myFirebaseRef.on("value", function(snapshot) {
+  var newChange = snapshot.val();
+  console.log(newChange.tecnica);
+  $('#MEDSUVValor').html(newChange.tecnica);
+});
+
+
+// Velocidad del Viento (VV): 
+var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/15/"+hora);
+myFirebaseRef.on("value", function(snapshot) {
+  var newChange = snapshot.val();
+  if (debugMode) {
+      console.log("Velocidad del Viento (VV): "+newChange.valor);
+  };
+  $('#VVValor').html(parseFloat(newChange.valor));
+});
+
+var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/15/");
+myFirebaseRef.on("value", function(snapshot) {
+  var newChange = snapshot.val();
+  console.log(newChange.tecnica);
+  $('#MEDVVValor').html(newChange.tecnica);
+});
+
+
+// Dirección del Viento (DD): 
+var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/16/"+hora);
+myFirebaseRef.on("value", function(snapshot) {
+  var newChange = snapshot.val();
+  if (debugMode) {
+      console.log("Dirección del Viento (DD): "+newChange.valor);
+  };
+  var valorRico = parseFloat(newChange.valor);
   
+  if (valorRico <= 89) {
+    $('#DDValor').html(valorRico+"° (Norte)");
+  } else if (valorRico <= 179){
+    $('#DDValor').html(valorRico+"° (Este)");
+  } else if (valorRico <= 269){
+    $('#DDValor').html(valorRico+"° (Sur)");
+  } else if (valorRico >= 270){    
+    $('#DDValor').html(valorRico+"° (Oeste)");
+  } else {
+     $('#DDValor').addClass( "text-danger" ).html("ERROR"); 
+  };
+  
+});
+
+var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/16/");
+myFirebaseRef.on("value", function(snapshot) {
+  var newChange = snapshot.val();
+  console.log(newChange.tecnica);
+  $('#MEDDDValor').html(newChange.tecnica);
+});
+
+
+// Temperatura Media (TMP): 
+var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/17/"+hora);
+myFirebaseRef.on("value", function(snapshot) {
+  var newChange = snapshot.val();
+  if (debugMode) {
+      console.log("Temperatura Media (TMP): "+newChange.valor);
+  };
+  $('#TMPValor').html(parseFloat(newChange.valor));
+});
+
+var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/17/");
+myFirebaseRef.on("value", function(snapshot) {
+  var newChange = snapshot.val();
+  console.log(newChange.tecnica);
+  $('#MEDTMPValor').html(newChange.tecnica);
+});
+
+
+// Temperatura Mínima (TMI): 
+var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/18/"+hora);
+myFirebaseRef.on("value", function(snapshot) {
+  var newChange = snapshot.val();
+  if (debugMode) {
+      console.log("Temperatura Mínima (TMI): "+newChange.valor);
+  };
+  $('#TMIValor').html(parseFloat(newChange.valor));
+});
+
+var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/18/");
+myFirebaseRef.on("value", function(snapshot) {
+  var newChange = snapshot.val();
+  console.log(newChange.tecnica);
+  $('#MEDTMIValor').html(newChange.tecnica);
+});
+
+
+// Humedad Relativa (HR): 
+var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/19/"+hora);
+myFirebaseRef.on("value", function(snapshot) {
+  var newChange = snapshot.val();
+  if (debugMode) {
+      console.log("Humedad Relativa (HR): "+newChange.valor);
+  };
+  $('#HRValor').html(parseFloat(newChange.valor));
+});
+
+var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/19/");
+myFirebaseRef.on("value", function(snapshot) {
+  var newChange = snapshot.val();
+  console.log(newChange.tecnica);
+  $('#MEDHRValor').html(newChange.tecnica);
+});
+
+// Presión Barométrica (PRB): 
+var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/20/"+hora);
+myFirebaseRef.on("value", function(snapshot) {
+  var newChange = snapshot.val();
+  if (debugMode) {
+      console.log("Presión Barométrica (PRB): "+newChange.valor);
+  };
+  $('#PRBValor').html(parseFloat(newChange.valor));
+});
+
+var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/20/");
+myFirebaseRef.on("value", function(snapshot) {
+  var newChange = snapshot.val();
+  console.log(newChange.tecnica);
+  $('#MEDPRBValor').html(newChange.tecnica);
+});
+
+
+
 /* QUERY FUNCIONA BIEN    
 var firebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last");
 var ref = new Firebase("https://dinosaur-facts.firebaseio.com/dinosaurs");
@@ -306,6 +703,9 @@ Dióxido de Azufre (S02):
 Monóxido de Cabono (CO): 
 - COValor 
 - MEDCOValor
+monóxido de Nitrógeno (NO):
+- NOValor
+- MEDNOValor
 Dióxido de Nitrógeno (NO2): 
 - NO2Valor
 - MEDNO2Valor
