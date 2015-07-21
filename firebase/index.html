@@ -102,7 +102,8 @@
       </div>
       <div class="row"> 
           <div class="col-lg-12">
-              <h3>Datos:</h3>
+              <h3 class="pull-left">Datos:</h3>
+              <h3 class="pull-right"><abbr class="timeago" title="2015-07-19T23:30:17Z">19 de Julio de 2015</abbr></h3>
           </div>
       </div>
       <div class="row">          
@@ -279,9 +280,20 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script> 
     <!-- Firebase -->
     <script src="https://cdn.firebase.com/js/client/2.2.7/firebase.js"></script>
-
+    <!-- Time Ago-->
+    <script src="js/timeago.js"></script>
     <script type="text/javascript">
+   
     var debugMode = true;
+
+// TimeAgo
+jQuery(document).ready(function() {
+   $("abbr.timeago").timeago();
+});
+
+
+
+
 
 var hora = "hora23/"
 
