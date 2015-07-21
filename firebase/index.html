@@ -19,6 +19,8 @@
     <!--[if lt IE 9]>
       <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.1.1/gh-fork-ribbon.ie.min.css" />
     <![endif]-->
+    <!-- CartoDB -->
+    <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/3.15/themes/css/cartodb.css" />
     
     <link rel="stylesheet" href="css/style.css">
  </head>
@@ -102,7 +104,7 @@
       </div>
       <div class="row"> 
           <div class="col-lg-12">
-              <h3 class="pull-left">Datos:</h3>
+              <h3 class="pull-left">Datos (promedio):</h3>
               <h3 class="pull-right"><abbr class="timeago" title="2015-07-19T23:30:17Z">19 de Julio de 2015</abbr></h3>
           </div>
       </div>
@@ -114,19 +116,19 @@
                     </div>  
                     <div class="panel-body">
 
-                        <p>Dióxido de Azufre (S02): <span id="SO2Valor"></span> μg/m3 medido por <span id="MEDSO2Valor"></span></p>
+                        <p>Dióxido de Azufre (S0<sub>2</sub>): <span id="SO2Valor"></span> μg/m3 medido por <span id="MEDSO2Valor"></span></p>
                         <p>Monóxido de Cabono (CO): <span id="COValor"></span> μg/m3 medido por <span id="MEDCOValor"></span></p>
                         <p>Monóxido de Nitrógeno (NO): <span id="NOValor"></span> μg/m3 medido por <span id="MEDNOValor"></span></p>
-                        <p>Dióxido de Nitrógeno (NO2): <span id="NO2Valor"></span> μg/m3 medido por <span id="MEDNO2Valor"></span></p>
+                        <p>Dióxido de Nitrógeno (NO<sub>2</sub>): <span id="NO2Valor"></span> μg/m3 medido por <span id="MEDNO2Valor"></span></p>
                         <p>Partículas en suspensión (<2.5): <span id="PS25Valor"></span> μg/m3 medido por <span id="MEDPS25Valor"></span></p>
                         <p>Partículas en suspensión (<10): <span id="PS10Valor"></span> μg/m3 medido por <span id="MEDPS10Valor"></span></p>
                         <p>Óxidos de Nitrógeno totales (NOx): <span id="NOXValor"></span> μg/m3 medido por <span id="MEDNOXValor"></span></p>                        
-                        <p>Ozono (O3): <span id="O3Valor"></span> μg/m3 medido por <span id="MEDO3Valor"></span></p>
+                        <p>Ozono (O<sub>3</sub>): <span id="O3Valor"></span> μg/m3 medido por <span id="MEDO3Valor"></span></p>
                         <p>Tolueno (TOL): <span id="TOLValor"></span> μg/m3 medido por <span id="MEDTOLValor"></span></p>
                         <p>Benceno (BEN): <span id="BENValor"></span> μg/m3 medido por <span id="MEDBENValor"></span></p>                        
                         <p>Etilbenceno (EBE): <span id="EBEValor"></span> μg/m3 medido por <span id="MEDEBEValor"></span></p>
                         <p>Hidrocarburos Totales (HC): <span id="HCValor"></span> μg/m3 medido por <span id="MEDHCValor"></span></p>
-                        <p>Metano (CH4): <span id="CH4Valor"></span> μg/m3 medido por <span id="MEDCH4Valor"></span></p>
+                        <p>Metano (CH<sub>4</sub>): <span id="CH4Valor"></span> μg/m3 medido por <span id="MEDCH4Valor"></span></p>
                         <p>Hidrocarburos No Metánicos (NMH): <span id="NMHValor"></span> μg/m3 medido por <span id="MEDNMHValor"></span></p>                        
                         
                     </div>
@@ -170,9 +172,7 @@
       </div>         
       <div class="row"> 
           <div class="col-lg-12">
-              <div id="map">
-                  <iframe width='100%' height='520' frameborder='0' src='https://ulisesgascongonzalez.cartodb.com/viz/3c798d44-2ea4-11e5-a934-0e853d047bba/embed_map' allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
-              </div>
+              <div id="map"></div>
           </div>    
       </div>
       <div class="row"> 
@@ -216,7 +216,7 @@
       </div>
       <div class="row"> 
           <div class="col-lg-12">
-              <h3>Datos e Imagenes:</h3>
+              <h3>Datos e Imágenes:</h3>
           </div>
       </div>
       <div class="row"> 
@@ -282,6 +282,8 @@
     <script src="https://cdn.firebase.com/js/client/2.2.7/firebase.js"></script>
     <!-- Time Ago-->
     <script src="js/timeago.js"></script>
+    <!-- CartoDB -->
+    <script src="http://libs.cartocdn.com/cartodb.js/v3/3.15/cartodb.js"></script>
     <script type="text/javascript">
    
     var debugMode = true;
@@ -289,7 +291,10 @@
 // TimeAgo
 jQuery(document).ready(function() {
    $("abbr.timeago").timeago();
+   // CartoDB Map
+  cartodb.createVis('map', 'https://ulisesgascongonzalez.cartodb.com/api/v2/viz/3c798d44-2ea4-11e5-a934-0e853d047bba/viz.json');
 });
+
 
 
 
