@@ -47,11 +47,27 @@ min-height: 50px;
 #img-wikipedia{
     margin-left: -20px;
 }
-.custom-modal{
-    cursor: pointer;
-}
 
 .img-peligrosidad{
     max-width:100px;
     margin-right:10px;
+}
+
+
+/* UV Niveles*/
+
+.UV-Verde{
+   color:#008000;
+}
+.UV-Anarillo{
+    color:#FFFF00;
+}
+.UV-Naranja{
+    color:#FFA500;
+}
+.UV-Rojo{
+    color:#FF0000;
+}
+.UV-Violeta{
+    color:#800080;
 }

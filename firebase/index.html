@@ -20,7 +20,7 @@
       <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.1.1/gh-fork-ribbon.ie.min.css" />
     <![endif]-->
     <!-- CartoDB -->
-    <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/3.15/themes/css/cartodb.css" />
+    <link rel="stylesheet" href="css/cartodb.css" />
     
     <link rel="stylesheet" href="css/style.css">
  </head>
@@ -32,6 +32,10 @@
             <a target="_blank" href="https://github.com/UlisesGascon/Aire-Madrid">Fork me on GitHub</a>
         </div>
     </div>
+    
+
+    
+    
     
         <!-- Fixed navbar -->
     <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -88,6 +92,10 @@
      
     <div class="container container-principal">
 
+<!-- VERSION DESAROLLO -->    
+    <div class="alert alert-danger" role="alert">ESTAMOS AUN EN DESAROLLO! Se paciente... :-)</div>
+
+
 <!-- 2.1 Contenido Cabecera  -->  
       <div class="page-header">
         <h1>Aire de Madrid <small>en tiempo real</small></h1>
@@ -116,20 +124,20 @@
                     </div>  
                     <div class="panel-body">
 
-                        <p><a  type="button" data-toggle="modal" data-target="#SO2Modal">Dióxido de Azufre (S0<sub>2</sub>):</a> <span id="SO2Valor"></span> μg/m<sup>3</sup> medido por <span id="MEDSO2Valor"></span></p>
-                        <p><a  type="button" data-toggle="modal" data-target="#COModal">Monóxido de Carbono (CO):</a> <span id="COValor"></span> μg/m<sup>3</sup> medido por <span id="MEDCOValor"></span></p>
-                        <p><a  type="button" data-toggle="modal" data-target="#NOModal">Monóxido de Nitrógeno (NO):</a> <span id="NOValor"></span> μg/m<sup>3</sup> medido por <span id="MEDNOValor"></span></p>
-                        <p><a  type="button" data-toggle="modal" data-target="#NO2Modal">Dióxido de Nitrógeno (NO<sub>2</sub>):</a> <span id="NO2Valor"></span> μg/m<sup>3</sup> medido por <span id="MEDNO2Valor"></span></p>
-                        <p><a  type="button" data-toggle="modal" data-target="#PS25Modal">Partículas en suspensión (&#60;2.5):</a> <span id="PS25Valor"></span> μg/m<sup>3</sup> medido por <span id="MEDPS25Valor"></span></p>
-                        <p><a  type="button" data-toggle="modal" data-target="#PS10Modal">Partículas en suspensión (&#60;10):</a> <span id="PS10Valor"></span> μg/m<sup>3</sup> medido por <span id="MEDPS10Valor"></span></p>
-                        <p><a  type="button" data-toggle="modal" data-target="#NOXModal">Óxidos de Nitrógeno totales (NOx):</a> <span id="NOXValor"></span> μg/m<sup>3</sup> medido por <span id="MEDNOXValor"></span></p>                        
-                        <p><a  type="button" data-toggle="modal" data-target="#O3Modal">Ozono (O<sub>3</sub>):</a> <span id="O3Valor"></span> μg/m<sup>3</sup> medido por <span id="MEDO3Valor"></span></p>
-                        <p><a  type="button" data-toggle="modal" data-target="#TOLModal">Tolueno (TOL):</a> <span id="TOLValor"></span> μg/m<sup>3</sup> medido por <span id="MEDTOLValor"></span></p>
-                        <p><a  type="button" data-toggle="modal" data-target="#BENModal">Benceno (C<sub>6</sub>H<sub>6</sub>):</a> <span id="BENValor"></span> μg/m<sup>3</sup> medido por <span id="MEDBENValor"></span></p>                        
-                        <p><a  type="button" data-toggle="modal" data-target="#EBEModal">Etilbenceno (EBE):</a> <span id="EBEValor"></span> μg/m<sup>3</sup> medido por <span id="MEDEBEValor"></span></p>
-                        <p><a  type="button" data-toggle="modal" data-target="#HCModal">Hidrocarburos Totales (HC):</a> <span id="HCValor"></span> μg/m<sup>3</sup> medido por <span id="MEDHCValor"></span></p>
-                        <p><a  type="button" data-toggle="modal" data-target="#CH4Modal">Metano (CH<sub>4</sub>):</a> <span id="CH4Valor"></span> μg/m<sup>3</sup> medido por <span id="MEDCH4Valor"></span></p>
-                        <p><a  type="button" data-toggle="modal" data-target="#NMHModal">Hidrocarburos No Metánicos (NMH):</a> <span id="NMHValor"></span> μg/m<sup>3</sup> medido por <span id="MEDNMHValor"></span></p>                        
+                        <p><a href="#" data-toggle="modal" data-target="#SO2Modal">Dióxido de Azufre (S0<sub>2</sub>):</a> <span id="SO2Valor"></span> μg/m<sup>3</sup> medido por <span id="MEDSO2Valor"></span></p>
+                        <p><a href="#" data-toggle="modal" data-target="#COModal">Monóxido de Carbono (CO):</a> <span id="COValor"></span> μg/m<sup>3</sup> medido por <span id="MEDCOValor"></span></p>
+                        <p><a href="#" data-toggle="modal" data-target="#NOModal">Monóxido de Nitrógeno (NO):</a> <span id="NOValor"></span> μg/m<sup>3</sup> medido por <span id="MEDNOValor"></span></p>
+                        <p><a href="#" data-toggle="modal" data-target="#NO2Modal">Dióxido de Nitrógeno (NO<sub>2</sub>):</a> <span id="NO2Valor"></span> μg/m<sup>3</sup> medido por <span id="MEDNO2Valor"></span></p>
+                        <p>Partículas en suspensión (&#60;2.5): <span id="PS25Valor"></span> μg/m<sup>3</sup> medido por <span id="MEDPS25Valor"></span></p>
+                        <p>Partículas en suspensión (&#60;10): <span id="PS10Valor"></span> μg/m<sup>3</sup> medido por <span id="MEDPS10Valor"></span></p>
+                        <p>Óxidos de Nitrógeno totales (NOx): <span id="NOXValor"></span> μg/m<sup>3</sup> medido por <span id="MEDNOXValor"></span></p>                        
+                        <p><a href="#" data-toggle="modal" data-target="#O3Modal">Ozono (O<sub>3</sub>):</a> <span id="O3Valor"></span> μg/m<sup>3</sup> medido por <span id="MEDO3Valor"></span></p>
+                        <p><a href="#" data-toggle="modal" data-target="#TOLModal">Tolueno (TOL):</a> <span id="TOLValor"></span> μg/m<sup>3</sup> medido por <span id="MEDTOLValor"></span></p>
+                        <p><a href="#" data-toggle="modal" data-target="#BENModal">Benceno (C<sub>6</sub>H<sub>6</sub>):</a> <span id="BENValor"></span> μg/m<sup>3</sup> medido por <span id="MEDBENValor"></span></p>                        
+                        <p><a href="#" data-toggle="modal" data-target="#EBEModal">Etilbenceno (EBE):</a> <span id="EBEValor"></span> μg/m<sup>3</sup> medido por <span id="MEDEBEValor"></span></p>
+                        <p>Hidrocarburos Totales (HC): <span id="HCValor"></span> μg/m<sup>3</sup> medido por <span id="MEDHCValor"></span></p>
+                        <p><a href="#" data-toggle="modal" data-target="#CH4Modal">Metano (CH<sub>4</sub>):</a> <span id="CH4Valor"></span> μg/m<sup>3</sup> medido por <span id="MEDCH4Valor"></span></p>
+                        <p>Hidrocarburos No Metánicos (NMH): <span id="NMHValor"></span> μg/m<sup>3</sup> medido por <span id="MEDNMHValor"></span></p>                        
                         
                     </div>
                 </div>
@@ -153,7 +161,7 @@
                     </div>  
                     <div class="panel-body">
 
-                        <p>Radiación Ultravioleta (UV): <span id="UVValor"></span> medido por <span id="MEDSUVValor"></span></p>
+                        <p><a href="#" data-toggle="modal" data-target="#UVVModal">Radiación Ultravioleta (UV):</a> <span id="UVValor"></span> medido por <span id="MEDSUVValor"></span></p>
                         <p>Velocidad del Viento (VV): <span id="VVValor"></span> Km/h medido por <span id="MEDVVValor"></span></p>
                         <p>Dirección del Viento (DD): <span id="DDValor"></span> medido por <span id="MEDDDValor"></span></p>
                         <p>Temperatura Media (TMP): <span id="TMPValor"></span>°C medido por <span id="MEDTMPValor"></span></p>
@@ -515,63 +523,6 @@
 </div>    
     
     
-         <!-- Modal [PS25Modal] Partículas en suspensión (<2.5):   -->
-<div class="modal fade" id="PS25Modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Partículas en suspensión (&#60;2.5)</h4>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-      </div>
-    </div>
-  </div>
-</div>   
-
-
-         <!-- Modal [PS10Modal] Partículas en suspensión (<10):   -->
-<div class="modal fade" id="PS10Modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Partículas en suspensión (&#60;10)</h4>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-      </div>
-    </div>
-  </div>
-</div>   
-
-
-         <!-- Modal [NOXModal] Óxidos de Nitrógeno totales (NOx):   -->
-<div class="modal fade" id="NOXModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Óxidos de Nitrógeno totales (NOx)</h4>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-      </div>
-    </div>
-  </div>
-</div>   
-
-
          <!-- Modal [O3Modal] Ozono (O3):   -->
 <div class="modal fade" id="O3Modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
@@ -766,25 +717,6 @@
 </div>  
 
 
-         <!-- Modal [HCModal] Hidrocarburos Totales (HC):   -->
-<div class="modal fade" id="HCModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Hidrocarburos Totales (HC)</h4>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-      </div>
-    </div>
-  </div>
-</div>  
-
-
          <!-- Modal [CH4Modal] Metano (CH4):   -->
 <div class="modal fade" id="CH4Modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
@@ -823,16 +755,58 @@
 </div> 
 
 
-         <!-- Modal [NMHModal] Hidrocarburos No Metánicos (NMH):   -->
-<div class="modal fade" id="NMHModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+         <!-- Modal [UVVModal] Radiación Ultravioleta (UV):   -->
+<div class="modal fade" id="UVVModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Hidrocarburos No Metánicos (NMH)</h4>
+        <h4 class="modal-title" id="myModalLabel">Radiación Ultravioleta (UV)</h4>
       </div>
       <div class="modal-body">
-        ...
+
+        <div class="row">
+            <div class="col-lg-12">
+                <p>La mayor parte de la radiación ultravioleta que llega a la Tierra lo hace en las formas UV-C, UV-B y UV-A; 
+                principalmente en esta última, a causa de la absorción por parte de la atmósfera terrestre. 
+                Estos rangos están relacionados con el daño que producen en el ser humano: la radiación UV-C (la más perjudicial para la vida) 
+                no llega a la tierra al ser absorbida por el oxígeno y el ozono de la atmósfera; la radiación UV-B es parcialmente absorbida por 
+                el ozono y solo llega a la superficie de la tierra en un porcentaje mínimo, pese a lo que puede producir daños en la piel.</p>
+                
+                <p>Entre los daños que los rayos ultravioleta pueden provocar se incluyen el cáncer de piel, envejecimiento de ésta, irritación, 
+                arrugas, manchas o pérdida de elasticidad, así como afecciones a nivel ocular. También pueden desencadenar lupus eritematoso sistémico.</p>
+                
+                <p>La radiación UV es altamente mutagénica, es decir, que induce a mutaciones. En el ADN provoca daño al formar dímeros de pirimidinas 
+                (generalmente dímeros de timina) que acortan la distancia normal del enlace, generando una deformación de la cadena.</p>
+        </div>
+        <div class="row">
+            <div class="col-lg-2">
+            </div>
+            <div class="col-lg-8">
+                <div class="panel panel-default">
+                  <div class="panel-heading">Índice UV</div>
+                  <div class="panel-body">
+                    <p>La Organización Mundial de la Salud junto con la Organización Meteorológica Mundial, 
+                    el Programa de las Naciones Unidas para el Medio Ambiente y la Comisión Internacional de Protección contra la Radiación no Ionizante 
+                    publican un sistema estándar de medición del índice UV y una forma de presentarlo al público incluyendo un código de colores asociado. 
+                    El código se puede ver en la siguiente imagen:</p>
+                    
+                    <img src="img/indice_uv.png" class="img-responsive"></img>
+                    
+                  </div>
+                </div>
+            </div>            
+            <div class="col-lg-2">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <em>Fuente: <a target="_blank" href="http://www.wikiwand.com/es/Radiaci%C3%B3n_ultravioleta">Wikipedia</a></em>
+            </div>
+        </div>
+        
+        
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
@@ -840,6 +814,7 @@
     </div>
   </div>
 </div> 
+
 
 
     
@@ -854,7 +829,7 @@
     <!-- Time Ago-->
     <script src="js/timeago.js"></script>
     <!-- CartoDB -->
-    <script src="http://libs.cartocdn.com/cartodb.js/v3/3.15/cartodb.js"></script>
+    <script src="js/cartodb.js"></script>
     <script type="text/javascript">
    
     var debugMode = true;
@@ -1138,7 +1113,28 @@ myFirebaseRef.on("value", function(snapshot) {
   if (debugMode) {
       console.log("Radiación Ultravioleta (UV): "+newChange.valor);
   };
-  $('#UVValor').html(parseFloat(newChange.valor));
+  
+    var valorRico = parseFloat(newChange.valor);
+  
+  if (valorRico <= 2) {
+    $('#UVValor').html(valorRico+" (Bajo)");
+    $('#UVValor').addClass("UV-Verde").removeClass("UV-Anarillo UV-Naranja UV-Rojo UV-Violeta")
+  } else if (valorRico <= 5){
+    $('#UVValor').html(valorRico+" (Moderado)");
+    $('#UVValor').addClass("UV-Anarillo").removeClass("UV-Verde UV-Naranja UV-Rojo UV-Violeta")
+  } else if (valorRico <= 7){
+    $('#UVValor').html(valorRico+" (Alto)");
+    $('#UVValor').addClass("UV-Naranja").removeClass("UV-Verde UV-Amarillo UV-Rojo UV-Violeta")
+  } else if (valorRico <= 10){
+    $('#UVValor').html(valorRico+" (Muy Alto)");
+    $('#UVValor').addClass("UV-Rojo").removeClass("UV-Verde UV-Amarillo UV-Naranja UV-Violeta")
+  } else if (valorRico >= 11){    
+    $('#UVValor').html(valorRico+" (¡Extremo!)");
+    $('#UVValor').addClass("UV-Violeta").removeClass("UV-Verde UV-Amarillo UV-Naranja UV-Rojo")
+  } else {
+     $('#UVVValor').addClass( "text-danger" ).html("ERROR"); 
+  };
+  
 });
 
 var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/14/");
