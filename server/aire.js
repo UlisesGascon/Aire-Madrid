@@ -268,7 +268,7 @@ function fromTxtToJson () {
 	  };
 
 	  // Ciudad
-	  if (res[1] == 079) {
+	  if (res[1] == 79) {
 	  	res[1] = "Madrid";
 	  };
 
@@ -550,7 +550,7 @@ function fromTxtToJson () {
 //	  console.log(All);
 	}).then(function () {
 	
-
+	All=[{}];
 	// console.log("I'm done!!");
 	 // console.log(All);
 
