@@ -141,7 +141,7 @@ var CleanUpFBJob = new Scheduled({
 // SUBIDA A FIREBASE CADA 6 HORAS (UpdateFBJob)
 var UpdateFBJob = new Scheduled({
     id: "UpdateFB",
-    pattern: "45 * * * * *", // Todos los días a las 00:30, 06:30, 12:30 y 18:30 (30 0,6,12,18 * * * *)
+    pattern: "40 0,6,12,18 * * * *", // Todos los días a las 00:40, 06:40, 12:40 y 18:40
     task: function(){
     	updateFB ();
     }
@@ -151,7 +151,7 @@ var UpdateFBJob = new Scheduled({
 // SUBIDA A FIREBASE DEL RESUMEN DIARIO (SaveDayFB)
 var SaveDayFBJob = new Scheduled({
     id: "SaveDayFB",
-    pattern: "25 00 * * * *", // Todos los días a las 00:20
+    pattern: "45 00 * * * *", // Todos los días a las 00:45
     task: function(){
     	updateFBArchive ();
     }
@@ -161,7 +161,7 @@ var SaveDayFBJob = new Scheduled({
 // Bajada de Datos de Internet
 var ConversionDatosJob = new Scheduled({
     id: "ConversionDatos",
-    pattern: "43 * * * * *", // Tarea a ejecutar cada dos minutos
+    pattern: "37 * * * * *", // cada hora a las x:37
     task: function(){
     	fromTxtToJson(); 
     
@@ -172,7 +172,7 @@ var ConversionDatosJob = new Scheduled({
 // Bajada de Datos de Internet
 var BajadaDatosJob = new Scheduled({
     id: "BajadaDatos",
-    pattern: "42 * * * * *", // Tarea a ejecutar cada dos minutos
+    pattern: "35 * * * * *", // cada hora a las x:35
     task: function(){   	
     	download(); 
     }
