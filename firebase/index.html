@@ -113,7 +113,7 @@
       <div class="row"> 
           <div class="col-lg-12">
               <h3 class="pull-left">Datos (promedio):</h3>
-              <h3 class="pull-right"><abbr class="timeago" title="2015-07-19T23:30:17Z">19 de Julio de 2015</abbr></h3>
+              <h3 class="pull-right"><abbr class="timeago"></abbr></h3>
           </div>
       </div>
       <div class="row">          
@@ -833,22 +833,119 @@
     <script type="text/javascript">
    
     var debugMode = true;
+    var serverDate = null;
+    var realTimeAgo = null;
 
-// TimeAgo
-jQuery(document).ready(function() {
-   $("abbr.timeago").timeago();
+
    // CartoDB Map
-  cartodb.createVis('map', 'https://ulisesgascongonzalez.cartodb.com/api/v2/viz/3c798d44-2ea4-11e5-a934-0e853d047bba/viz.json');
-});
+cartodb.createVis('map', 'https://ulisesgascongonzalez.cartodb.com/api/v2/viz/3c798d44-2ea4-11e5-a934-0e853d047bba/viz.json');
+/* 
+    - INICIO - Gestion del tiempo 
+*/
+var horaActual = getHourTime();
 
+function getHourTime() {
+    var date = new Date();
+    var hour = date.getHours();
+    hour = (hour < 10 ? "0" : "") + hour;
+    if (debugMode) {
+    console.log("hora es "+hour );
+    };
+    return hour
+};
 
+if (horaActual<=13) {
+    
+    var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/0/fecha");
+    myFirebaseRef.on("value", function(snapshot) {
+    
+      var newChange = snapshot.val();
+      var res = newChange.split("");
+      serverDate = ""+res[4]+""+res[5]+""+res[6]+""+res[7]+"-"+res[2]+""+res[3]+"-"+res[0]+""+res[1]+"T";
+      
+        realTimeAgo = serverDate+"05:00:00Z"
+        var userTimeAgo = ""+res[0]+""+res[1]+"/"+res[2]+""+res[3]+"/"+res[4]+""+res[5]+""+res[6]+""+res[7]+" a las 05:00"
+        $("abbr.timeago").html(userTimeAgo).attr("title", realTimeAgo).timeago();
 
+        
+        
+        if (debugMode) {
+        console.log("la hora definida es "+hora);
+        console.log("El tiempo para TiemAgo es "+realTimeAgo);
+        };
+    
+    });
+    var hora = "hora5/"
+    
+} else if (horaActual <= 19){
+    
+    var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/0/fecha");
+    myFirebaseRef.on("value", function(snapshot) {
+    
+      var newChange = snapshot.val();
+      var res = newChange.split("");
+      serverDate = ""+res[4]+""+res[5]+""+res[6]+""+res[7]+"-"+res[2]+""+res[3]+"-"+res[0]+""+res[1]+"T";
+      
+        realTimeAgo = serverDate+"11:00:00Z"
+        var userTimeAgo = ""+res[0]+""+res[1]+"/"+res[2]+""+res[3]+"/"+res[4]+""+res[5]+""+res[6]+""+res[7]+" a las 11:00"
+        $("abbr.timeago").html(userTimeAgo).attr("title", realTimeAgo).timeago();
 
+        
+        
+        if (debugMode) {
+        console.log("la hora definida es "+hora);
+        console.log("El tiempo para TiemAgo es "+realTimeAgo);
+        };
+    
+    });
+    var hora = "hora11/"
+    
+} else if (horaActual <= 1){
+        var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/0/fecha");
+    myFirebaseRef.on("value", function(snapshot) {
+    
+      var newChange = snapshot.val();
+      var res = newChange.split("");
+      serverDate = ""+res[4]+""+res[5]+""+res[6]+""+res[7]+"-"+res[2]+""+res[3]+"-"+res[0]+""+res[1]+"T";
+      
+        realTimeAgo = serverDate+"17:00:00Z"
+        var userTimeAgo = ""+res[0]+""+res[1]+"/"+res[2]+""+res[3]+"/"+res[4]+""+res[5]+""+res[6]+""+res[7]+" a las 17:00"
+        $("abbr.timeago").html(userTimeAgo).attr("title", realTimeAgo).timeago();
 
+        
+        
+        if (debugMode) {
+        console.log("la hora definida es "+hora);
+        console.log("El tiempo para TiemAgo es "+realTimeAgo);
+        };
+    
+    });
+    var hora = "hora17/"
+    
+} else if (horaActual <= 7){   
+        var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/0/fecha");
+    myFirebaseRef.on("value", function(snapshot) {
+    
+      var newChange = snapshot.val();
+      var res = newChange.split("");
+      serverDate = ""+res[4]+""+res[5]+""+res[6]+""+res[7]+"-"+res[2]+""+res[3]+"-"+res[0]+""+res[1]+"T";
+      
+        realTimeAgo = serverDate+"23:00:00Z"
+        var userTimeAgo = ""+res[0]+""+res[1]+"/"+res[2]+""+res[3]+"/"+res[4]+""+res[5]+""+res[6]+""+res[7]+" a las 23:00"
+        $("abbr.timeago").html(userTimeAgo).attr("title", realTimeAgo).timeago();
 
-var hora = "hora5/"
+        
+        
+        if (debugMode) {
+        console.log("la hora definida es "+hora);
+        console.log("El tiempo para TiemAgo es "+realTimeAgo);
+        };
+    
+    });
+    var hora = "hora23/"
+};
 
-
+/* - FIN - Gestion del tiempo */
 
 /* 
     == Contaminantes Medidos ==
@@ -1263,7 +1360,6 @@ myFirebaseRef.on("value", function(snapshot) {
   console.log(newChange.tecnica);
   $('#MEDPRBValor').html(newChange.tecnica);
 });
-
 
 
 /* QUERY FUNCIONA BIEN    

@@ -36,6 +36,10 @@ min-height: 50px;
     height: 520px;
 }
 
+#map2 { 
+    height: 545px;
+}
+
 #ministerio-MA{
     max-height:72px;
 }
