@@ -147,6 +147,8 @@
                         <p><a href="#" data-toggle="modal" data-target="#COModal">Monóxido de Carbono (CO):</a> <span id="COValor"></span> μg/m<sup>3</sup> medido por <span id="MEDCOValor"></span></p>
                         <p><a href="#" data-toggle="modal" data-target="#NOModal">Monóxido de Nitrógeno (NO):</a> <span id="NOValor"></span> μg/m<sup>3</sup> medido por <span id="MEDNOValor"></span></p>
                         <p><a href="#" data-toggle="modal" data-target="#NO2Modal">Dióxido de Nitrógeno (NO<sub>2</sub>):</a> <span id="NO2Valor"></span> μg/m<sup>3</sup> medido por <span id="MEDNO2Valor"></span></p>
+                        <p>Partículas en suspensión (&#60;2.5): <span id="PS25Valor"></span> μg/m<sup>3</sup> medido por <span id="MEDPS25Valor"></span></p>
+                        <p>Partículas en suspensión (&#60;10): <span id="PS10Valor"></span> μg/m<sup>3</sup> medido por <span id="MEDPS10Valor"></span></p>
                         <p>Óxidos de Nitrógeno totales (NOx): <span id="NOXValor"></span> μg/m<sup>3</sup> medido por <span id="MEDNOXValor"></span></p>
                         <p><a href="#" data-toggle="modal" data-target="#O3Modal">Ozono (O<sub>3</sub>):</a> <span id="O3Valor"></span> μg/m<sup>3</sup> medido por <span id="MEDO3Valor"></span></p>
                         <p><a href="#" data-toggle="modal" data-target="#TOLModal">Tolueno (TOL):</a> <span id="TOLValor"></span> μg/m<sup>3</sup> medido por <span id="MEDTOLValor"></span></p>
@@ -933,10 +935,43 @@ myFirebaseRef.on("value", function(snapshot) {
   $('#MEDNO2Valor').html(newChange.tecnica);
 });
 
+// Partículas en suspensión (<2.5): 
+var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/38/"+hora);
+myFirebaseRef.on("value", function(snapshot) {
+  var newChange = snapshot.val();
+  if (debugMode) {
+      console.log("Partículas en suspensión (<2.5): "+newChange.valor);
+  };
+  $('#PS25Valor').html(parseFloat(newChange.valor));
+});
 
+var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/38/");
+myFirebaseRef.on("value", function(snapshot) {
+  var newChange = snapshot.val();
+  console.log(newChange.tecnica);
+  $('#MEDPS25Valor').html(newChange.tecnica);
+});
+
+
+// Partículas en suspensión (<10): 
+var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/39/"+hora);
+myFirebaseRef.on("value", function(snapshot) {
+  var newChange = snapshot.val();
+  if (debugMode) {
+      console.log("Partículas en suspensión (<10): "+newChange.valor);
+  };
+  $('#PS10Valor').html(parseFloat(newChange.valor));
+});
+
+var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/39/");
+myFirebaseRef.on("value", function(snapshot) {
+  var newChange = snapshot.val();
+  console.log(newChange.tecnica);
+  $('#MEDPS10Valor').html(newChange.tecnica);
+});
 
 // Óxidos de Nitrógeno totales (NOx): 
-var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/38/"+hora);
+var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/40/"+hora);
 myFirebaseRef.on("value", function(snapshot) {
   var newChange = snapshot.val();
   if (debugMode) {
@@ -945,7 +980,7 @@ myFirebaseRef.on("value", function(snapshot) {
   $('#NOXValor').html(parseFloat(newChange.valor));
 });
 
-var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/38/");
+var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/40/");
 myFirebaseRef.on("value", function(snapshot) {
   var newChange = snapshot.val();
   console.log(newChange.tecnica);
@@ -953,7 +988,7 @@ myFirebaseRef.on("value", function(snapshot) {
 });
 
 // Ozono (O3): 
-var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/39/"+hora);
+var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/41/"+hora);
 myFirebaseRef.on("value", function(snapshot) {
   var newChange = snapshot.val();
   if (debugMode) {
@@ -962,7 +997,7 @@ myFirebaseRef.on("value", function(snapshot) {
   $('#O3Valor').html(parseFloat(newChange.valor));
 });
 
-var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/39/");
+var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/41/");
 myFirebaseRef.on("value", function(snapshot) {
   var newChange = snapshot.val();
   console.log(newChange.tecnica);
@@ -971,7 +1006,7 @@ myFirebaseRef.on("value", function(snapshot) {
 
 
 // Tolueno (TOL): 
-var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/40/"+hora);
+var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/42/"+hora);
 myFirebaseRef.on("value", function(snapshot) {
   var newChange = snapshot.val();
   if (debugMode) {
@@ -980,7 +1015,7 @@ myFirebaseRef.on("value", function(snapshot) {
   $('#TOLValor').html(parseFloat(newChange.valor));
 });
 
-var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/40/");
+var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/42/");
 myFirebaseRef.on("value", function(snapshot) {
   var newChange = snapshot.val();
   console.log(newChange.tecnica);
@@ -989,7 +1024,7 @@ myFirebaseRef.on("value", function(snapshot) {
 
 
 // Benceno (C6H6): 
-var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/41/"+hora);
+var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/43/"+hora);
 myFirebaseRef.on("value", function(snapshot) {
   var newChange = snapshot.val();
   if (debugMode) {
@@ -998,7 +1033,7 @@ myFirebaseRef.on("value", function(snapshot) {
   $('#BENValor').html(parseFloat(newChange.valor));
 });
 
-var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/41/");
+var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/43/");
 myFirebaseRef.on("value", function(snapshot) {
   var newChange = snapshot.val();
   console.log(newChange.tecnica);
@@ -1007,7 +1042,7 @@ myFirebaseRef.on("value", function(snapshot) {
 
 
 // Etilbenceno (EBE): 
-var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/42/"+hora);
+var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/44/"+hora);
 myFirebaseRef.on("value", function(snapshot) {
   var newChange = snapshot.val();
   if (debugMode) {
@@ -1016,7 +1051,7 @@ myFirebaseRef.on("value", function(snapshot) {
   $('#EBEValor').html(parseFloat(newChange.valor));
 });
 
-var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/42/");
+var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/44/");
 myFirebaseRef.on("value", function(snapshot) {
   var newChange = snapshot.val();
   console.log(newChange.tecnica);
@@ -1025,7 +1060,7 @@ myFirebaseRef.on("value", function(snapshot) {
 
 
 // Hidrocarburos Totales (HC): 
-var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/43/"+hora);
+var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/45/"+hora);
 myFirebaseRef.on("value", function(snapshot) {
   var newChange = snapshot.val();
   if (debugMode) {
@@ -1034,7 +1069,7 @@ myFirebaseRef.on("value", function(snapshot) {
   $('#HCValor').html(parseFloat(newChange.valor));
 });
 
-var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/43/");
+var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/45/");
 myFirebaseRef.on("value", function(snapshot) {
   var newChange = snapshot.val();
   console.log(newChange.tecnica);
@@ -1043,7 +1078,7 @@ myFirebaseRef.on("value", function(snapshot) {
 
 
 // Metano (CH4): 
-var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/44/"+hora);
+var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/46/"+hora);
 myFirebaseRef.on("value", function(snapshot) {
   var newChange = snapshot.val();
   if (debugMode) {
@@ -1052,7 +1087,7 @@ myFirebaseRef.on("value", function(snapshot) {
   $('#CH4Valor').html(parseFloat(newChange.valor));
 });
 
-var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/44/");
+var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/46/");
 myFirebaseRef.on("value", function(snapshot) {
   var newChange = snapshot.val();
   console.log(newChange.tecnica);
@@ -1061,7 +1096,7 @@ myFirebaseRef.on("value", function(snapshot) {
 
 
 // Hidrocarburos No Metánicos (NMH): 
-var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/45/"+hora);
+var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/47/"+hora);
 myFirebaseRef.on("value", function(snapshot) {
   var newChange = snapshot.val();
   if (debugMode) {
@@ -1070,7 +1105,7 @@ myFirebaseRef.on("value", function(snapshot) {
   $('#NMHValor').html(parseFloat(newChange.valor));
 });
 
-var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/45/");
+var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/47/");
 myFirebaseRef.on("value", function(snapshot) {
   var newChange = snapshot.val();
   console.log(newChange.tecnica);
@@ -1085,7 +1120,7 @@ myFirebaseRef.on("value", function(snapshot) {
 
 
 // Temperatura Mínima (TMI): 
-var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/46/"+hora);
+var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/48/"+hora);
 myFirebaseRef.on("value", function(snapshot) {
   var newChange = snapshot.val();
   if (debugMode) {
@@ -1094,7 +1129,7 @@ myFirebaseRef.on("value", function(snapshot) {
   $('#TMIValor').html(parseFloat(newChange.valor));
 });
 
-var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/46/");
+var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/48/");
 myFirebaseRef.on("value", function(snapshot) {
   var newChange = snapshot.val();
   console.log(newChange.tecnica);
@@ -1110,15 +1145,17 @@ myFirebaseRef.on("value", function(snapshot) {
 35 - Monóxido de Carbono (CO)
 36 - Monóxido de Nitrógeno (NO)
 37 - Dióxido de Nitrógeno (NO2)
-38 - Óxidos de Nitrógeno totales (NOx)
-39 - Ozono (O3)
-40 - Tolueno (TOL)
-41 - Benceno (C6H6)
-42 - Etilbenceno (EBE)
-43 - Hidrocarburos Totales (HC)
-44 - Metano (CH4)
-45 - Hidrocarburos No Metánicos (NMH)
-46 - Temperatura Mínima (TMI)
+38 - Partículas en suspensión (<2.5)**
+39 - Partículas en suspensión (<10)**
+40 - Óxidos de Nitrógeno totales (NOx)
+41 - Ozono (O3)
+42 - Tolueno (TOL)
+43 - Benceno (C6H6)
+44 - Etilbenceno (EBE)
+45 - Hidrocarburos Totales (HC)
+46 - Metano (CH4)
+47 - Hidrocarburos No Metánicos (NMH)
+48 - Temperatura Mínima (TMI)
 ===========================
 
 Escuelas Aguirre
