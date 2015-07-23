@@ -13,9 +13,30 @@
 
     <!-- Bootstrap minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <!-- GITHUB RIBBON -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.1.1/gh-fork-ribbon.min.css" />
+    <!--[if lt IE 9]>
+      <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.1.1/gh-fork-ribbon.ie.min.css" />
+    <![endif]-->
+    <!-- CartoDB -->
+    <link rel="stylesheet" href="css/cartodb.css" />
+    
     <link rel="stylesheet" href="css/style.css">
  </head>
  <body>
+
+<!-- GitHub Ribbon -->
+    <div class="github-fork-ribbon-wrapper right">
+        <div class="github-fork-ribbon">
+            <a target="_blank" href="https://github.com/UlisesGascon/Aire-Madrid">Fork me on GitHub</a>
+        </div>
+    </div>
+    
+
+    
+    
+    
         <!-- Fixed navbar -->
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
@@ -30,7 +51,7 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="index.html">Home</a></li>
+            <li ><a href="index.html">Home</a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Estaciones <span class="caret"></span></a>
               <ul class="dropdown-menu">
@@ -71,22 +92,1047 @@
      
     <div class="container container-principal">
 
-<!-- 2.1 Contenido Cabecera  -->  
+
+<!-- 2.1 Contenido Cabecera  -->   
       <div class="page-header">
-        <h1>Escuelas Aguirre <small>Calidad del Aire</small></h1>
+        <h1>Escuelas Aguirre <small>Estación 8</small></h1>
       </div>
 
       <div class="row"> 
+          <div class="col-lg-8">
+              <div id="map2"></div>
+          </div>
+          <div class="col-lg-4">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                Estación
+              </div>  
+              <div class="panel-body">
+
+               <img class="img-responsive" src="img/foto-estacion8.jpg"></img>                      
+
+              </div>
+            </div>
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                Ubicación
+              </div>  
+              <div class="panel-body">
+                
+                        <p>Dirección: Entre c/ Alcalá y c/ O'Donell</p>
+                        <p>Longitud: 3° 40' 56,35'' W</p>
+                        <p>Latitud: 40° 25' 17,63'' N</p>
+                        <p>Altitud: 672m</p>
+                        <p>Código: <a target='_blank' href="http://www.mambiente.munimadrid.es/opencms/opencms/calaire/contenidos/estaciones/estacion8.html">28079008</a></p>
+
+              </div>
+            </div>
+          </div>
+      </div>
+      <div class="row"> 
+          <div class="col-lg-12">
+              <h3 class="pull-left">Datos:</h3>
+              <h3 class="pull-right"><abbr class="timeago"></abbr></h3>
+          </div>
+      </div>
+      <div class="row">          
+          <div class="col-lg-6">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                      Contaminantes Medidos
+                    </div>  
+                    <div class="panel-body">
+
+                        <p><a href="#" data-toggle="modal" data-target="#SO2Modal">Dióxido de Azufre (S0<sub>2</sub>):</a> <span id="SO2Valor"></span> μg/m<sup>3</sup> medido por <span id="MEDSO2Valor"></span></p>
+                        <p><a href="#" data-toggle="modal" data-target="#COModal">Monóxido de Carbono (CO):</a> <span id="COValor"></span> μg/m<sup>3</sup> medido por <span id="MEDCOValor"></span></p>
+                        <p><a href="#" data-toggle="modal" data-target="#NOModal">Monóxido de Nitrógeno (NO):</a> <span id="NOValor"></span> μg/m<sup>3</sup> medido por <span id="MEDNOValor"></span></p>
+                        <p><a href="#" data-toggle="modal" data-target="#NO2Modal">Dióxido de Nitrógeno (NO<sub>2</sub>):</a> <span id="NO2Valor"></span> μg/m<sup>3</sup> medido por <span id="MEDNO2Valor"></span></p>
+                        <p>Óxidos de Nitrógeno totales (NOx): <span id="NOXValor"></span> μg/m<sup>3</sup> medido por <span id="MEDNOXValor"></span></p>
+                        <p><a href="#" data-toggle="modal" data-target="#O3Modal">Ozono (O<sub>3</sub>):</a> <span id="O3Valor"></span> μg/m<sup>3</sup> medido por <span id="MEDO3Valor"></span></p>
+                        <p><a href="#" data-toggle="modal" data-target="#TOLModal">Tolueno (TOL):</a> <span id="TOLValor"></span> μg/m<sup>3</sup> medido por <span id="MEDTOLValor"></span></p>
+                        <p><a href="#" data-toggle="modal" data-target="#BENModal">Benceno (C<sub>6</sub>H<sub>6</sub>):</a> <span id="BENValor"></span> μg/m<sup>3</sup> medido por <span id="MEDBENValor"></span></p>                        
+                        <p><a href="#" data-toggle="modal" data-target="#EBEModal">Etilbenceno (EBE):</a> <span id="EBEValor"></span> μg/m<sup>3</sup> medido por <span id="MEDEBEValor"></span></p>
+                        <p>Hidrocarburos Totales (HC): <span id="HCValor"></span> μg/m<sup>3</sup> medido por <span id="MEDHCValor"></span></p>
+                        <p><a href="#" data-toggle="modal" data-target="#CH4Modal">Metano (CH<sub>4</sub>):</a> <span id="CH4Valor"></span> μg/m<sup>3</sup> medido por <span id="MEDCH4Valor"></span></p>
+                        <p>Hidrocarburos No Metánicos (NMH): <span id="NMHValor"></span> μg/m<sup>3</sup> medido por <span id="MEDNMHValor"></span></p>                        
+                        
+                        
+                    </div>
+                </div>
+          </div>
+          <div class="col-lg-6">
+                
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                      Parámetros Meteorológicos
+                    </div>  
+                    <div class="panel-body">
+
+
+                        <p>Temperatura Mínima (TMI): <span id="TMIValor"></span>°C medido por <span id="MEDTMIValor"></span></p>
+                     
+
+
+                    </div>
+                </div>
+          </div>
+      </div>      
+      <div class="row"> 
+          <div class="col-lg-12">
+              <h3> Otras Estaciones:</h3>
+          </div>
+      </div>         
+      <div class="row">
+       
+                  <div class="col-lg-3">
+                        <p><a href="28079004.html">Plaza de España</a></p>
+                        <p><a href="28079008.html">Escuelas Aguirre</a></p>
+                        <p><a href="28079011.html">Ramón y Cajal</a></p>
+                        <p><a href="28079016.html">Arturo Soria</a></p>
+                        <p><a href="28079017.html">Villaverde</a></p>
+                        <p><a href="28079018.html">Faropllo</a></p>
+                         
+                  </div>
+                  <div class="col-lg-3"> 
+                        <p><a href="28079024.html">Casa de Campo</a></p>                
+                        <p><a href="28079027.html">Barajas (Pueblo)</a></p>                
+                        <p><a href="28079035.html">Plaza del Carmen</a></p>
+                        <p><a href="28079036.html">Moratalaz</a></p>
+                        <p><a href="28079038.html">Cuatro Caminos</a></p>                
+                        <p><a href="28079039.html">Barrio del Pilar</a></p>
+                        
+                  </div>    
+                  <div class="col-lg-3"> 
+                        <p><a href="28079040.html">Vallecas</a></p>                
+                        <p><a href="28079047.html">Méndez Álvaro</a></p>                
+                        <p><a href="28079048.html">Castellana</a></p>                
+                        <p><a href="28079049.html">Parque del Retiro</a></p>   
+                        <p><a href="28079050.html">Plaza Castilla</a></p>        
+                        <p><a href="28079054.html">Ensanche de Vallecas</a></p>        
+                        
+                  </div>    
+                  <div class="col-lg-3"> 
+                        <p><a href="28079055.html">Urbanización Embajada</a></p>        
+                        <p><a href="28079056.html">Plaza Fernández Ladreda</a></p>        
+                        <p><a href="28079057.html">Sanchinarro</a></p>        
+                        <p><a href="28079058.html">El Pardo</a></p>        
+                        <p><a href="28079059.html">Parque Juan Carlos I</a></p>
+                        <p><a href="28079060.html">Tres Olivos</a></p>
+                  </div>  
+      
+      </div>
+
+      <div class="row"> 
+          <div class="col-lg-12">
+              <h3>Datos e Imágenes:</h3>
+          </div>
+      </div>
+      <div class="row"> 
+          <div class="col-lg-2"></div>
+          <div class="col-lg-3">
+            <a href="http://www.madrid.es/portal/site/munimadrid" target="_blank"><img class="img-responsive" src="img/logo-madrid.png"></img></a>
+          </div>
+          <div class="col-lg-2">
+            <a href="https://es.wikipedia.org/wiki/Wikipedia:Portada" target="_blank"><img id="img-wikipedia" class="img-responsive" src="img/rsz_1wikipedia-logo.jpg"></img></a>
+          </div>
+          <div class="col-lg-3">
+            <a href="http://www.magrama.gob.es/es/" target="_blank"><img id="ministerio-MA" class="img-responsive" src="img/ministerio-medio-ambiente.jpg"></img></a>
+          </div>
+          <div class="col-lg-2"></div>
+      </div>
+      
+    </div> <!-- FIN container-principal -->
+    
+    <footer class="footer">
+        <div class="container">
+
+            <img  height="30" src="img/logo_ulises.png">
+
+            <a class="pfooter pull-right" target="_blank" href="https://twitter.com/kom_256"><p class="pull-right fa fa-twitter-square"></p></a>
+            <a class="pfooter pull-right" target="_blank" href="https://github.com/UlisesGascon"><p class="pull-right fa fa-github-square" ></p></a>
+
+        </div>
+    </footer>    
+    
+    <!-- Modal [SO2Modal] Dióxido de Azufre (S02)  -->
+<div class="modal fade" id="SO2Modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Dióxido de Azufre (S0<sub>2</sub>)</h4>
+      </div>
+      <div class="modal-body">
+        
+        <div class="row">
+            <div class="col-lg-12">
+                <img src="img/peligrosidad_dioxido_de_azufre.png" class="pull-left img-responsive img-peligrosidad"></img>
+                <p><em><span>[3]Muy peligroso</span>
+                <span>[0]No se inflama</span>
+                <span>[0]Estable</span></em></p>
+                <p>El dióxido de azufre es un óxido cuya fórmula molecular es SO<sub>2</sub>. Es un gas incoloro con un característico olor asfixiante. 
+                Se trata de una sustancia reductora que, con el tiempo, el contacto con el aire y la humedad, se convierte en trióxido de azufre. 
+                La velocidad de esta reacción en condiciones normales es baja.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="panel panel-default">
+                  <div class="panel-heading">Límite horario</div>
+                  <div class="panel-body">
+                    <h3>350 μg/m<sup>3</sup></h3>
+                    que no podrá superarse en más de 24 ocasiones por año
+                  </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="panel panel-default">
+                  <div class="panel-heading">Límite diario</div>
+                  <div class="panel-body">
+                    <h3>125 μg/m<sup>3</sup></h3>
+                    que no podrá superarse en más de 3 ocasiones por año
+                  </div>
+                </div>
+            </div>            
+            <div class="col-lg-4">
+                <div class="panel panel-default">
+                  <div class="panel-heading">Umbral de Alerta</div>
+                  <div class="panel-body">
+                    <h3>500 μg/m<sup>3</sup></h3>
+                    durante tres horas consecutivas en un área &#62;100 km<sup>2</sup>
+                  </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <em>Fuente: <a target="_blank" href="https://www.wikiwand.com/es/Di%C3%B3xido_de_azufre">Wikipedia</a> y <a target="_blank" href="http://www.madrid.es/UnidadesDescentralizadas/Sostenibilidad/ContenidosBasicos/Ficheros/PlanCalidadAire2012.pdf">Ayuntamiento de Madrid</a></em>
+            </div>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
       </div>
     </div>
+  </div>
+</div>
+
+    <!-- Modal [COModal] Monóxido de Carbono (CO):   -->
+<div class="modal fade" id="COModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Monóxido de Carbono (CO)</h4>
+      </div>
+      <div class="modal-body">
+
+        <div class="row">
+            <div class="col-lg-12">
+                <img src="img/peligrosidad_monoxido_de_carbono.png" class="pull-left img-responsive img-peligrosidad"></img>
+                <p><em><span>[4]Causa de muerte</span>
+                <span>[4]Se inflama a &#60;25°C</span>
+                <span>[0]Estable</span></em></p>
+                <p>El monóxido de carbono, también denominado óxido de carbono (II), gas carbonoso y anhídrido carbonoso (los dos últimos cada vez más en desuso), 
+                cuya fórmula química es CO, es un gas inodoro, incoloro y altamente tóxico. Puede causar la muerte cuando se respira en niveles elevados. 
+                Se produce por la combustión deficiente de sustancias como gas, gasolina, keroseno, carbón, petróleo, tabaco o madera. 
+                Las chimeneas, las calderas, los calentadores de agua o calefactores y los aparatos domésticos que queman combustible, 
+                como las estufas u hornallas de la cocina o los calentadores a queroseno, también pueden producirlo si no están funcionando bien. 
+                Los vehículos con el motor encendido también lo despiden. También se puede encontrar en las atmósferas de las estrellas de carbono.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4">
+                
+            </div>
+            <div class="col-lg-4">
+                <div class="panel panel-default">
+                  <div class="panel-heading">Límite Octohorario</div>
+                  <div class="panel-body">
+                    <h3>10 μg/m<sup>3</sup></h3>
+                    media octohoraria máxima en un día
+                  </div>
+                </div>
+            </div>            
+            <div class="col-lg-4">
+                
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <em>Fuente: <a target="_blank" href="https://www.wikiwand.com/es/Mon%C3%B3xido_de_carbono">Wikipedia</a> y <a target="_blank" href="http://www.madrid.es/UnidadesDescentralizadas/Sostenibilidad/ContenidosBasicos/Ficheros/PlanCalidadAire2012.pdf">Ayuntamiento de Madrid</a></em>
+            </div>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+        <!-- Modal [NOModal] monóxido de Nitrógeno (NO):   -->
+<div class="modal fade" id="NOModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Monóxido de Nitrógeno (NO)</h4>
+      </div>
+      <div class="modal-body">
+
+        <div class="row">
+            <div class="col-lg-12">
+                <img src="img/peligrosidad_monoxido_de_nitrogeno.png" class="pull-left img-responsive img-peligrosidad"></img>
+                <p><em><span>[3]Muy peligroso</span>
+                <span>[0]No se inflama</span>
+                <span>[2]Inestable en caso de cambio químico violento</span>
+                <span>[OX] Oxidante</span></em></p>
+                <p>El óxido de nitrógeno (II), óxido nítrico o monóxido de nitrógeno (NO) 
+                es un gas incoloro y poco soluble en agua presente en pequeñas cantidades en los mamíferos. 
+                Está también extendido por el aire siendo producido en automóviles y plantas de energía. Se lo considera un agente tóxico.</p>
+                
+                <p>A altas temperaturas el nitrógeno (N<sub>2</sub>) y el oxígeno (O<sub>2</sub>) moleculares pueden combinarse para formar óxido nítrico; 
+                por ello las actividades humanas han incrementado en gran medida la presencia de este gas en la atmósfera.</p>
+                
+                <p>Este gas en el aire puede convertirse, más tarde, en ácido nítrico produciendo así lluvia ácida. 
+                Además el NO y el NO<sub>2</sub> son en parte responsables del agujero de la capa de ozono.</p>
+                
+                <p>Su efecto para con la radiación solar es doble. Mientras en la baja atmósfera contribuyen al calentamiento global en la alta lo hacen al oscurecimiento global.</p>
+                
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-lg-12">
+                <em>Fuente: <a target="_blank" href="https://www.wikiwand.com/es/%C3%93xido_de_nitr%C3%B3geno_(II)">Wikipedia</a></em>
+            </div>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+        <!-- Modal [NO2Modal] Dióxido de Nitrógeno (NO2):   -->
+<div class="modal fade" id="NO2Modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Dióxido de Nitrógeno (NO<sub>2</sub>)</h4>
+      </div>
+      <div class="modal-body">
+
+        <div class="row">
+            <div class="col-lg-12">
+                <img src="img/peligrosidad_dioxido_de_nitrogeno.png" class="pull-left img-responsive img-peligrosidad"></img>
+                <p><em><span>[3]Muy peligroso</span>
+                <span>[0]No se inflama</span>
+                <span>[0]Estable</span></em></p>
+                <p>El dióxido de nitrógeno u óxido de nitrógeno (IV) (NO<sub>2</sub>), es un compuesto químico formado por los elementos nitrógeno y oxígeno, 
+                uno de los principales contaminantes entre los varios óxidos de nitrógeno.</p>
+                
+                <p>El dióxido de nitrógeno es de color marrón-amarillento. Se forma como subproducto en los procesos de combustión a altas temperaturas, 
+                como en los vehículos motorizados y las plantas eléctricas. Por ello es un contaminante frecuente en zonas urbanas.</p>
+                
+                <p>Es un gas tóxico, irritante y precursor de la formación de partículas de nitrato. Estas llevan a la producción de ácido y elevados niveles de PM-2.5 en el ambiente. 
+                Afecta principalmente al sistema respiratorio. La exposición a corto plazo en altos niveles causa daños en las células pulmonares, 
+                mientras que la exposición a más largo plazo en niveles bajos de dióxido de nitrógeno puede causar cambios irreversibles en el tejido pulmonar similares a un enfisema.</p>
+                
+                <p>El dióxido de nitrógeno es un contaminante indicador del tráfico rodado fundamentalmente,
+                es emitido especialmente por los vehículos diesel (emisiones directas o “primarias”), pero se
+                produce también por la oxidación del monóxido de nitrógeno, emitido también por los
+                vehículos (dióxido de nitrógeno secundario).</p>
+                
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="panel panel-default">
+                  <div class="panel-heading">Límite horario</div>
+                  <div class="panel-body">
+                    <h3>200 μg/m<sup>3</sup></h3>
+                    que no podrá superarse en más de 18 ocasiones por año
+                  </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="panel panel-default">
+                  <div class="panel-heading">Límite anual</div>
+                  <div class="panel-body">
+                    <h3>40 μg/m<sup>3</sup></h3>
+                  </div>
+                </div>
+            </div>            
+            <div class="col-lg-4">
+                <div class="panel panel-default">
+                  <div class="panel-heading">Umbral de Alerta</div>
+                  <div class="panel-body">
+                    <h3>400 μg/m<sup>3</sup></h3>
+                    durante tres horas consecutivas en un área &#62;100 km<sup>2</sup>
+                  </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <em>Fuente: <a target="_blank" href="https://www.wikiwand.com/es/Di%C3%B3xido_de_nitr%C3%B3geno">Wikipedia</a> y <a target="_blank" href="http://www.madrid.es/UnidadesDescentralizadas/Sostenibilidad/ContenidosBasicos/Ficheros/PlanCalidadAire2012.pdf">Ayuntamiento de Madrid</a></em>
+            </div>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>    
+    
+
+         <!-- Modal [O3Modal] Ozono (O3):   -->
+<div class="modal fade" id="O3Modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Ozono (O<sub>3</sub>)</h4>
+      </div>
+      <div class="modal-body">
+
+        <div class="row">
+            <div class="col-lg-12">
+                <p>El ozono (O<sub>3</sub>) es una sustancia cuya molécula está compuesta por tres átomos de oxígeno, formada al disociarse los dos átomos que componen el gas de oxígeno. 
+                Cada átomo de oxígeno liberado se une a otra molécula de oxígeno gaseoso (O<sub>2</sub>), formando moléculas de ozono (O<sub>3</sub>).</p>
+
+                <p>A temperatura y presión ambientales el ozono es un gas de olor acre y generalmente incoloro, pero en grandes concentraciones puede volverse ligeramente azulado. 
+                Si se respira en grandes cantidades, puede provocar una irritación en los ojos y/o garganta, la cual suele pasar después de respirar aire fresco por algunos minutos.</p>
+                
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-2">
+            </div>
+            <div class="col-lg-4">
+                <div class="panel panel-default">
+                  <div class="panel-heading">Umbral información</div>
+                  <div class="panel-body">
+                    <h3>180 μg/m<sup>3</sup></h3>
+                    Como valor medio de 1 hora
+                  </div>
+                </div>
+            </div>            
+            <div class="col-lg-4">
+                <div class="panel panel-default">
+                  <div class="panel-heading">Umbral de Alerta</div>
+                  <div class="panel-body">
+                    <h3>240 μg/m<sup>3</sup></h3>
+                    Como valor medio de 1 hora
+                  </div>
+                </div>
+            </div>
+            <div class="col-lg-2">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <em>Fuente: <a target="_blank" href="https://www.wikiwand.com/es/Ozono">Wikipedia</a> y <a target="_blank" href="http://www.madrid.es/UnidadesDescentralizadas/Sostenibilidad/ContenidosBasicos/Ficheros/PlanCalidadAire2012.pdf">Ayuntamiento de Madrid</a></em>
+            </div>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>  
+
+
+         <!-- Modal [TOLModal] Tolueno (TOL):   -->
+<div class="modal fade" id="TOLModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Tolueno (TOL)</h4>
+      </div>
+      <div class="modal-body">
+
+        <div class="row">
+            <div class="col-lg-12">
+                <p>El tolueno o metilbenceno (C<sub>6</sub>H<sub>5</sub>CH<sub>3</sub>) es un hidrocarburo aromático a partir de la cual se obtienen derivados del benceno, 
+                el ácido benzoico, el fenol, la caprolactama, la sacarina, el diisocianato de tolueno (TDI), 
+                materia prima para la elaboración de poliuretano, medicamentos, colorantes, perfumes, TNT y detergentes.</p>
+
+                <p>El tolueno puede afectar al sistema nervioso. Niveles bajos o moderados pueden producir cansancio, confusión, debilidad, pérdida de la memoria, náusea, pérdida del apetito y 
+                pérdida de la audición y la vista. Estos síntomas generalmente desaparecen cuando la exposición termina.</p>
+                
+                <p>Los vapores de tolueno presentan un ligero efecto narcótico e irritan los ojos. Inhalar niveles altos de tolueno durante un período breve puede 
+                hacer que uno se sienta mareado o somnoliento. Puede causar, además, pérdida del conocimiento y, en casos extremos, la muerte.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <em>Fuente: <a target="_blank" href="https://www.wikiwand.com/es/Tolueno">Wikipedia</a></em>
+            </div>
+        </div>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>                   
+
+
+         <!-- Modal [BENModal] Benceno (C6H6):   -->
+<div class="modal fade" id="BENModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Benceno (C<sub>6</sub>H<sub>6</sub>)</h4>
+      </div>
+      <div class="modal-body">
+
+        <div class="row">
+            <div class="col-lg-12">
+                <img src="img/peligrosidad_benceno.png" class="pull-left img-responsive img-peligrosidad"></img>
+                <p><em><span>[3]Muy peligroso</span>
+                <span>[3]Se inflama a &#60;37°C</span>
+                <span>[2]Inestable en caso de cambio químico violento</span></em></p>
+                <p>El benceno es un líquido incoloro y muy inflamable de aroma dulce (que debe manejarse con sumo cuidado debido a su carácter cancerígeno), 
+                con un punto de ebullición relativamente alto.</p>
+                
+                <p>Respirar niveles de benceno muy altos puede causar la muerte, mientras que niveles bajos pueden causar somnolencia, 
+                mareo y aceleración del latido del corazón o taquicardia. Comer o tomar altos niveles de benceno puede causar vómitos, 
+                irritación del estómago, mareo, somnolencia o convulsiones y, en último extremo, la muerte.</p>
+                
+                <p>La exposición de larga duración al benceno se manifiesta en la sangre. 
+                El benceno produce efectos nocivos en la médula ósea y puede causar una disminución en el número de hematíes, lo que conduce a padecer anemia. 
+                El benceno también puede producir hemorragias y daños en el sistema inmunitario, 
+                aumentando así las posibilidades de contraer infecciones por inmunodepresión.</p>
+                
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4">
+                
+            </div>
+            <div class="col-lg-4">
+                <div class="panel panel-default">
+                  <div class="panel-heading">Límite Anual</div>
+                  <div class="panel-body">
+                    <h3>5 μg/m<sup>3</sup></h3>
+
+                  </div>
+                </div>
+            </div>            
+            <div class="col-lg-4">
+                
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <em>Fuente: <a target="_blank" href="https://www.wikiwand.com/es/Benceno">Wikipedia</a> y <a target="_blank" href="http://www.madrid.es/UnidadesDescentralizadas/Sostenibilidad/ContenidosBasicos/Ficheros/PlanCalidadAire2012.pdf">Ayuntamiento de Madrid</a></em>
+            </div>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>  
+
+
+         <!-- Modal [EBEModal] Etilbenceno (EBE):   -->
+<div class="modal fade" id="EBEModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Etilbenceno (EBE)</h4>
+      </div>
+      <div class="modal-body">
+
+        <div class="row">
+            <div class="col-lg-12">
+                <p>El etilbenceno es un líquido inflamable, incoloro, de olor similar a la gasolina. Se le encuentra en productos naturales 
+                tales como carbón y petróleo, como también en productos de manufactura como tinturas, insecticidas y pinturas.</p>
+
+                <p>El uso principal del etilbenceno es para fabricar otro producto químico, estireno y por la polimerización de éste se obtiene 
+                el poliestireno, que sirve en la fabricación de resinas, plásticos y hules. Otros usos incluyen como solvente, en combustibles, 
+                y en la manufactura de otros productos químicos.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <em>Fuente: <a target="_blank" href="https://www.wikiwand.com/es/Etilbenceno">Wikipedia</a></em>
+            </div>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>  
+
+
+         <!-- Modal [CH4Modal] Metano (CH4):   -->
+<div class="modal fade" id="CH4Modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Metano (CH<sub>4</sub>)</h4>
+      </div>
+      <div class="modal-body">
+
+        <div class="row">
+            <div class="col-lg-12">
+                <p>El metano es el hidrocarburo alcano más sencillo, cuya fórmula química es CH<sub>4</sub></p>
+
+                <p>El metano no es tóxico. Su principal peligro para la salud son las quemaduras que puede provocar si entra en ignición. 
+                Es altamente inflamable y puede formar mezclas explosivas con el aire. El metano reacciona violentamente con oxidantes, halógenos y algunos compuestos halogenados. 
+                El metano también es asfixiante y puede desplazar al oxígeno en un espacio cerrado. 
+                La asfixia puede sobrevenir si la concentración de oxígeno se reduce por debajo del 19,5 % por desplazamiento. 
+                Las concentraciones a las cuales se forman las barreras explosivas o inflamables son mucho más pequeñas que las concentraciones en las que el riesgo de asfixia es significativo. 
+                Si hay estructuras construidas sobre o cerca de vertederos, el metano desprendido puede penetrar en el interior de los edificios y exponer a los ocupantes a niveles significativos de metano. 
+                Algunos edificios tienen sistemas por debajo de sus cimientos para capturar este gas y expulsarlo del edificio.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <em>Fuente: <a target="_blank" href="https://www.wikiwand.com/es/Metano">Wikipedia</a></em>
+            </div>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>     
+
+    
 <!-- 3.1 Librerias de terceros -->
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>    
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script> 
+    <!-- Firebase -->
     <script src="https://cdn.firebase.com/js/client/2.2.7/firebase.js"></script>
+    <!-- Time Ago-->
+    <script src="js/timeago.js"></script>
+    <!-- CartoDB -->
+    <script src="js/cartodb.js"></script>
     <script type="text/javascript">
+   
+    var debugMode = true;
+    var serverDate = null;
+    var realTimeAgo = null;
+
+
+   // CartoDB Map
+  cartodb.createVis('map2', 'https://ulisesgascongonzalez.cartodb.com/api/v2/viz/1a7d359c-311a-11e5-8f62-0e4fddd5de28/viz.json');
+
+
+/* 
+    - INICIO - Gestion del tiempo 
+*/
+var horaActual = getHourTime();
+
+function getHourTime() {
+    var date = new Date();
+    var hour = date.getHours();
+    hour = (hour < 10 ? "0" : "") + hour;
+    if (debugMode) {
+    console.log("hora es "+hour );
+    };
+    return hour
+};
+
+if (horaActual<=13) {
+    
+    var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/0/fecha");
+    myFirebaseRef.on("value", function(snapshot) {
+    
+      var newChange = snapshot.val();
+      var res = newChange.split("");
+      serverDate = ""+res[4]+""+res[5]+""+res[6]+""+res[7]+"-"+res[2]+""+res[3]+"-"+res[0]+""+res[1]+"T";
+      
+        realTimeAgo = serverDate+"05:00:00Z"
+        var userTimeAgo = ""+res[0]+""+res[1]+"/"+res[2]+""+res[3]+"/"+res[4]+""+res[5]+""+res[6]+""+res[7]+" a las 05:00"
+        $("abbr.timeago").html(userTimeAgo).attr("title", realTimeAgo).timeago();
+
+        
+        
+        if (debugMode) {
+        console.log("la hora definida es "+hora);
+        console.log("El tiempo para TiemAgo es "+realTimeAgo);
+        };
+    
+    });
+    var hora = "hora5/"
+    
+} else if (horaActual <= 19){
+    
+    var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/0/fecha");
+    myFirebaseRef.on("value", function(snapshot) {
+    
+      var newChange = snapshot.val();
+      var res = newChange.split("");
+      serverDate = ""+res[4]+""+res[5]+""+res[6]+""+res[7]+"-"+res[2]+""+res[3]+"-"+res[0]+""+res[1]+"T";
+      
+        realTimeAgo = serverDate+"11:00:00Z"
+        var userTimeAgo = ""+res[0]+""+res[1]+"/"+res[2]+""+res[3]+"/"+res[4]+""+res[5]+""+res[6]+""+res[7]+" a las 11:00"
+        $("abbr.timeago").html(userTimeAgo).attr("title", realTimeAgo).timeago();
+
+        
+        
+        if (debugMode) {
+        console.log("la hora definida es "+hora);
+        console.log("El tiempo para TiemAgo es "+realTimeAgo);
+        };
+    
+    });
+    var hora = "hora11/"
+    
+} else if (horaActual <= 1){
+        var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/0/fecha");
+    myFirebaseRef.on("value", function(snapshot) {
+    
+      var newChange = snapshot.val();
+      var res = newChange.split("");
+      serverDate = ""+res[4]+""+res[5]+""+res[6]+""+res[7]+"-"+res[2]+""+res[3]+"-"+res[0]+""+res[1]+"T";
+      
+        realTimeAgo = serverDate+"17:00:00Z"
+        var userTimeAgo = ""+res[0]+""+res[1]+"/"+res[2]+""+res[3]+"/"+res[4]+""+res[5]+""+res[6]+""+res[7]+" a las 17:00"
+        $("abbr.timeago").html(userTimeAgo).attr("title", realTimeAgo).timeago();
+
+        
+        
+        if (debugMode) {
+        console.log("la hora definida es "+hora);
+        console.log("El tiempo para TiemAgo es "+realTimeAgo);
+        };
+    
+    });
+    var hora = "hora17/"
+    
+} else if (horaActual <= 7){   
+        var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/0/fecha");
+    myFirebaseRef.on("value", function(snapshot) {
+    
+      var newChange = snapshot.val();
+      var res = newChange.split("");
+      serverDate = ""+res[4]+""+res[5]+""+res[6]+""+res[7]+"-"+res[2]+""+res[3]+"-"+res[0]+""+res[1]+"T";
+      
+        realTimeAgo = serverDate+"23:00:00Z"
+        var userTimeAgo = ""+res[0]+""+res[1]+"/"+res[2]+""+res[3]+"/"+res[4]+""+res[5]+""+res[6]+""+res[7]+" a las 23:00"
+        $("abbr.timeago").html(userTimeAgo).attr("title", realTimeAgo).timeago();
+
+        
+        
+        if (debugMode) {
+        console.log("la hora definida es "+hora);
+        console.log("El tiempo para TiemAgo es "+realTimeAgo);
+        };
+    
+    });
+    var hora = "hora23/"
+};
+
+/* - FIN - Gestion del tiempo */
+
+
+/* 
+    == Contaminantes Medidos ==
+*/
+// Dióxido de Azufre (S02): 
+var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/34/"+hora);
+myFirebaseRef.on("value", function(snapshot) {
+  var newChange = snapshot.val();
+  if (debugMode) {
+  console.log("Dióxido de Azufre (S02): "+newChange.valor);
+  };
+  $('#SO2Valor').html(parseFloat(newChange.valor));
+});
+
+var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/34/");
+myFirebaseRef.on("value", function(snapshot) {
+  var newChange = snapshot.val();
+  console.log(newChange.tecnica);
+  $('#MEDSO2Valor').html(newChange.tecnica);
+});
+
+// Monóxido de Carbono (CO): 
+var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/35/"+hora);
+myFirebaseRef.on("value", function(snapshot) {
+  var newChange = snapshot.val();
+  if (debugMode) {
+      console.log("Monóxido de Carbono (CO): "+newChange.valor);
+  };
+  $('#COValor').html(parseFloat(newChange.valor));
+});
+
+var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/35/");
+myFirebaseRef.on("value", function(snapshot) {
+  var newChange = snapshot.val();
+  console.log(newChange.tecnica);
+  $('#MEDCOValor').html(newChange.tecnica);
+});
+
+// Monóxido de Nitrógeno (NO): 
+var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/36/"+hora);
+myFirebaseRef.on("value", function(snapshot) {
+  var newChange = snapshot.val();
+  if (debugMode) {
+      console.log("Monóxido de Nitrógeno (NO): "+newChange.valor);
+  };
+  $('#NOValor').html(parseFloat(newChange.valor));
+});
+
+var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/36/");
+myFirebaseRef.on("value", function(snapshot) {
+  var newChange = snapshot.val();
+  console.log(newChange.tecnica);
+  $('#MEDNOValor').html(newChange.tecnica);
+});
+
+
+// Dióxido de Nitrógeno (NO2): 
+var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/37/"+hora);
+myFirebaseRef.on("value", function(snapshot) {
+  var newChange = snapshot.val();
+  if (debugMode) {
+      console.log("Dióxido de Nitrógeno (NO2): "+newChange.valor);
+  };
+  $('#NO2Valor').html(parseFloat(newChange.valor));
+});
+
+var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/37/");
+myFirebaseRef.on("value", function(snapshot) {
+  var newChange = snapshot.val();
+  console.log(newChange.tecnica);
+  $('#MEDNO2Valor').html(newChange.tecnica);
+});
+
+
+
+// Óxidos de Nitrógeno totales (NOx): 
+var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/38/"+hora);
+myFirebaseRef.on("value", function(snapshot) {
+  var newChange = snapshot.val();
+  if (debugMode) {
+      console.log("Óxidos de Nitrógeno totales (NOx): "+newChange.valor);
+  };
+  $('#NOXValor').html(parseFloat(newChange.valor));
+});
+
+var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/38/");
+myFirebaseRef.on("value", function(snapshot) {
+  var newChange = snapshot.val();
+  console.log(newChange.tecnica);
+  $('#MEDNOXValor').html(newChange.tecnica);
+});
+
+// Ozono (O3): 
+var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/39/"+hora);
+myFirebaseRef.on("value", function(snapshot) {
+  var newChange = snapshot.val();
+  if (debugMode) {
+      console.log("Ozono (O3): "+newChange.valor);
+  };
+  $('#O3Valor').html(parseFloat(newChange.valor));
+});
+
+var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/39/");
+myFirebaseRef.on("value", function(snapshot) {
+  var newChange = snapshot.val();
+  console.log(newChange.tecnica);
+  $('#MEDO3Valor').html(newChange.tecnica);
+});
+
+
+// Tolueno (TOL): 
+var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/40/"+hora);
+myFirebaseRef.on("value", function(snapshot) {
+  var newChange = snapshot.val();
+  if (debugMode) {
+      console.log("Tolueno (TOL): "+newChange.valor);
+  };
+  $('#TOLValor').html(parseFloat(newChange.valor));
+});
+
+var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/40/");
+myFirebaseRef.on("value", function(snapshot) {
+  var newChange = snapshot.val();
+  console.log(newChange.tecnica);
+  $('#MEDTOLValor').html(newChange.tecnica);
+});
+
+
+// Benceno (C6H6): 
+var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/41/"+hora);
+myFirebaseRef.on("value", function(snapshot) {
+  var newChange = snapshot.val();
+  if (debugMode) {
+      console.log("Benceno (C6H6): "+newChange.valor);
+  };
+  $('#BENValor').html(parseFloat(newChange.valor));
+});
+
+var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/41/");
+myFirebaseRef.on("value", function(snapshot) {
+  var newChange = snapshot.val();
+  console.log(newChange.tecnica);
+  $('#MEDBENValor').html(newChange.tecnica);
+});
+
+
+// Etilbenceno (EBE): 
+var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/42/"+hora);
+myFirebaseRef.on("value", function(snapshot) {
+  var newChange = snapshot.val();
+  if (debugMode) {
+      console.log("Etilbenceno (EBE): "+newChange.valor);
+  };
+  $('#EBEValor').html(parseFloat(newChange.valor));
+});
+
+var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/42/");
+myFirebaseRef.on("value", function(snapshot) {
+  var newChange = snapshot.val();
+  console.log(newChange.tecnica);
+  $('#MEDEBEValor').html(newChange.tecnica);
+});
+
+
+// Hidrocarburos Totales (HC): 
+var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/43/"+hora);
+myFirebaseRef.on("value", function(snapshot) {
+  var newChange = snapshot.val();
+  if (debugMode) {
+      console.log("Hidrocarburos Totales (HC): "+newChange.valor);
+  };
+  $('#HCValor').html(parseFloat(newChange.valor));
+});
+
+var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/43/");
+myFirebaseRef.on("value", function(snapshot) {
+  var newChange = snapshot.val();
+  console.log(newChange.tecnica);
+  $('#MEDHCValor').html(newChange.tecnica);
+});
+
+
+// Metano (CH4): 
+var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/44/"+hora);
+myFirebaseRef.on("value", function(snapshot) {
+  var newChange = snapshot.val();
+  if (debugMode) {
+      console.log("Metano (CH4): "+newChange.valor);
+  };
+  $('#CH4Valor').html(parseFloat(newChange.valor));
+});
+
+var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/44/");
+myFirebaseRef.on("value", function(snapshot) {
+  var newChange = snapshot.val();
+  console.log(newChange.tecnica);
+  $('#MEDCH4Valor').html(newChange.tecnica);
+});
+
+
+// Hidrocarburos No Metánicos (NMH): 
+var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/45/"+hora);
+myFirebaseRef.on("value", function(snapshot) {
+  var newChange = snapshot.val();
+  if (debugMode) {
+      console.log("Hidrocarburos No Metánicos (NMH): "+newChange.valor);
+  };
+  $('#NMHValor').html(parseFloat(newChange.valor));
+});
+
+var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/45/");
+myFirebaseRef.on("value", function(snapshot) {
+  var newChange = snapshot.val();
+  console.log(newChange.tecnica);
+  $('#MEDNMHValor').html(newChange.tecnica);
+});
+
+
+
+/* 
+    == Parametros Meteorológicos ==
+*/
+
+
+// Temperatura Mínima (TMI): 
+var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/46/"+hora);
+myFirebaseRef.on("value", function(snapshot) {
+  var newChange = snapshot.val();
+  if (debugMode) {
+      console.log("Temperatura Mínima (TMI): "+newChange.valor);
+  };
+  $('#TMIValor').html(parseFloat(newChange.valor));
+});
+
+var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/46/");
+myFirebaseRef.on("value", function(snapshot) {
+  var newChange = snapshot.val();
+  console.log(newChange.tecnica);
+  $('#MEDTMIValor').html(newChange.tecnica);
+});
+
+/*
+== MEDIDAS ==
+
+34-46 Escuelas Aguirre
+---------------------------
+34 - Dióxido de Azufre (S02)
+35 - Monóxido de Carbono (CO)
+36 - Monóxido de Nitrógeno (NO)
+37 - Dióxido de Nitrógeno (NO2)
+38 - Óxidos de Nitrógeno totales (NOx)
+39 - Ozono (O3)
+40 - Tolueno (TOL)
+41 - Benceno (C6H6)
+42 - Etilbenceno (EBE)
+43 - Hidrocarburos Totales (HC)
+44 - Metano (CH4)
+45 - Hidrocarburos No Metánicos (NMH)
+46 - Temperatura Mínima (TMI)
+===========================
+
+Escuelas Aguirre
+- img: http://www.mambiente.munimadrid.es/opencms/export/sites/default/calaire/imagenes/foto-estacion8.jpg
+- Código: 28079008
+- Dirección: Entre c/ Alcalá y c/ O'Donell
+- Estación: 8
+- Longitud: 3º 40' 56,35'' W
+- Latitud: 40º 25' 17,63'' N
+- Altitud: 672 m.
+- Link: http://www.mambiente.munimadrid.es/opencms/opencms/calaire/contenidos/estaciones/estacion8.html
+
+*/        
+        
     </script>
     <!-- FIN SCRIPTS  -->
   </body>
