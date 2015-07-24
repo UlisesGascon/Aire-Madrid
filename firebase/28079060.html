@@ -13,80 +13,161 @@
 
     <!-- Bootstrap minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <!-- GITHUB RIBBON -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.1.1/gh-fork-ribbon.min.css" />
+    <!--[if lt IE 9]>
+      <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.1.1/gh-fork-ribbon.ie.min.css" />
+    <![endif]-->
+    <!-- CartoDB -->
+    <link rel="stylesheet" href="css/cartodb.css" />
+    
     <link rel="stylesheet" href="css/style.css">
  </head>
  <body>
-        <!-- Fixed navbar -->
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="index.html">Aire Madrid</a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="index.html">Home</a></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Estaciones <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="28079004.html">Plaza de España</a></li>
-                <li><a href="28079008.html">Escuelas Aguirre</a></li>
-                <li><a href="28079011.html">Ramón y Cajal</a></li>
-                <li><a href="28079016.html">Arturo Soria</a></li>
-                <li><a href="28079017.html">Villaverde</a></li>
-                <li><a href="28079018.html">Farolillo</a></li>
-                <li><a href="28079024.html">Casa de Campo</a></li>                
-                <li><a href="28079027.html">Barajas </a></li>                
-                <li><a href="28079035.html">Plaza del Carmen</a></li>
-                <li><a href="28079036.html">Moratalaz</a></li>
-                <li><a href="28079038.html">Cuatro Caminos</a></li>                
-                <li><a href="28079039.html">Barrio del Pilar</a></li>
-                <li><a href="28079040.html">Vallecas</a></li>                
-                <li><a href="28079047.html">Méndez Álvaro</a></li>                
-                <li><a href="28079048.html">Castellana</a></li>                
-                <li><a href="28079049.html">Parque del Retiro</a></li>   
-                <li><a href="28079050.html">Plaza Castilla</a></li>        
-                <li><a href="28079054.html">Ensanche de Vallecas</a></li>        
-                <li><a href="28079055.html">Urbanización Embajada</a></li>        
-                <li><a href="28079056.html">Plaza Fernández Ladreda</a></li>        
-                <li><a href="28079057.html">Sanchinarro</a></li>        
-                <li><a href="28079058.html">El Pardo</a></li>        
-                <li><a href="28079059.html">Parque Juan Carlos I</a></li>
-                <li><a href="28079060.html">Tres Olivos</a></li>                
-              </ul>
-            </li>
-            <li><a href="agradecimientos.html">Agradecimientos</a></li>
-            <li><a href="sobre.html">Sobre</a></li>
-            
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
-    </nav>
- 
-     
+
+<div id="customCabecera"></div>
+
     <div class="container container-principal">
 
-<!-- 2.1 Contenido Cabecera  -->  
+
+<!-- 2.1 Contenido Cabecera  -->   
       <div class="page-header">
-        <h1>Tres Olivos <small>Calidad del Aire</small></h1>
+        <h1><span id="estacionNombre"></span> <small><span id="estacionNumero"></span></small></h1>
       </div>
 
       <div class="row"> 
+          <div class="col-lg-8">
+              <div id="map2"></div>
+          </div>
+          <div class="col-lg-4">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                Estación
+              </div>  
+              <div id="estacionFoto" class="panel-body"></div>
+            </div>
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                Ubicación
+              </div>  
+              <div class="panel-body">
+                
+                        <p>Dirección: <span id="estacionDireccion"></span></p>
+                        <p>Longitud: <span id="estacionLongitud"></span></p>
+                        <p>Latitud: <span id="estacionLatitud"></span></p>
+                        <p>Altitud: <span id="estacionAltitud"></span></p>
+                        <p>Código: <span id="estacionCodigo"></span></p>
+
+              </div>
+            </div>
+          </div>
       </div>
-    </div>
+      <div class="row"> 
+          <div class="col-lg-12">
+              <h3 class="pull-left">Datos:</h3>
+              <h3 class="pull-right"><abbr class="timeago"></abbr></h3>
+          </div>
+      </div>
+      <div class="row">          
+          <div class="col-lg-6">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                      Contaminantes Medidos
+                    </div>  
+                    <div id="customContamintantesMedidos" class="panel-body"></div>
+                </div>
+          </div>
+          <div class="col-lg-6">
+                
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                      Parámetros Meteorológicos
+                    </div>  
+                    <div id="customParametrosMetereologicos"  class="panel-body"></div>
+                </div>
+          </div>
+      </div>      
+      <div class="row"> 
+          <div class="col-lg-12">
+              <h3> Otras Estaciones:</h3>
+          </div>
+      </div>         
+      <div id="customEstaciones" class="row"></div>
+
+      <div class="row"> 
+          <div class="col-lg-12">
+              <h3>Datos e Imágenes:</h3>
+          </div>
+      </div>
+      <div id="allDatos" class="row"></div>
+    </div> <!-- FIN container-principal -->
+<div id="allFooter"></div>     
+<div id="allModals"></div>   
+
+
 <!-- 3.1 Librerias de terceros -->
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>    
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script> 
+    <!-- Firebase -->
     <script src="https://cdn.firebase.com/js/client/2.2.7/firebase.js"></script>
+    <!-- Time Ago-->
+    <script src="js/timeago.js"></script>
+    <!-- CartoDB -->
+    <script src="js/cartodb.js"></script>
+    <!-- Aire Madrid (General)-->
+    <script src="js/airemadrid.js"></script>   
     <script type="text/javascript">
+
+
+// CartoDB Map
+cartodb.createVis('map2', 'https://ulisesgascongonzalez.cartodb.com/api/v2/viz/d5e4bb3a-31b4-11e5-b52a-0e4fddd5de28/viz.json');
+
+var estacionNombre = "Tres Olivos";
+var estacionNumero = 60;
+var estacionDireccion = "Plaza de Tres Olivos";
+var estacionLongitud = "3%BA%2041%27%2023%22%20W";
+var estacionLatitud = "40%BA%2030%27%2002%22%20N";
+var estacionAltitud = "715m";
+var estacionCodigo = 28079060;
+var estacionUrl = "http://www.mambiente.munimadrid.es/opencms/opencms/calaire/contenidos/estaciones/estacion60.html";
+
+/*ContamintantesMedidos*/
+
+// Monóxido de Nitrógeno (NO)
+NOEnable = true;
+NOKey = "234/";
+// Dióxido de Nitrógeno (NO2)
+NO2Enable = true;
+NO2Key = "235/";
+// Partículas en suspensión (<10)
+PS10Enable = true;
+PS10Key = "236/";
+// Óxidos de Nitrógeno totales (NOx)
+NOXEnable = true;
+NOXKey = "237/";
+// Ozono (O3)
+O3Enable = true;
+O3Key = "238/";
+
+/* ParametrosMetereologicos */
+
+// Temperatura Mínima (TMI)
+TMIEnable = true;
+TMIKey = "239/";
+// Presión Barométrica (PRB)
+PRBEnable = true;
+PRBKey = "240/";
+
+getEstationInfo();
+getEstationtemplate();
+
+getContamintantesMedidos();
+getParametrosMetereologicos();
+        
     </script>
     <!-- FIN SCRIPTS  -->
   </body>
