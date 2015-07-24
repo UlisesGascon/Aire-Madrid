@@ -26,76 +26,14 @@
  </head>
  <body>
 
-<!-- GitHub Ribbon -->
-    <div class="github-fork-ribbon-wrapper right">
-        <div class="github-fork-ribbon">
-            <a target="_blank" href="https://github.com/UlisesGascon/Aire-Madrid">Fork me on GitHub</a>
-        </div>
-    </div>
-    
+<div id="customCabecera"></div>
 
-    
-    
-    
-        <!-- Fixed navbar -->
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="index.html">Aire Madrid</a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li ><a href="index.html">Home</a></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Estaciones <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="28079004.html">Plaza de España</a></li>
-                <li><a href="28079008.html">Escuelas Aguirre</a></li>
-                <li><a href="28079011.html">Ramón y Cajal</a></li>
-                <li><a href="28079016.html">Arturo Soria</a></li>
-                <li><a href="28079017.html">Villaverde</a></li>
-                <li><a href="28079018.html">Farolillo</a></li>
-                <li><a href="28079024.html">Casa de Campo</a></li>                
-                <li><a href="28079027.html">Barajas </a></li>                
-                <li><a href="28079035.html">Plaza del Carmen</a></li>
-                <li><a href="28079036.html">Moratalaz</a></li>
-                <li><a href="28079038.html">Cuatro Caminos</a></li>                
-                <li><a href="28079039.html">Barrio del Pilar</a></li>
-                <li><a href="28079040.html">Vallecas</a></li>                
-                <li><a href="28079047.html">Méndez Álvaro</a></li>                
-                <li><a href="28079048.html">Castellana</a></li>                
-                <li><a href="28079049.html">Parque del Retiro</a></li>   
-                <li><a href="28079050.html">Plaza Castilla</a></li>        
-                <li><a href="28079054.html">Ensanche de Vallecas</a></li>        
-                <li><a href="28079055.html">Urbanización Embajada</a></li>        
-                <li><a href="28079056.html">Plaza Fernández Ladreda</a></li>        
-                <li><a href="28079057.html">Sanchinarro</a></li>        
-                <li><a href="28079058.html">El Pardo</a></li>        
-                <li><a href="28079059.html">Parque Juan Carlos I</a></li>
-                <li><a href="28079060.html">Tres Olivos</a></li>                
-              </ul>
-            </li>
-            <li><a href="agradecimientos.html">Agradecimientos</a></li>
-            <li><a href="sobre.html">Sobre</a></li>
-            
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
-    </nav>
- 
-     
     <div class="container container-principal">
 
 
 <!-- 2.1 Contenido Cabecera  -->   
       <div class="page-header">
-        <h1>Barajas <small>Estación 27</small></h1>
+        <h1><span id="estacionNombre"></span> <small><span id="estacionNumero"></span></small></h1>
       </div>
 
       <div class="row"> 
@@ -107,11 +45,7 @@
               <div class="panel-heading">
                 Estación
               </div>  
-              <div class="panel-body">
-
-               <img class="img-responsive" src="img/foto-estacion27.jpg"></img>                      
-
-              </div>
+              <div id="estacionFoto" class="panel-body"></div>
             </div>
             <div class="panel panel-default">
               <div class="panel-heading">
@@ -119,11 +53,11 @@
               </div>  
               <div class="panel-body">
                 
-                        <p>Dirección: C/ Júpiter, 21</p>
-                        <p>Longitud: 3° 34' 48,10" W</p>
-                        <p>Latitud: 40° 28' 36,94" N</p>
-                        <p>Altitud: 631m</p>
-                        <p>Código: <a target='_blank' href="http://www.mambiente.munimadrid.es/opencms/opencms/calaire/contenidos/estaciones/estacion27.html">28079027</a></p>
+                        <p>Dirección: <span id="estacionDireccion"></span></p>
+                        <p>Longitud: <span id="estacionLongitud"></span></p>
+                        <p>Latitud: <span id="estacionLatitud"></span></p>
+                        <p>Altitud: <span id="estacionAltitud"></span></p>
+                        <p>Código: <span id="estacionCodigo"></span></p>
 
               </div>
             </div>
@@ -141,14 +75,7 @@
                     <div class="panel-heading">
                       Contaminantes Medidos
                     </div>  
-                    <div class="panel-body">
-
-                        <p><a href="#" data-toggle="modal" data-target="#NOModal">Monóxido de Nitrógeno (NO):</a> <span id="NOValor"></span> μg/m<sup>3</sup> medido por <span id="MEDNOValor"></span></p>
-                        <p><a href="#" data-toggle="modal" data-target="#NO2Modal">Dióxido de Nitrógeno (NO<sub>2</sub>):</a> <span id="NO2Valor"></span> μg/m<sup>3</sup> medido por <span id="MEDNO2Valor"></span></p>
-                        <p>Óxidos de Nitrógeno totales (NOx): <span id="NOXValor"></span> μg/m<sup>3</sup> medido por <span id="MEDNOXValor"></span></p>                        
-                        <p><a href="#" data-toggle="modal" data-target="#O3Modal">Ozono (O<sub>3</sub>):</a> <span id="O3Valor"></span> μg/m<sup>3</sup> medido por <span id="MEDO3Valor"></span></p>
-                        
-                    </div>
+                    <div id="customContamintantesMedidos" class="panel-body"></div>
                 </div>
           </div>
           <div class="col-lg-6">
@@ -157,11 +84,7 @@
                     <div class="panel-heading">
                       Parámetros Meteorológicos
                     </div>  
-                    <div class="panel-body">
-
-                        <p>Temperatura Mínima (TMI): <span id="TMIValor"></span>°C medido por <span id="MEDTMIValor"></span></p>
-
-                    </div>
+                    <div id="customParametrosMetereologicos"  class="panel-body"></div>
                 </div>
           </div>
       </div>      
@@ -170,259 +93,17 @@
               <h3> Otras Estaciones:</h3>
           </div>
       </div>         
-      <div class="row">
-       
-                  <div class="col-lg-3">
-                        <p><a href="28079004.html">Plaza de España</a></p>
-                        <p><a href="28079008.html">Escuelas Aguirre</a></p>
-                        <p><a href="28079011.html">Ramón y Cajal</a></p>
-                        <p><a href="28079016.html">Arturo Soria</a></p>
-                        <p><a href="28079017.html">Villaverde</a></p>
-                        <p><a href="28079018.html">farolillo</a></p>
-                         
-                  </div>
-                  <div class="col-lg-3"> 
-                        <p><a href="28079024.html">Casa de Campo</a></p>                
-                        <p><a href="28079027.html">Barajas </a></p>                
-                        <p><a href="28079035.html">Plaza del Carmen</a></p>
-                        <p><a href="28079036.html">Moratalaz</a></p>
-                        <p><a href="28079038.html">Cuatro Caminos</a></p>                
-                        <p><a href="28079039.html">Barrio del Pilar</a></p>
-                        
-                  </div>    
-                  <div class="col-lg-3"> 
-                        <p><a href="28079040.html">Vallecas</a></p>                
-                        <p><a href="28079047.html">Méndez Álvaro</a></p>                
-                        <p><a href="28079048.html">Castellana</a></p>                
-                        <p><a href="28079049.html">Parque del Retiro</a></p>   
-                        <p><a href="28079050.html">Plaza Castilla</a></p>        
-                        <p><a href="28079054.html">Ensanche de Vallecas</a></p>        
-                        
-                  </div>    
-                  <div class="col-lg-3"> 
-                        <p><a href="28079055.html">Urbanización Embajada</a></p>        
-                        <p><a href="28079056.html">Plaza Fernández Ladreda</a></p>        
-                        <p><a href="28079057.html">Sanchinarro</a></p>        
-                        <p><a href="28079058.html">El Pardo</a></p>        
-                        <p><a href="28079059.html">Parque Juan Carlos I</a></p>
-                        <p><a href="28079060.html">Tres Olivos</a></p>
-                  </div>  
-      
-      </div>
+      <div id="customEstaciones" class="row"></div>
 
       <div class="row"> 
           <div class="col-lg-12">
               <h3>Datos e Imágenes:</h3>
           </div>
       </div>
-      <div class="row"> 
-          <div class="col-lg-2"></div>
-          <div class="col-lg-3">
-            <a href="http://www.madrid.es/portal/site/munimadrid" target="_blank"><img class="img-responsive" src="img/logo-madrid.png"></img></a>
-          </div>
-          <div class="col-lg-2">
-            <a href="https://es.wikipedia.org/wiki/Wikipedia:Portada" target="_blank"><img id="img-wikipedia" class="img-responsive" src="img/rsz_1wikipedia-logo.jpg"></img></a>
-          </div>
-          <div class="col-lg-3">
-            <a href="http://www.magrama.gob.es/es/" target="_blank"><img id="ministerio-MA" class="img-responsive" src="img/ministerio-medio-ambiente.jpg"></img></a>
-          </div>
-          <div class="col-lg-2"></div>
-      </div>
-      
+      <div id="allDatos" class="row"></div>
     </div> <!-- FIN container-principal -->
-    
-    <footer class="footer">
-        <div class="container">
-
-            <img  height="30" src="img/logo_ulises.png">
-
-            <a class="pfooter pull-right" target="_blank" href="https://twitter.com/kom_256"><p class="pull-right fa fa-twitter-square"></p></a>
-            <a class="pfooter pull-right" target="_blank" href="https://github.com/UlisesGascon"><p class="pull-right fa fa-github-square" ></p></a>
-
-        </div>
-    </footer>    
-    
-        <!-- Modal [NOModal] monóxido de Nitrógeno (NO):   -->
-<div class="modal fade" id="NOModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Monóxido de Nitrógeno (NO)</h4>
-      </div>
-      <div class="modal-body">
-
-        <div class="row">
-            <div class="col-lg-12">
-                <img src="img/peligrosidad_monoxido_de_nitrogeno.png" class="pull-left img-responsive img-peligrosidad"></img>
-                <p><em><span>[3]Muy peligroso</span>
-                <span>[0]No se inflama</span>
-                <span>[2]Inestable en caso de cambio químico violento</span>
-                <span>[OX] Oxidante</span></em></p>
-                <p>El óxido de nitrógeno (II), óxido nítrico o monóxido de nitrógeno (NO) 
-                es un gas incoloro y poco soluble en agua presente en pequeñas cantidades en los mamíferos. 
-                Está también extendido por el aire siendo producido en automóviles y plantas de energía. Se lo considera un agente tóxico.</p>
-                
-                <p>A altas temperaturas el nitrógeno (N<sub>2</sub>) y el oxígeno (O<sub>2</sub>) moleculares pueden combinarse para formar óxido nítrico; 
-                por ello las actividades humanas han incrementado en gran medida la presencia de este gas en la atmósfera.</p>
-                
-                <p>Este gas en el aire puede convertirse, más tarde, en ácido nítrico produciendo así lluvia ácida. 
-                Además el NO y el NO<sub>2</sub> son en parte responsables del agujero de la capa de ozono.</p>
-                
-                <p>Su efecto para con la radiación solar es doble. Mientras en la baja atmósfera contribuyen al calentamiento global en la alta lo hacen al oscurecimiento global.</p>
-                
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="col-lg-12">
-                <em>Fuente: <a target="_blank" href="https://www.wikiwand.com/es/%C3%93xido_de_nitr%C3%B3geno_(II)">Wikipedia</a></em>
-            </div>
-        </div>
-
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-    
-        <!-- Modal [NO2Modal] Dióxido de Nitrógeno (NO2):   -->
-<div class="modal fade" id="NO2Modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Dióxido de Nitrógeno (NO<sub>2</sub>)</h4>
-      </div>
-      <div class="modal-body">
-
-        <div class="row">
-            <div class="col-lg-12">
-                <img src="img/peligrosidad_dioxido_de_nitrogeno.png" class="pull-left img-responsive img-peligrosidad"></img>
-                <p><em><span>[3]Muy peligroso</span>
-                <span>[0]No se inflama</span>
-                <span>[0]Estable</span></em></p>
-                <p>El dióxido de nitrógeno u óxido de nitrógeno (IV) (NO<sub>2</sub>), es un compuesto químico formado por los elementos nitrógeno y oxígeno, 
-                uno de los principales contaminantes entre los varios óxidos de nitrógeno.</p>
-                
-                <p>El dióxido de nitrógeno es de color marrón-amarillento. Se forma como subproducto en los procesos de combustión a altas temperaturas, 
-                como en los vehículos motorizados y las plantas eléctricas. Por ello es un contaminante frecuente en zonas urbanas.</p>
-                
-                <p>Es un gas tóxico, irritante y precursor de la formación de partículas de nitrato. Estas llevan a la producción de ácido y elevados niveles de PM-2.5 en el ambiente. 
-                Afecta principalmente al sistema respiratorio. La exposición a corto plazo en altos niveles causa daños en las células pulmonares, 
-                mientras que la exposición a más largo plazo en niveles bajos de dióxido de nitrógeno puede causar cambios irreversibles en el tejido pulmonar similares a un enfisema.</p>
-                
-                <p>El dióxido de nitrógeno es un contaminante indicador del tráfico rodado fundamentalmente,
-                es emitido especialmente por los vehículos diesel (emisiones directas o “primarias”), pero se
-                produce también por la oxidación del monóxido de nitrógeno, emitido también por los
-                vehículos (dióxido de nitrógeno secundario).</p>
-                
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-4">
-                <div class="panel panel-default">
-                  <div class="panel-heading">Límite horario</div>
-                  <div class="panel-body">
-                    <h3>200 μg/m<sup>3</sup></h3>
-                    que no podrá superarse en más de 18 ocasiones por año
-                  </div>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="panel panel-default">
-                  <div class="panel-heading">Límite anual</div>
-                  <div class="panel-body">
-                    <h3>40 μg/m<sup>3</sup></h3>
-                  </div>
-                </div>
-            </div>            
-            <div class="col-lg-4">
-                <div class="panel panel-default">
-                  <div class="panel-heading">Umbral de Alerta</div>
-                  <div class="panel-body">
-                    <h3>400 μg/m<sup>3</sup></h3>
-                    durante tres horas consecutivas en un área &#62;100 km<sup>2</sup>
-                  </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-12">
-                <em>Fuente: <a target="_blank" href="https://www.wikiwand.com/es/Di%C3%B3xido_de_nitr%C3%B3geno">Wikipedia</a> y <a target="_blank" href="http://www.madrid.es/UnidadesDescentralizadas/Sostenibilidad/ContenidosBasicos/Ficheros/PlanCalidadAire2012.pdf">Ayuntamiento de Madrid</a></em>
-            </div>
-        </div>
-
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-      </div>
-    </div>
-  </div>
-</div>    
-    
-    
-         <!-- Modal [O3Modal] Ozono (O3):   -->
-<div class="modal fade" id="O3Modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Ozono (O<sub>3</sub>)</h4>
-      </div>
-      <div class="modal-body">
-
-        <div class="row">
-            <div class="col-lg-12">
-                <p>El ozono (O<sub>3</sub>) es una sustancia cuya molécula está compuesta por tres átomos de oxígeno, formada al disociarse los dos átomos que componen el gas de oxígeno. 
-                Cada átomo de oxígeno liberado se une a otra molécula de oxígeno gaseoso (O<sub>2</sub>), formando moléculas de ozono (O<sub>3</sub>).</p>
-
-                <p>A temperatura y presión ambientales el ozono es un gas de olor acre y generalmente incoloro, pero en grandes concentraciones puede volverse ligeramente azulado. 
-                Si se respira en grandes cantidades, puede provocar una irritación en los ojos y/o garganta, la cual suele pasar después de respirar aire fresco por algunos minutos.</p>
-                
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-2">
-            </div>
-            <div class="col-lg-4">
-                <div class="panel panel-default">
-                  <div class="panel-heading">Umbral información</div>
-                  <div class="panel-body">
-                    <h3>180 μg/m<sup>3</sup></h3>
-                    Como valor medio de 1 hora
-                  </div>
-                </div>
-            </div>            
-            <div class="col-lg-4">
-                <div class="panel panel-default">
-                  <div class="panel-heading">Umbral de Alerta</div>
-                  <div class="panel-body">
-                    <h3>240 μg/m<sup>3</sup></h3>
-                    Como valor medio de 1 hora
-                  </div>
-                </div>
-            </div>
-            <div class="col-lg-2">
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-12">
-                <em>Fuente: <a target="_blank" href="https://www.wikiwand.com/es/Ozono">Wikipedia</a> y <a target="_blank" href="http://www.madrid.es/UnidadesDescentralizadas/Sostenibilidad/ContenidosBasicos/Ficheros/PlanCalidadAire2012.pdf">Ayuntamiento de Madrid</a></em>
-            </div>
-        </div>
-
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-      </div>
-    </div>
-  </div>
-</div>  
-
+<div id="allFooter"></div>     
+<div id="allModals"></div>   
 
 
 <!-- 3.1 Librerias de terceros -->
@@ -437,250 +118,53 @@
     <script src="js/timeago.js"></script>
     <!-- CartoDB -->
     <script src="js/cartodb.js"></script>
+    <!-- Aire Madrid (General)-->
+    <script src="js/airemadrid.js"></script>   
     <script type="text/javascript">
-   
-    var debugMode = true;
-    var serverDate = null;
-    var realTimeAgo = null;
 
 
-   // CartoDB Map
-  cartodb.createVis('map2', 'https://ulisesgascongonzalez.cartodb.com/api/v2/viz/5b2ff7ac-3136-11e5-8605-0e853d047bba/viz.json');
+// CartoDB Map
+cartodb.createVis('map2', 'https://ulisesgascongonzalez.cartodb.com/api/v2/viz/5b2ff7ac-3136-11e5-8605-0e853d047bba/viz.json');
+
+var estacionNombre = "Barajas";
+var estacionNumero = 27;
+var estacionDireccion = "C/ Júpiter, 21";
+var estacionLongitud = "3%BA%2034%27%2048%2C10%22%20W";
+var estacionLatitud = "40%BA%2028%27%2036%2C94%22%20N";
+var estacionAltitud = "631m";
+var estacionCodigo = 28079027;
+var estacionUrl = "http://www.mambiente.munimadrid.es/opencms/opencms/calaire/contenidos/estaciones/estacion27.html";
+
+/*ContamintantesMedidos*/
 
 
-/* 
-    - INICIO - Gestion del tiempo 
-*/
-var horaActual = getHourTime();
-
-function getHourTime() {
-    var date = new Date();
-    var hour = date.getHours();
-    hour = (hour < 10 ? "0" : "") + hour;
-    if (debugMode) {
-    console.log("hora es "+hour );
-    };
-    return hour
-};
-
-if (horaActual<=13) {
-    
-    var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/0/fecha");
-    myFirebaseRef.on("value", function(snapshot) {
-    
-      var newChange = snapshot.val();
-      var res = newChange.split("");
-      serverDate = ""+res[4]+""+res[5]+""+res[6]+""+res[7]+"-"+res[2]+""+res[3]+"-"+res[0]+""+res[1]+"T";
-      
-        realTimeAgo = serverDate+"05:00:00Z"
-        var userTimeAgo = ""+res[0]+""+res[1]+"/"+res[2]+""+res[3]+"/"+res[4]+""+res[5]+""+res[6]+""+res[7]+" a las 05:00"
-        $("abbr.timeago").html(userTimeAgo).attr("title", realTimeAgo).timeago();
-
-        
-        
-        if (debugMode) {
-        console.log("la hora definida es "+hora);
-        console.log("El tiempo para TiemAgo es "+realTimeAgo);
-        };
-    
-    });
-    var hora = "hora5/"
-    
-} else if (horaActual <= 19){
-    
-    var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/0/fecha");
-    myFirebaseRef.on("value", function(snapshot) {
-    
-      var newChange = snapshot.val();
-      var res = newChange.split("");
-      serverDate = ""+res[4]+""+res[5]+""+res[6]+""+res[7]+"-"+res[2]+""+res[3]+"-"+res[0]+""+res[1]+"T";
-      
-        realTimeAgo = serverDate+"11:00:00Z"
-        var userTimeAgo = ""+res[0]+""+res[1]+"/"+res[2]+""+res[3]+"/"+res[4]+""+res[5]+""+res[6]+""+res[7]+" a las 11:00"
-        $("abbr.timeago").html(userTimeAgo).attr("title", realTimeAgo).timeago();
-
-        
-        
-        if (debugMode) {
-        console.log("la hora definida es "+hora);
-        console.log("El tiempo para TiemAgo es "+realTimeAgo);
-        };
-    
-    });
-    var hora = "hora11/"
-    
-} else if (horaActual <= 1){
-        var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/0/fecha");
-    myFirebaseRef.on("value", function(snapshot) {
-    
-      var newChange = snapshot.val();
-      var res = newChange.split("");
-      serverDate = ""+res[4]+""+res[5]+""+res[6]+""+res[7]+"-"+res[2]+""+res[3]+"-"+res[0]+""+res[1]+"T";
-      
-        realTimeAgo = serverDate+"17:00:00Z"
-        var userTimeAgo = ""+res[0]+""+res[1]+"/"+res[2]+""+res[3]+"/"+res[4]+""+res[5]+""+res[6]+""+res[7]+" a las 17:00"
-        $("abbr.timeago").html(userTimeAgo).attr("title", realTimeAgo).timeago();
-
-        
-        
-        if (debugMode) {
-        console.log("la hora definida es "+hora);
-        console.log("El tiempo para TiemAgo es "+realTimeAgo);
-        };
-    
-    });
-    var hora = "hora17/"
-    
-} else if (horaActual <= 7){   
-        var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/0/fecha");
-    myFirebaseRef.on("value", function(snapshot) {
-    
-      var newChange = snapshot.val();
-      var res = newChange.split("");
-      serverDate = ""+res[4]+""+res[5]+""+res[6]+""+res[7]+"-"+res[2]+""+res[3]+"-"+res[0]+""+res[1]+"T";
-      
-        realTimeAgo = serverDate+"23:00:00Z"
-        var userTimeAgo = ""+res[0]+""+res[1]+"/"+res[2]+""+res[3]+"/"+res[4]+""+res[5]+""+res[6]+""+res[7]+" a las 23:00"
-        $("abbr.timeago").html(userTimeAgo).attr("title", realTimeAgo).timeago();
-
-        
-        
-        if (debugMode) {
-        console.log("la hora definida es "+hora);
-        console.log("El tiempo para TiemAgo es "+realTimeAgo);
-        };
-    
-    });
-    var hora = "hora23/"
-};
-
-/* - FIN - Gestion del tiempo */
+// Monóxido de Nitrógeno (NO)
+NOEnable = true;
+NOKey = "106/";
+// Dióxido de Nitrógeno (NO2)
+NO2Enable = true;
+NO2Key = "107/";
+// Óxidos de Nitrógeno totales (NOx)
+NOXEnable = true;
+NOXKey = "108/";
+// Ozono (O3)
+O3Enable = true;
+O3Key = "109/";
 
 
-/* 
-    == Contaminantes Medidos ==
-*/
+/* ParametrosMetereologicos */
 
 
-// Monóxido de Nitrógeno (NO): 
-var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/106/"+hora);
-myFirebaseRef.on("value", function(snapshot) {
-  var newChange = snapshot.val();
-  if (debugMode) {
-      console.log("Monóxido de Nitrógeno (NO): "+newChange.valor);
-  };
-  $('#NOValor').html(parseFloat(newChange.valor));
-});
-
-var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/106/");
-myFirebaseRef.on("value", function(snapshot) {
-  var newChange = snapshot.val();
-  console.log(newChange.tecnica);
-  $('#MEDNOValor').html(newChange.tecnica);
-});
+// Temperatura Mínima (TMI)
+TMIEnable = true;
+TMIKey = "110/";
 
 
-// Dióxido de Nitrógeno (NO2): 
-var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/107/"+hora);
-myFirebaseRef.on("value", function(snapshot) {
-  var newChange = snapshot.val();
-  if (debugMode) {
-      console.log("Dióxido de Nitrógeno (NO2): "+newChange.valor);
-  };
-  $('#NO2Valor').html(parseFloat(newChange.valor));
-});
+getEstationInfo();
+getEstationtemplate();
 
-var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/107/");
-myFirebaseRef.on("value", function(snapshot) {
-  var newChange = snapshot.val();
-  console.log(newChange.tecnica);
-  $('#MEDNO2Valor').html(newChange.tecnica);
-});
-
-
-
-// Óxidos de Nitrógeno totales (NOx): 
-var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/108/"+hora);
-myFirebaseRef.on("value", function(snapshot) {
-  var newChange = snapshot.val();
-  if (debugMode) {
-      console.log("Óxidos de Nitrógeno totales (NOx): "+newChange.valor);
-  };
-  $('#NOXValor').html(parseFloat(newChange.valor));
-});
-
-var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/108/");
-myFirebaseRef.on("value", function(snapshot) {
-  var newChange = snapshot.val();
-  console.log(newChange.tecnica);
-  $('#MEDNOXValor').html(newChange.tecnica);
-});
-
-
-// Ozono (O3): 
-var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/109/"+hora);
-myFirebaseRef.on("value", function(snapshot) {
-  var newChange = snapshot.val();
-  if (debugMode) {
-      console.log("Ozono (O3): "+newChange.valor);
-  };
-  $('#O3Valor').html(parseFloat(newChange.valor));
-});
-
-var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/109/");
-myFirebaseRef.on("value", function(snapshot) {
-  var newChange = snapshot.val();
-  console.log(newChange.tecnica);
-  $('#MEDO3Valor').html(newChange.tecnica);
-});
-
-
-/* 
-    == Parametros Meteorológicos ==
-*/
-
-// Temperatura Mínima (TMI): 
-var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/110/"+hora);
-myFirebaseRef.on("value", function(snapshot) {
-  var newChange = snapshot.val();
-  if (debugMode) {
-      console.log("Temperatura Mínima (TMI): "+newChange.valor);
-  };
-  $('#TMIValor').html(parseFloat(newChange.valor));
-});
-
-var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/110/");
-myFirebaseRef.on("value", function(snapshot) {
-  var newChange = snapshot.val();
-  console.log(newChange.tecnica);
-  $('#MEDTMIValor').html(newChange.tecnica);
-});
-
-
-/*
-== MEDIDAS ==
-
-106-110 Barajas 
----------------------------
-106 - Monóxido de Nitrógeno (NO)
-107 - Dióxido de Nitrógeno (NO2)
-108 - Óxidos de Nitrógeno totales (NOx)
-109 - Ozono (O3)
-
-110 - Temperatura Mínima (TMI)
-===========================
-
-Barajas
-- img: http://www.mambiente.munimadrid.es/opencms/export/sites/default/calaire/imagenes/foto-estacion27.jpg
-- Código: 28079027
-- Dirección:  C/ Júpiter, 21
-- Estación: 27
-- Longitud: 3º 34' 48,10'' W
-- Latitud: 40º 28' 36,94'' N
-- Altitud: 631 mts
-- Link: http://www.mambiente.munimadrid.es/opencms/opencms/calaire/contenidos/estaciones/estacion27.html
-
-*/        
+getContamintantesMedidos();
+getParametrosMetereologicos();
         
     </script>
     <!-- FIN SCRIPTS  -->
