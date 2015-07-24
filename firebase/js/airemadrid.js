@@ -6,6 +6,53 @@ var realTimeAgo = null;
 var dbUrl = "https://angularjstestings.firebaseio.com/";
 var dbSection = "last/";
 
+
+var SO2Enable = false;
+var COEnable = false;
+var NOEnable = false;
+var NO2Enable = false;
+var PS25Enable = false;
+var PS10Enable = false;
+var NOXEnable = false;
+var O3Enable = false;
+var TOLEnable = false;
+var BENEnable = false;
+var EBEEnable = false;
+var HCEnable = false;
+var CH4Enable = false;
+var NMHEnable = false;
+var UVEnable = false;
+var VVEnable = false;
+var DDEnable = false;
+var TMPEnable = false;
+var TMIEnable = false;
+var HREnable = false;
+var PRBEnable = false;
+
+var SO2Key = null; 
+var COKey = null;
+var NOKey = null;
+var NO2Key = null;
+var PS25Key = null;
+var PS10Key = null;
+var NOXKey = null;
+var O3Key = null;
+var TOLKey = null;
+var BENKey = null;
+var EBEKey = null;
+var HCKey = null;
+var CH4Key = null;
+var NMHKey = null;
+var UVKey = null;
+var VVKey = null;
+var DDKey = null;
+var TMPKey = null;
+var TMIKey = null
+var HRKey = null;
+var PRBKey = null;
+
+
+
 /* Contaminantes medidos */
 
 // // Dióxido de Azufre (S02):

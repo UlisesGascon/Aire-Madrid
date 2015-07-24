@@ -123,8 +123,8 @@
     <script type="text/javascript">
 
 
-   // CartoDB Map
-  cartodb.createVis('map2', 'https://ulisesgascongonzalez.cartodb.com/api/v2/viz/3bac2126-3131-11e5-bd2c-0e9d821ea90d/viz.json');
+// CartoDB Map
+cartodb.createVis('map2', 'https://ulisesgascongonzalez.cartodb.com/api/v2/viz/3bac2126-3131-11e5-bd2c-0e9d821ea90d/viz.json');
 
 var estacionNombre = "Casa de Campo";
 var estacionNumero = 24;
@@ -138,83 +138,77 @@ var estacionUrl = "http://www.mambiente.munimadrid.es/opencms/opencms/calaire/co
 /*ContamintantesMedidos*/
 
 // Dióxido de Azufre (S02) 
-var SO2Enable = true;
-var SO2Key = "83/"; // LIKE -> "1/"
+SO2Enable = true;
+SO2Key = "83/"; // LIKE -> "1/"
 // Monóxido de Carbono (CO)
-var COEnable = true;
-var COKey = "84/";
+COEnable = true;
+COKey = "84/";
 // Monóxido de Nitrógeno (NO)
-var NOEnable = true;
-var NOKey = "85/";
+NOEnable = true;
+NOKey = "85/";
 // Dióxido de Nitrógeno (NO2)
-var NO2Enable = true;
-var NO2Key = "86/";
+NO2Enable = true;
+NO2Key = "86/";
 // Partículas en suspensión (<2.5)
-var PS25Enable = true;
-var PS25Key = "87/";
+PS25Enable = true;
+PS25Key = "87/";
 // Partículas en suspensión (<10)
-var PS10Enable = true;
-var PS10Key = "88/";
+PS10Enable = true;
+PS10Key = "88/";
 // Óxidos de Nitrógeno totales (NOx)
-var NOXEnable = true;
-var NOXKey = "89/";
+NOXEnable = true;
+NOXKey = "89/";
 // Ozono (O3)
-var O3Enable = true;
-var O3Key = "90/";
+O3Enable = true;
+O3Key = "90/";
 // Tolueno (TOL)
-var TOLEnable = true;
-var TOLKey = "91/";
+TOLEnable = true;
+TOLKey = "91/";
 // Benceno (C6H6)
-var BENEnable = true;
-var BENKey = "92/";
+BENEnable = true;
+BENKey = "92/";
 // Etilbenceno (EBE)
-var EBEEnable = true;
-var EBEKey = "93/";
+EBEEnable = true;
+EBEKey = "93/";
 // Hidrocarburos Totales (HC)
-var HCEnable = true;
-var HCKey = "94/";
+HCEnable = true;
+HCKey = "94/";
 // Metano (CH4)
-var CH4Enable = true;
-var CH4Key = "95/";
+CH4Enable = true;
+CH4Key = "95/";
 // Hidrocarburos No Metánicos (NMH)
-var NMHEnable = true;
-var NMHKey = "96/";
+NMHEnable = true;
+NMHKey = "96/";
 
 /* ParametrosMetereologicos */
 
 // Radiación Ultravioleta (UV)
-var UVEnable = true;
-var UVKey = "97/";
+UVEnable = true;
+UVKey = "97/";
 // Velocidad del Viento (VV)
-var VVEnable = true;
-var VVKey = "98/";
+VVEnable = true;
+VVKey = "98/";
 // Dirección del Viento (DD)
-var DDEnable = true;
-var DDKey = "99/";
+DDEnable = true;
+DDKey = "99/";
 // Temperatura Media (TMP)
-var TMPEnable = true;
-var TMPKey = "100/";
+TMPEnable = true;
+TMPKey = "100/";
 // Temperatura Mínima (TMI)
-var TMIEnable = true;
-var TMIKey = "101/";
+TMIEnable = true;
+TMIKey = "101/";
 // Humedad Relativa (HR)
-var HREnable = true;
-var HRKey = "102/";
+HREnable = true;
+HRKey = "102/";
 // Presión Barométrica (PRB)
-var PRBEnable = true;
-var PRBKey = "103/";
-
-
+PRBEnable = true;
+PRBKey = "103/";
 
 getEstationInfo();
 getEstationtemplate();
 
 getContamintantesMedidos();
 getParametrosMetereologicos();
-
-
-
-  
         
     </script>
     <!-- FIN SCRIPTS  -->
