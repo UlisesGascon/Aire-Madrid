@@ -302,7 +302,126 @@ var allCabecera = '<div class="github-fork-ribbon-wrapper right"> <div class="gi
 
 // Custom
 
+var customEstaciones = '<div class="col-lg-3"> <p><a href="28079004.html">Plaza de España</a></p><p><a href="28079008.html">Escuelas Aguirre</a></p><p><a href="28079011.html">Ramón y Cajal</a></p><p><a href="28079016.html">Arturo Soria</a></p><p><a href="28079017.html">Villaverde</a></p><p><a href="28079018.html">farolillo</a></p></div><div class="col-lg-3"> <p><a href="28079024.html">Casa de Campo</a></p><p><a href="28079027.html">Barajas </a></p><p><a href="28079035.html">Plaza del Carmen</a></p><p><a href="28079036.html">Moratalaz</a></p><p><a href="28079038.html">Cuatro Caminos</a></p><p><a href="28079039.html">Barrio del Pilar</a></p></div><div class="col-lg-3"> <p><a href="28079040.html">Vallecas</a></p><p><a href="28079047.html">Méndez Álvaro</a></p><p><a href="28079048.html">Castellana</a></p><p><a href="28079049.html">Parque del Retiro</a></p><p><a href="28079050.html">Plaza Castilla</a></p><p><a href="28079054.html">Ensanche de Vallecas</a></p></div><div class="col-lg-3"> <p><a href="28079055.html">Urbanización Embajada</a></p><p><a href="28079056.html">Plaza Fernández Ladreda</a></p><p><a href="28079057.html">Sanchinarro</a></p><p><a href="28079058.html">El Pardo</a></p><p><a href="28079059.html">Parque Juan Carlos I</a></p><p><a href="28079060.html">Tres Olivos</a></p></div>';
+var customCabecera = '<div class="github-fork-ribbon-wrapper right"> <div class="github-fork-ribbon"> <a target="_blank" href="https://github.com/UlisesGascon/Aire-Madrid">Fork me on GitHub</a> </div></div><nav class="navbar navbar-inverse navbar-fixed-top"> <div class="container"> <div class="navbar-header"> <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button> <a class="navbar-brand" href="index.html">Aire Madrid</a> </div><div id="navbar" class="navbar-collapse collapse"> <ul class="nav navbar-nav"> <li ><a href="index.html">Home</a></li><li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Estaciones <span class="caret"></span></a> <ul class="dropdown-menu"> <li><a href="28079004.html">Plaza de España</a></li><li><a href="28079008.html">Escuelas Aguirre</a></li><li><a href="28079011.html">Ramón y Cajal</a></li><li><a href="28079016.html">Arturo Soria</a></li><li><a href="28079017.html">Villaverde</a></li><li><a href="28079018.html">Farolillo</a></li><li><a href="28079024.html">Casa de Campo</a></li><li><a href="28079027.html">Barajas </a></li><li><a href="28079035.html">Plaza del Carmen</a></li><li><a href="28079036.html">Moratalaz</a></li><li><a href="28079038.html">Cuatro Caminos</a></li><li><a href="28079039.html">Barrio del Pilar</a></li><li><a href="28079040.html">Vallecas</a></li><li><a href="28079047.html">Méndez Álvaro</a></li><li><a href="28079048.html">Castellana</a></li><li><a href="28079049.html">Parque del Retiro</a></li><li><a href="28079050.html">Plaza Castilla</a></li><li><a href="28079054.html">Ensanche de Vallecas</a></li><li><a href="28079055.html">Urbanización Embajada</a></li><li><a href="28079056.html">Plaza Fernández Ladreda</a></li><li><a href="28079057.html">Sanchinarro</a></li><li><a href="28079058.html">El Pardo</a></li><li><a href="28079059.html">Parque Juan Carlos I</a></li><li><a href="28079060.html">Tres Olivos</a></li></ul> </li><li><a href="agradecimientos.html">Agradecimientos</a></li><li><a href="sobre.html">Sobre</a></li></ul> </div></div></nav>';
+
+
 /* - FIN - TEMPLATES*/
 
+/* ESTACIONES */
+
+function getEstationInfo() {
+$('#estacionNombre').html(estacionNombre);
+$('#estacionNumero').html("Estación "+estacionNumero);
+$('#estacionFoto').html('<img class="img-responsive" src="img/foto-estacion'+estacionNumero+'.jpg"></img>');
+$('#estacionDireccion').html(estacionDireccion);
+$('#estacionCodigo').html('<a target="_blank" href="'+estacionUrl+'">'+estacionCodigo+'</a>');
+$('#estacionAltitud').html(estacionAltitud);
+$('#estacionLatitud').html(unescape(estacionLatitud));
+$('#estacionLongitud').html(unescape(estacionLongitud));
+$('#estacionDireccion').html(estacionDireccion);
+};
+
+function getEstationtemplate() {
+$('#allModals').html(allModals);
+$('#allFooter').html(allFooter);
+$('#allDatos').html(allDatos);
+$('#customEstaciones').html(customEstaciones);
+$('#customCabecera').html(customCabecera);
+};
+
+
+function getContamintantesMedidos () {
+
+  if (SO2Enable) {
+  	$('#customContamintantesMedidos').append('<p><a href="#" data-toggle="modal" data-target="#SO2Modal">Dióxido de Azufre (S0<sub>2</sub>):</a> <span id="SO2Valor"></span> μg/m<sup>3</sup> medido por <span id="MEDSO2Valor"></span></p>');
+  	bringData(SO2Key, SO2elemento, SO2valor, SO2medidor);
+  };
+  if (COEnable) {
+  	$('#customContamintantesMedidos').append('<p><a href="#" data-toggle="modal" data-target="#COModal">Monóxido de Carbono (CO):</a> <span id="COValor"></span> μg/m<sup>3</sup> medido por <span id="MEDCOValor"></span></p>');
+  	bringData(COKey, COelemento, COvalor, COmedidor);
+  };
+  if (NOEnable) {
+  	$('#customContamintantesMedidos').append('<p><a href="#" data-toggle="modal" data-target="#NOModal">Monóxido de Nitrógeno (NO):</a> <span id="NOValor"></span> μg/m<sup>3</sup> medido por <span id="MEDNOValor"></span></p>');
+  	bringData(NOKey, NOelemento, NOvalor, NOmedidor);
+  };
+  if (NO2Enable) {
+  	$('#customContamintantesMedidos').append('<p><a href="#" data-toggle="modal" data-target="#NO2Modal">Dióxido de Nitrógeno (NO<sub>2</sub>):</a> <span id="NO2Valor"></span> μg/m<sup>3</sup> medido por <span id="MEDNO2Valor"></span></p>');
+  	bringData(NO2Key, NO2elemento, NO2valor, NO2medidor);
+  };
+  if (PS25Enable) {
+  	$('#customContamintantesMedidos').append('<p>Partículas en suspensión (&#60;2.5): <span id="PS25Valor"></span> μg/m<sup>3</sup> medido por <span id="MEDPS25Valor"></span></p>');
+  	bringData(PS25Key, PS25elemento, PS25valor, PS25medidor);
+  };
+  if (PS10Enable) {
+  	$('#customContamintantesMedidos').append('<p>Partículas en suspensión (&#60;10): <span id="PS10Valor"></span> μg/m<sup>3</sup> medido por <span id="MEDPS10Valor"></span></p>');
+  	bringData(PS10Key, PS10elemento, PS10valor, PS10medidor);
+  };
+  if (NOXEnable) {
+  	$('#customContamintantesMedidos').append('<p>Óxidos de Nitrógeno totales (NOx): <span id="NOXValor"></span> μg/m<sup>3</sup> medido por <span id="MEDNOXValor"></span></p>');
+  	bringData(NOXKey, NOXelemento, NOXvalor, NOXmedidor);
+  };
+  if (O3Enable) {
+  	$('#customContamintantesMedidos').append('<p><a href="#" data-toggle="modal" data-target="#O3Modal">Ozono (O<sub>3</sub>):</a> <span id="O3Valor"></span> μg/m<sup>3</sup> medido por <span id="MEDO3Valor"></span></p>');
+  	bringData(O3Key, O3elemento, O3valor, O3medidor);
+  };
+  if (TOLEnable) {
+  	$('#customContamintantesMedidos').append('<p><a href="#" data-toggle="modal" data-target="#TOLModal">Tolueno (TOL):</a> <span id="TOLValor"></span> μg/m<sup>3</sup> medido por <span id="MEDTOLValor"></span></p>');
+  	bringData(TOLKey, TOLelemento, TOLvalor, TOLmedidor);
+  };
+  if (BENEnable) {
+  	$('#customContamintantesMedidos').append('<p><a href="#" data-toggle="modal" data-target="#BENModal">Benceno (C<sub>6</sub>H<sub>6</sub>):</a> <span id="BENValor"></span> μg/m<sup>3</sup> medido por <span id="MEDBENValor"></span></p>');
+  	bringData(BENKey, BENelemento, BENvalor, BENmedidor);
+  };
+  if (EBEEnable) {
+  	$('#customContamintantesMedidos').append('<p><a href="#" data-toggle="modal" data-target="#EBEModal">Etilbenceno (EBE):</a> <span id="EBEValor"></span> μg/m<sup>3</sup> medido por <span id="MEDEBEValor"></span></p>');
+  	bringData(EBEKey, EBEelemento, EBEvalor, EBEmedidor);
+  };
+  if (HCEnable) {
+  	$('#customContamintantesMedidos').append('<p>Hidrocarburos Totales (HC): <span id="HCValor"></span> μg/m<sup>3</sup> medido por <span id="MEDHCValor"></span></p>');
+  	bringData(HCKey, HCelemento, HCvalor, HCmedidor);
+  };
+  if (CH4Enable) {
+  	$('#customContamintantesMedidos').append('<p><a href="#" data-toggle="modal" data-target="#CH4Modal">Metano (CH<sub>4</sub>):</a> <span id="CH4Valor"></span> μg/m<sup>3</sup> medido por <span id="MEDCH4Valor"></span></p>');
+  	bringData(CH4Key, CH4elemento, CH4valor, CH4medidor);
+  };
+  if (NMHEnable) {
+  	$('#customContamintantesMedidos').append('<p>Hidrocarburos No Metánicos (NMH): <span id="NMHValor"></span> μg/m<sup>3</sup> medido por <span id="MEDNMHValor"></span></p>');
+  	bringData(NMHKey, NMHelemento, NMHvalor, NMHmedidor);
+  };
+};
+
+
+function getParametrosMetereologicos () {
+
+  if (UVEnable) {
+  	$('#customParametrosMetereologicos').append('<p><a href="#" data-toggle="modal" data-target="#UVVModal">Radiación Ultravioleta (UV):</a> <span id="UVValor"></span> medido por <span id="MEDUVValor"></span></p>');
+  	bringData(UVKey, UVelemento, UVvalor, UVmedidor);
+  };
+  if (VVEnable) {
+  	$('#customParametrosMetereologicos').append('<p>Velocidad del Viento (VV): <span id="VVValor"></span> Km/h medido por <span id="MEDVVValor"></span></p>');
+  	bringData(VVKey, VVelemento, VVvalor, VVmedidor);
+  };
+  if (DDEnable) {
+  	$('#customParametrosMetereologicos').append('<p>Dirección del Viento (DD): <span id="DDValor"></span> medido por <span id="MEDDDValor"></span></p>');
+  	bringDDData(DDKey, DDelemento, DDvalor, DDmedidor);
+  };
+  if (TMPEnable) {
+  	$('#customParametrosMetereologicos').append('<p>Temperatura Media (TMP): <span id="TMPValor"></span>°C medido por <span id="MEDTMPValor"></span></p>');
+  	bringData(TMPKey, TMPelemento, TMPvalor, TMPmedidor);
+  };
+  if (TMIEnable) {
+  	$('#customParametrosMetereologicos').append('<p>Temperatura Mínima (TMI): <span id="TMIValor"></span>°C medido por <span id="MEDTMIValor"></span></p>');
+  	bringData(TMIKey, TMIelemento, TMIvalor, TMImedidor);
+  };
+  if (HREnable) {
+  	$('#customParametrosMetereologicos').append('<p>Humedad Relativa (HR): <span id="HRValor"></span>% medido por <span id="MEDHRValor"></span></p>');
+  	bringData(HRKey, HRelemento, HRvalor, HRmedidor);
+  };
+  if (PRBEnable) {
+  	$('#customParametrosMetereologicos').append('<p>Presión Barométrica (PRB): <span id="PRBValor"></span> hPa medido por <span id="MEDPRBValor"></span></p>');	
+  	bringData(PRBKey, PRBelemento, PRBvalor, PRBmedidor);
+  };
+};
 
 
