@@ -162,7 +162,32 @@ function getHourTime() {
     return hour
 };
 
-if (horaActual<=13) {
+if (horaActual <= 7){   
+        var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/0/fecha");
+    myFirebaseRef.on("value", function(snapshot) {
+    
+      var newChange = snapshot.val();
+      var res = newChange.split("");
+      serverDate = ""+res[4]+""+res[5]+""+res[6]+""+res[7]+"-"+res[2]+""+res[3]+"-"+res[0]+""+res[1]+"T";
+      
+        realTimeAgo = serverDate+"23:00:00Z"
+        var userTimeAgo = ""+res[0]+""+res[1]+"/"+res[2]+""+res[3]+"/"+res[4]+""+res[5]+""+res[6]+""+res[7]+" a las 23:00"
+        $("abbr.timeago").html(userTimeAgo).attr("title", realTimeAgo).timeago();
+
+        
+        
+        if (debugMode) {
+        console.log("la hora definida es "+hora);
+        console.log("El tiempo para TiemAgo es "+realTimeAgo);
+        };
+    
+    });
+    var hora = "hora23/"
+    if(debugMode) {
+      console.log("Hora pedida es "+hora);
+    };
+    
+}else if  (horaActual<=13) {
     
     var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/0/fecha");
     myFirebaseRef.on("value", function(snapshot) {
@@ -186,9 +211,7 @@ if (horaActual<=13) {
     var hora = "hora5/"
     if(debugMode) {
       console.log("Hora pedida es "+hora);
-    };
-    
-    
+    };   
 } else if (horaActual <= 19){
     
     var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/0/fecha");
@@ -240,30 +263,6 @@ if (horaActual<=13) {
       console.log("Hora pedida es "+hora);
     };
     
-} else if (horaActual <= 7){   
-        var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/0/fecha");
-    myFirebaseRef.on("value", function(snapshot) {
-    
-      var newChange = snapshot.val();
-      var res = newChange.split("");
-      serverDate = ""+res[4]+""+res[5]+""+res[6]+""+res[7]+"-"+res[2]+""+res[3]+"-"+res[0]+""+res[1]+"T";
-      
-        realTimeAgo = serverDate+"23:00:00Z"
-        var userTimeAgo = ""+res[0]+""+res[1]+"/"+res[2]+""+res[3]+"/"+res[4]+""+res[5]+""+res[6]+""+res[7]+" a las 23:00"
-        $("abbr.timeago").html(userTimeAgo).attr("title", realTimeAgo).timeago();
-
-        
-        
-        if (debugMode) {
-        console.log("la hora definida es "+hora);
-        console.log("El tiempo para TiemAgo es "+realTimeAgo);
-        };
-    
-    });
-    var hora = "hora23/"
-    if(debugMode) {
-      console.log("Hora pedida es "+hora);
-    };
 };
 
 /* - FIN - Gestion del tiempo */
