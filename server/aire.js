@@ -1,27 +1,16 @@
 /*
     === Estructura del Script ===
-
 Parte I - Librerías
-
 1.1 Librería -> Arduino
 1.2 Librería -> Websockets
 1.3 Librería -> Datos del sistema (cpu, mem, etc..)
-
-
 Parte II - Variables GLobales
-
 2.1 Globales -> Versión Script
-
 2.9.1 Globales -> Variables EduBasica
 2.9.1 Variables EduBasica -> Leds
-
-
-
 Parte III - Funciones
-
 3.1 Funciones Locales
 3.1.1 Local -> Determinar Adaptador de Red
-
 3.1.3 Local -> Consola (Bienvenida)
 3.1.3.1 Consola -> LcdEnable 
 3.1.3.4 Consola -> wsMode
@@ -32,13 +21,10 @@ Parte III - Funciones
 3.1.5.3 Servidor -> Apagando todo
 3.1.5.4 Servidor -> Primer envio de datos (Información tab)
 3.1.5.4.1 Primer Envio -> potenciometroValue
-
-
 */
 
 
 /* Estrcutura de datos
-
 == CABECERA ==
 res[0] -> Comundiad autónoma
 res[1] -> Ciudad
@@ -49,7 +35,6 @@ res[5] -> Periodo de analisis
 res[6] -> Año
 res[7] -> Mes
 res[8] -> Día
-
 == DATOS ==
 res[9] -> Valor hora 00-01
 res[10] -> Estado
@@ -141,7 +126,7 @@ var CleanUpFBJob = new Scheduled({
 // SUBIDA A FIREBASE CADA 6 HORAS (UpdateFBJob)
 var UpdateFBJob = new Scheduled({
     id: "UpdateFB",
-    pattern: "40 0,6,12,18 * * * *", // Todos los días a las 00:40, 06:40, 12:40 y 18:40
+    pattern: "42 0,6,12,18 * * * *", // Todos los días a las 00:42, 06:42, 12:42 y 18:42
     task: function(){
     	updateFB ();
     }
@@ -158,13 +143,12 @@ var SaveDayFBJob = new Scheduled({
 }).start();
 
 
-// Bajada de Datos de Internet
+// Conversion de Datos de Internet
 var ConversionDatosJob = new Scheduled({
     id: "ConversionDatos",
     pattern: "37 * * * * *", // cada hora a las x:37
     task: function(){
     	fromTxtToJson(); 
-    
     }
 }).start();
 
@@ -197,7 +181,7 @@ function getDateFormat () {
     var day  = date.getDate();
     day = (day < 10 ? "0" : "") + day;
 
-    dateFormat = ""+day+""+month+""+year; // DD/MM/YYYY
+    dateFormat = ""+day-1+""+month+""+year; // DDMMYYYY
 }
 
 function updateFBArchive () {
@@ -210,7 +194,7 @@ function updateFBArchive () {
 
 var onComplete = function(error) {
   if (error) {
-  	if (debigMode) {
+  	if (debugMode) {
     	console.log('ERROR (Firebase) - Sincronización fallada');
     };
   } else {
@@ -257,11 +241,15 @@ function download () {
 };
 
 function fromTxtToJson () {
-
+	  
       console.log("Enriqueciendo y guardando los datos en para su exportación");
+      saveJsonToFile () ;
+	  var AllRes = [];	
 	  lineReader.eachLine("aire.txt", function(line) {
 	  var res = line.split(",");
-
+	  
+	  
+		
 	  // Comunidad Autonoma
 	  if (res[0] == 28) {
 	  	res[0] = "Comunidad de Madrid";
@@ -557,7 +545,7 @@ function fromTxtToJson () {
 	
 	//console.log(AllRes[0][1]);
 
-	for (i = 0; i < 240; i++) {
+	for (i = 0; i < 241; i++) {
 
    	 	var myJsonString = JSON.stringify({
 	  	estacion: AllRes[i][2], 
