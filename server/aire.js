@@ -94,12 +94,13 @@ var project = require('pillars');
 var Scheduled = require('scheduled');
 // Firebase
 var Firebase = require("firebase");
-
+// configuracion
+var config = require('./config');
 // Modo Debug
-var debugMode = true;
+var debugMode = config.debugMode;
 
 // Firebase App config
-var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last");
+var myFirebaseRef = new Firebase("https://"+config.firebaseApp+".firebaseio.com/last");
 var lastKnownVal = 0;
 var dateFormat = 0;
 
@@ -126,7 +127,7 @@ var CleanUpFBJob = new Scheduled({
 // SUBIDA A FIREBASE CADA 6 HORAS (UpdateFBJob)
 var UpdateFBJob = new Scheduled({
     id: "UpdateFB",
-    pattern: "42 0,6,12,18 * * * *", // Todos los días a las 00:42, 06:42, 12:42 y 18:42
+    pattern: "51 * * * * *", // Todos los días a las 00:42, 06:42, 12:42 y 18:42
     task: function(){
     	updateFB ();
     }
@@ -136,7 +137,7 @@ var UpdateFBJob = new Scheduled({
 // SUBIDA A FIREBASE DEL RESUMEN DIARIO (SaveDayFB)
 var SaveDayFBJob = new Scheduled({
     id: "SaveDayFB",
-    pattern: "45 00 * * * *", // Todos los días a las 00:45
+    pattern: "55 1 * * * *", // Todos los días a las 01:45
     task: function(){
     	updateFBArchive ();
     }
@@ -146,7 +147,7 @@ var SaveDayFBJob = new Scheduled({
 // Conversion de Datos de Internet
 var ConversionDatosJob = new Scheduled({
     id: "ConversionDatos",
-    pattern: "37 * * * * *", // cada hora a las x:37
+    pattern: "50 * * * * *", // cada hora a las x:37
     task: function(){
     	fromTxtToJson(); 
     }
@@ -156,7 +157,7 @@ var ConversionDatosJob = new Scheduled({
 // Bajada de Datos de Internet
 var BajadaDatosJob = new Scheduled({
     id: "BajadaDatos",
-    pattern: "35 * * * * *", // cada hora a las x:35
+    pattern: "49 * * * * *", // cada hora a las x:35
     task: function(){   	
     	download(); 
     }
@@ -185,11 +186,21 @@ function getDateFormat () {
 }
 
 function updateFBArchive () {
-	var myFirebaseArchive = new Firebase("https://angularjstestings.firebaseio.com/"+dateFormat);
-    	myFirebaseArchive.set(All, onComplete);
-    	if (debugMode) {
-			console.log("INFO - Subiendo la última version al Archivo Firebase");
-		};
+	var myFirebaseArchive = new Firebase("https://"+config.firebaseApp+".firebaseio.com/"+dateFormat);
+    
+    myFirebaseArchive.authWithCustomToken(config.token, function(error, authData) {
+		  if (error) {
+		    console.log("Login Failed!", error);
+		  } else {
+		    
+		    myFirebaseArchive.set(All, onComplete);
+	    	if (debugMode) {
+	    		console.log("Login Succeeded!", authData);
+				console.log("INFO - Subiendo la última version al Archivo Firebase");
+			};
+		  }
+		});	
+    	
 };
 
 var onComplete = function(error) {
@@ -207,10 +218,17 @@ var onComplete = function(error) {
 function updateFB () {
     if(All != lastKnownVal) {
     	lastKnownVal = All;
-    	myFirebaseRef.set(All, onComplete);
-    	if (debugMode) {
-			console.log("INFO - Subiendo la última version a Firebase");
-		};
+    	myFirebaseRef.authWithCustomToken(config.token, function(error, authData) {
+			  if (error) {
+			    console.log("Login Failed!", error);
+			  } else {
+			    console.log("Login Succeeded!", authData);
+			        	myFirebaseRef.set(All, onComplete);
+			    	if (debugMode) {
+						console.log("INFO - Subiendo la última version a Firebase");
+					};
+			  }
+		});
     } else {
     	if (debugMode) {
     		console.log('Error (Firebase)- No se actualiza porque los datos son identicos a los anteriores.');
