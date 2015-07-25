@@ -171,8 +171,8 @@ var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/
       var res = newChange.split("");
       serverDate = ""+res[4]+""+res[5]+""+res[6]+""+res[7]+"-"+res[2]+""+res[3]+"-"+res[0]+""+res[1]+"T";
       
-        realTimeAgo = serverDate+""+(horaActual-2)+":00:00Z"
-        var userTimeAgo = ""+res[0]+""+res[1]+"/"+res[2]+""+res[3]+"/"+res[4]+""+res[5]+""+res[6]+""+res[7]+" a las "+(horaActual-2)+":00"
+        realTimeAgo = serverDate+""+(horaActual-1)+":00:00Z"
+        var userTimeAgo = ""+res[0]+""+res[1]+"/"+res[2]+""+res[3]+"/"+res[4]+""+res[5]+""+res[6]+""+res[7]+" a las "+(horaActual-1)+":00"
         $("abbr.timeago").html(userTimeAgo).attr("title", realTimeAgo).timeago();
 
         
