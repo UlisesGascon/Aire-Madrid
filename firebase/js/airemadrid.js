@@ -3,9 +3,8 @@
 var debugMode = true;
 var serverDate = null;
 var realTimeAgo = null;
-var dbUrl = "https://angularjstestings.firebaseio.com/";
+var dbUrl = "https://airemadrid.firebaseio.com/";
 var dbSection = "last/";
-
 
 var SO2Enable = false;
 var COEnable = false;
@@ -162,17 +161,33 @@ function getHourTime() {
     return hour
 };
 
+
+var horaFinal1 = horaActual-1;
+
+if (horaFinal1 == -1) {
+  horaFinal1 = 23;
+};
+
+var horaFinal2 = horaActual-2;
+
+if (horaFinal2 == -2) {
+  horaFinal2 = 22;
+}
+else if (horaFinal2 == -1) {
+  horaFinal2 = 23;
+};
+
 // RealTime Read
 
-var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/0/fecha");
+var myFirebaseRef = new Firebase(dbUrl+dbSection+"0/fecha");
     myFirebaseRef.on("value", function(snapshot) {
     
       var newChange = snapshot.val();
       var res = newChange.split("");
       serverDate = ""+res[4]+""+res[5]+""+res[6]+""+res[7]+"-"+res[2]+""+res[3]+"-"+res[0]+""+res[1]+"T";
       
-        realTimeAgo = serverDate+""+(horaActual-1)+":00:00Z"
-        var userTimeAgo = ""+res[0]+""+res[1]+"/"+res[2]+""+res[3]+"/"+res[4]+""+res[5]+""+res[6]+""+res[7]+" a las "+(horaActual-1)+":00"
+        realTimeAgo = serverDate+""+horaFinal1+":00:00Z"
+        var userTimeAgo = ""+res[0]+""+res[1]+"/"+res[2]+""+res[3]+"/"+res[4]+""+res[5]+""+res[6]+""+res[7]+" a las "+horaFinal1+":00"
         $("abbr.timeago").html(userTimeAgo).attr("title", realTimeAgo).timeago();
 
         
@@ -183,117 +198,10 @@ var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/
         };
     
     });
-    var hora = "hora"+(horaActual-2)+"/"
+    var hora = "hora"+horaFinal2+"/"
     if(debugMode) {
       console.log("Hora pedida es "+hora);
     };
-
-
-/* Lectura planificada por Horario de subida
-
-if (horaActual <= 5){   
-        var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/0/fecha");
-    myFirebaseRef.on("value", function(snapshot) {
-    
-      var newChange = snapshot.val();
-      var res = newChange.split("");
-      serverDate = ""+res[4]+""+res[5]+""+res[6]+""+res[7]+"-"+res[2]+""+res[3]+"-"+res[0]+""+res[1]+"T";
-      
-        realTimeAgo = serverDate+"23:00:00Z"
-        var userTimeAgo = ""+res[0]+""+res[1]+"/"+res[2]+""+res[3]+"/"+res[4]+""+res[5]+""+res[6]+""+res[7]+" a las 23:00"
-        $("abbr.timeago").html(userTimeAgo).attr("title", realTimeAgo).timeago();
-
-        
-        
-        if (debugMode) {
-        console.log("la hora definida es "+hora);
-        console.log("El tiempo para TiemAgo es "+realTimeAgo);
-        };
-    
-    });
-    var hora = "hora23/"
-    if(debugMode) {
-      console.log("Hora pedida es "+hora);
-    };
-    
-}else if  (horaActual<=12) {
-    
-    var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/0/fecha");
-    myFirebaseRef.on("value", function(snapshot) {
-    
-      var newChange = snapshot.val();
-      var res = newChange.split("");
-      serverDate = ""+res[4]+""+res[5]+""+res[6]+""+res[7]+"-"+res[2]+""+res[3]+"-"+res[0]+""+res[1]+"T";
-      
-        realTimeAgo = serverDate+"05:00:00Z"
-        var userTimeAgo = ""+res[0]+""+res[1]+"/"+res[2]+""+res[3]+"/"+res[4]+""+res[5]+""+res[6]+""+res[7]+" a las 05:00"
-        $("abbr.timeago").html(userTimeAgo).attr("title", realTimeAgo).timeago();
-
-        
-        
-        if (debugMode) {
-        console.log("la hora definida es "+hora);
-        console.log("El tiempo para TiemAgo es "+realTimeAgo);
-        };
-    
-    });
-    var hora = "hora5/"
-    if(debugMode) {
-      console.log("Hora pedida es "+hora);
-    };   
-} else if (horaActual <= 19){
-    
-    var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/0/fecha");
-    myFirebaseRef.on("value", function(snapshot) {
-    
-      var newChange = snapshot.val();
-      var res = newChange.split("");
-      serverDate = ""+res[4]+""+res[5]+""+res[6]+""+res[7]+"-"+res[2]+""+res[3]+"-"+res[0]+""+res[1]+"T";
-      
-        realTimeAgo = serverDate+"11:00:00Z"
-        var userTimeAgo = ""+res[0]+""+res[1]+"/"+res[2]+""+res[3]+"/"+res[4]+""+res[5]+""+res[6]+""+res[7]+" a las 11:00"
-        $("abbr.timeago").html(userTimeAgo).attr("title", realTimeAgo).timeago();
-
-        
-        
-        if (debugMode) {
-        console.log("la hora definida es "+hora);
-        console.log("El tiempo para TiemAgo es "+realTimeAgo);
-        };
-    
-    });
-    var hora = "hora11/"
-    if(debugMode) {
-      console.log("Hora pedida es "+hora);
-    };
-    
-} else if (horaActual >= 20){
-        var myFirebaseRef = new Firebase("https://angularjstestings.firebaseio.com/last/0/fecha");
-    myFirebaseRef.on("value", function(snapshot) {
-    
-      var newChange = snapshot.val();
-      var res = newChange.split("");
-      serverDate = ""+res[4]+""+res[5]+""+res[6]+""+res[7]+"-"+res[2]+""+res[3]+"-"+res[0]+""+res[1]+"T";
-      
-        realTimeAgo = serverDate+"17:00:00Z"
-        var userTimeAgo = ""+res[0]+""+res[1]+"/"+res[2]+""+res[3]+"/"+res[4]+""+res[5]+""+res[6]+""+res[7]+" a las 17:00"
-        $("abbr.timeago").html(userTimeAgo).attr("title", realTimeAgo).timeago();
-
-        
-        
-        if (debugMode) {
-        console.log("la hora definida es "+hora);
-        console.log("El tiempo para TiemAgo es "+realTimeAgo);
-        };
-    
-    });
-    var hora = "hora17/"
-    if(debugMode) {
-      console.log("Hora pedida es "+hora);
-    };
-    
-};
-*/
 
 
 /* - FIN - Gestion del tiempo */
@@ -322,7 +230,9 @@ myFirebaseRef.on("value", function(snapshot) {
 var myFirebaseRef = new Firebase(dbUrl+dbSection+dbKey);
 myFirebaseRef.on("value", function(snapshot) {
   var newChange = snapshot.val();
+  if (debugMode) {  
   console.log(newChange.tecnica);
+  };  
   $(medID).html(newChange.tecnica);
 });
 
@@ -355,7 +265,9 @@ myFirebaseRef.on("value", function(snapshot) {
 var myFirebaseRef = new Firebase(dbUrl+dbSection+dbKey);
 myFirebaseRef.on("value", function(snapshot) {
   var newChange = snapshot.val();
-  console.log(newChange.tecnica);
+  if (debugMode) {  
+    console.log(newChange.tecnica);
+  };
   $(medID).html(newChange.tecnica);
 });
 

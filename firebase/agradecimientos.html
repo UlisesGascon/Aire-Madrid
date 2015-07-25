@@ -13,95 +13,80 @@
 
     <!-- Bootstrap minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <!-- GITHUB RIBBON -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.1.1/gh-fork-ribbon.min.css" />
+    <!--[if lt IE 9]>
+      <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.1.1/gh-fork-ribbon.ie.min.css" />
+    <![endif]-->
+    <!-- CartoDB -->
+    <link rel="stylesheet" href="css/cartodb.css" />
+    
     <link rel="stylesheet" href="css/style.css">
  </head>
  <body>
-        <!-- Fixed navbar -->
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="index.html">Aire Madrid</a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="index.html">Home</a></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Estaciones <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="28079004.html">Plaza de España</a></li>
-                <li><a href="28079008.html">Escuelas Aguirre</a></li>
-                <li><a href="28079011.html">Ramón y Cajal</a></li>
-                <li><a href="28079016.html">Arturo Soria</a></li>
-                <li><a href="28079017.html">Villaverde</a></li>
-                <li><a href="28079018.html">Farolillo</a></li>
-                <li><a href="28079024.html">Casa de Campo</a></li>                
-                <li><a href="28079027.html">Barajas </a></li>                
-                <li><a href="28079035.html">Plaza del Carmen</a></li>
-                <li><a href="28079036.html">Moratalaz</a></li>
-                <li><a href="28079038.html">Cuatro Caminos</a></li>                
-                <li><a href="28079039.html">Barrio del Pilar</a></li>
-                <li><a href="28079040.html">Vallecas</a></li>                
-                <li><a href="28079047.html">Méndez Álvaro</a></li>                
-                <li><a href="28079048.html">Castellana</a></li>                
-                <li><a href="28079049.html">Parque del Retiro</a></li>   
-                <li><a href="28079050.html">Plaza Castilla</a></li>        
-                <li><a href="28079054.html">Ensanche de Vallecas</a></li>        
-                <li><a href="28079055.html">Urbanización Embajada</a></li>        
-                <li><a href="28079056.html">Plaza Fernández Ladreda</a></li>        
-                <li><a href="28079057.html">Sanchinarro</a></li>        
-                <li><a href="28079058.html">El Pardo</a></li>        
-                <li><a href="28079059.html">Parque Juan Carlos I</a></li>
-                <li><a href="28079060.html">Tres Olivos</a></li>                
-              </ul>
-            </li>
-            <li><a href="agradecimientos.html">Agradecimientos</a></li>
-            <li><a href="sobre.html">Sobre</a></li>
-            
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
-    </nav>
- 
-     
+
+<div id="customCabecera"></div>
+
     <div class="container container-principal">
 
-<!-- 2.1 Contenido Cabecera  -->  
-      <div class="page-header">
-        <h1>Agradecimientos <small>Calidad del Aire</small></h1>
-      </div>
-      
-      <!-- 
-          https://www.flickr.com/photos/valento/7734618560/in/photolist-4Ps55f-8VftNh-rRxwVA-cMtWCq-twn89q-pNunmH-pemSEF-pwjMQC-e3BmpM-4BcM7U-7e93ua-6PV6JK-bQTKGD-4DwWcf-aQdR9i-fYVPZY-aQdNGF-9dMTw1-4GmyF6-7Xjokb-4ZaCga-7Lhoju-n6AeRK-n4Vhid-n4Z7Jf-n6AcCi-7nvaY4-5FPz1L-6CKnLg-5RG2v8-5RG2ZM-64REW3-9Dgqed-bt1PTu-p2u6Bu-oxw7yC-ce1mj5-r8nGyg-6rKKGj-qkQxZ-enD8Jc-EGj3j-autCXK-6N8cb5-6N41h2-6YmMLG-6KUz9e-tjFqHt-HVj6e-HV7FC
-          Cuatro torres de Valentina Roldán
-          
-          Ribbon github 
-          https://github.com/simonwhitaker/github-fork-ribbon-css
-          
-          https://github.com/nickewing/line-reader
-          
-          timeago
-          
-          Nuria
-          
-      --> 
 
-      <div class="row"> 
+<!-- 2.1 Contenido Cabecera  -->   
+      <div class="page-header">
+        <h1>Agradecimientos</h1>
+        <p>Este proyecto no sería posible sin la ayuda de muchos desarrolladores y personas que día a día creen en el software libre y comparten su trabajo con la comunidad. Me gustaría desde aquí dar un agradecimiento muy especial a las siguientes personas.</p>
       </div>
-    </div>
+
+      <div class="row">
+          <div class="col-lg-12">
+              <h3>Enriquecimiento de los datos:</h3>
+              <p><a href="https://www.linkedin.com/pub/nuria-sanz/56/89/668/es" target="_blank">Nuria Sanz</a> por las <a href="https://github.com/UlisesGascon/Aire-Madrid/commit/25d22885f8a49b1bddd646799daad793a0b2e975" target="_blank">correcciones en la nomenclatura técnica</a> de todos los componentes químicos mencionados.</p>
+          </div>
+      </div>    
+      <div class="row">          
+          <div class="col-lg-12">
+              <h3>Arquitectura y plugins:</h3>
+            <p><a href="https://github.com/simonwhitaker" target="_blank">Simon Whitaker</a> por desarrollar <em><a href="https://github.com/simonwhitaker/github-fork-ribbon-css" target="_blank">Ribbon github</a></em></p> 
+            <p><a href="http://nickewing.net/" target="_blank">Nick Ewing</a> por desarrollar <em><a href="https://github.com/nickewing/line-reader" target="_blank">Line Reader para Nodejs</a></em></p>  
+            <p><a href="http://ryan.mcgeary.org/" target="_blank">Ryan McGeary</a> por desarrollar <em><a href="https://github.com/rmm5t/jquery-timeago" target="_blank">Jquery TimeAgo</a></em></p>
+            <p><a href="https://github.com/Krule" target="_blank">Armin Pašalić</a> por traducir Jquery TimeAgo al <em><a href="https://github.com/rmm5t/jquery-timeago/blob/master/locales/jquery.timeago.es.js" target="_blank">español</a></em></p>  
+            <p><a href="https://github.com/bifuer" target="_blank">Javier Gallego Martín</a> & <a href="https://github.com/lilxelo" target="_blank">Chelo Quilón</a> por desarrollar <em><a href="https://github.com/bifuer/pillars" target="_blank">Pillarjs</a></em></p>
+          </div>
+      </div>    
+      <div class="row">              
+          <div class="col-lg-12">
+              <h3>Datos e Imágenes:</h3>
+              <p><a target="_blank" href="https://gaelporlascalles.wordpress.com/">Gaël Berthon</a> por ceder la imagen <em><a target="_blank" href="https://www.facebook.com/gaelporlascalles?__mref=message_bubble">Las torres de Madrid</a></em> como parte del index. </p>
+              <p><a href="http://www.madrid.es/" target="_blank">Ayuntamiento de Madrid</a> por facilitar los datos en tiempo real (cada hora) sobre la calidad del airea a través de su <a href="http://datos.madrid.es/portal/site/egob/menuitem.c05c1f754a33a9fbe4b2e4b284f1a5a0/?vgnextoid=41e01e007c9db410VgnVCM2000000c205a0aRCRD&vgnextchannel=374512b9ace9f310VgnVCM100000171f5a0aRCRD" target="_blank">página de datos abiertos</a></p>
+              <p><a href="http://www.magrama.gob.es/es/" target="_blank">Ministerio de Medio Ambiente</a> por compartir la <a href="http://www.mambiente.munimadrid.es/opencms/opencms/calaire/SistIntegral/SistVigilancia/estaciones.html" target="_blank">información de las estaciones en su web</a></p>
+              <p><a href="https://es.wikipedia.org/wiki/Wikipedia:Portada" target="_blank">Wikipedia</a> por facilitar detalles técnicos sobre los elementos químicos presentes en los datos sobre la calidad del aire</p>
+          </div>
+      </div>         
+      <div id="customEstaciones" class="row"></div>
+      <div id="allDatos" class="row"></div>
+    </div> <!-- FIN container-principal -->
+<div class="agradecimientos-footer" id="allFooter"></div>     
+
 <!-- 3.1 Librerias de terceros -->
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>    
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script> 
+    <!-- Firebase -->
     <script src="https://cdn.firebase.com/js/client/2.2.7/firebase.js"></script>
+    <!-- Time Ago-->
+    <script src="js/timeago.js"></script>
+    <!-- CartoDB -->
+    <script src="js/cartodb.js"></script>
+    <!-- Aire Madrid (General)-->
+    <script src="js/airemadrid.js"></script>   
     <script type="text/javascript">
+
+
+$('#allFooter').html(allFooter);
+$('#customCabecera').html(customCabecera);
+        
     </script>
     <!-- FIN SCRIPTS  -->
   </body>
