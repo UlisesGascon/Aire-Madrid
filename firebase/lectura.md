@@ -1,10 +1,10 @@
 # Lectura de datos
 
-La lectura de datos se realiza desde zxxxxxx y esta la estructura, en caso de querer usar estos datos en tu aplicación.
+La lectura de datos se realiza desde [Firebase](https://airemadrid.firebaseio.com/) y esta la estructura, en caso de querer usar estos datos en tu aplicación.
 
 ## Estructura por estaciones
 
-Puedes verificar que la lectura de datos esta alineada con los datos del ayuntamiento ejecutando una funcion.0-22 Media de la Red
+Puedes verificar que la lectura de datos esta alineada con los datos del Ayuntamiento ejecutando una funcion.
 
 ```javascript
 controlEstaciones ();

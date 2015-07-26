@@ -11,21 +11,21 @@ El objetivo de esta web es mostrar los datos que ofrece el ayuntamiento de Madri
 
 ### Obtención de datos:
 
-Los datos en los que se basa esta aplicación son obtenidos directamente del de un archivo .txt totalmente plano. 
+Los datos en los que se basa esta aplicación son obtenidos directamente de un archivo .txt totalmente plano. 
 [La última versión oficial](http://datos.madrid.es/egob/catalogo/212531-7916318-calidad-aire-tiempo-real.txt)
 
 ### Análisis y enriquecimiento de datos:
 
 Los datos en el estado original no son de gran utilidad para el público en general. 
 
-La información es descargada y se enriquece de manera transparente
+La información es descargada y se enriquece de manera transparente. 
 [Detalles sobre el enriquecimiento](https://github.com/UlisesGascon/Aire-Madrid/tree/master/server/datos.md)
 
-Una vez los datos están listos. Cada hora se suben a [esta base de datos no relacional alojada en Firebase](https://airemadrid.firebaseio.com/).
+Una vez los datos están listos, cada hora se suben a [esta base de datos no relacional alojada en Firebase](https://airemadrid.firebaseio.com/).
 
 ### Lectura de datos:
 
-Los datos de la base de datos son descargados en [este portal](https://airemadrid.firebaseapp.com/) donde se muestran al público divido entre el resumen(datos media de la red) y las estaciones.
+Los datos de la base de datos son descargados en [este portal](https://airemadrid.firebaseapp.com/) donde se muestran al público divido entre el resumen (datos media de la red) y las estaciones.
 [Detalles sobre la lectura](https://github.com/UlisesGascon/Aire-Madrid/tree/master/firebase/lectura.md)
 
 *Nota:* Algunas estaciones presentan pocos datos, y algunos datos clave de la media como la temperatura máxima no están presentes. En estos momentos estoy intentando notificar estas deficiencias al portal de datos abiertos a la espera de mejorar la cantidad y calidad de los datos ofrecidos.        
