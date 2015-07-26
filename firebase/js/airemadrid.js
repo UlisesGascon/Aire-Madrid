@@ -1,6 +1,6 @@
 /* globales */
    
-var debugMode = true;
+var debugMode = false;
 var serverDate = null;
 var realTimeAgo = null;
 var dbUrl = "https://airemadrid.firebaseio.com/";
