@@ -19,8 +19,9 @@ debugMode = true;
 ```
 
 **Estaciones y keys**
+
 Empieza | Termina | Estación
-------------- | ------------- | -------------
+------------ | ------------- | -------------
 0 | 22 | Media de la Red
 23 | 33 | Plaza España
 34 | 46 | Escuelas Aguirre
