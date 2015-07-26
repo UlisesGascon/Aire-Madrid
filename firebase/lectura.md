@@ -19,33 +19,33 @@ debugMode = true;
 ```
 
 **Estaciones y keys**
-Valores | Nombre
------------- | -------------
-0-22 | Media de la Red
-23-33 | Plaza España
-34-46 | Escuelas Aguirre
-47-54 | Av. Ramón y Cajal
-55-61 | Arturo Soria
-62-67 | Villaverde Alto
-68-80 | Farolillo
-81-103 | Casa de Campo
-104-108 | Barajas
-109-115 | Pza Carmen
-116-123 | Moratalaz
-124-135 | Cuatro Caminos
-136-142 | Barrio del Pilar
-143-149 | Vallecas
-150-155 | Méndez Álvaro
-156-161 | Castellana
-162-166 | Retiro
-167-173 | Pza. Castilla
-174-183 | Ensanche de Vallecas
-184-194 | Urb. Embajada
-195-205 | Pza. Fdez. Ladreda
-206-213 | Sanchinarro
-214-218 | El Prado
-219-231 | Parque Juan Carlos I
-232-239 | Tres Olivos
+Empieza | Termina | Estación
+------------- | ------------- | -------------
+0 | 22 | Media de la Red
+23 | 33 | Plaza España
+34 | 46 | Escuelas Aguirre
+47 | 54 | Av. Ramón y Cajal
+55 | 61 | Arturo Soria
+62 | 67 | Villaverde Alto
+68 | 80 | Farolillo
+81 | 103 | Casa de Campo
+104 | 108 | Barajas
+109 | 115 | Pza Carmen
+116 | 123 | Moratalaz
+124 | 135 | Cuatro Caminos
+136 | 142 | Barrio del Pilar
+143 | 149 | Vallecas
+150 | 155 | Méndez Álvaro
+156 | 161 | Castellana
+162 | 166 | Retiro
+167 | 173 | Pza. Castilla
+174 | 183 | Ensanche de Vallecas
+184 | 194 | Urb. Embajada
+195 | 205 | Pza. Fdez. Ladreda
+206 | 213 | Sanchinarro
+214 | 218 | El Prado
+219 | 231 | Parque Juan Carlos I
+232 | 239 | Tres Olivos
 
 ## Estructura en detalles
 
