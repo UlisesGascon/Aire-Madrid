@@ -28,9 +28,6 @@ min-height: 50px;
     margin-top: 20px;
 }
 
-#bandera-madrid {
-    max-height: 80px;
-}
 
 #map { 
     height: 520px;
@@ -58,20 +55,86 @@ min-height: 50px;
 }
 
 
-/* UV Niveles*/
 
-.UV-Verde{
-   color:#008000;
+.agradecimientos-footer {
+    margin-top: 230px;
 }
-.UV-Anarillo{
-    color:#FFFF00;
+
+.sobre-footer {
+    margin-top: 170px; 
 }
-.UV-Naranja{
-    color:#FFA500;
+/* Very small devices (tablets, 768px and up) */
+@media (max-width: 745px) { 
+    #allDatos{
+        display: none;
+    }
+    #allDatos_responsive{
+        display: inline;
+    }
+    #allDatos_responsive img{
+        max-width:100%;
+    }
+    #allConstruido{
+        display: none;
+    }
+    #allConstruido_responsive{
+        display: inline;
+    }
+    #allConstruido_responsive img{
+        max-width:100%;
+    }
+    #map { 
+    height: 220px;
+    }
+    #map2 { 
+        height: 245px;
+    }
 }
-.UV-Rojo{
-    color:#FF0000;
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 750px) { 
+    #allDatos{
+        display: none;
+    }
+    #allDatos_responsive{
+        display: inline;
+    }
+    #allConstruido{
+        display: none;
+    }
+    #allConstruido_responsive{
+        display: inline;
+    }
 }
-.UV-Violeta{
-    color:#800080;
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 970px) {
+    #allDatos{
+        display: none;
+    }
+    #allDatos_responsive{
+        display: inline;
+    }
+    #allConstruido{
+        display: none;
+    }
+    #allConstruido_responsive{
+        display: inline;
+    }
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1170px) { 
+    #allDatos_responsive{
+        display: none;
+    }
+    #allDatos{
+        display: inline;
+    }
+    #allConstruido_responsive{
+        display: none;
+    }
+    #allConstruido{
+        display: inline;
+    }
 }
