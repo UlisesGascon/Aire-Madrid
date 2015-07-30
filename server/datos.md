@@ -86,3 +86,7 @@ Cada registro se separa del siguiente por una coma y cada bloque se separa por u
 8. Este dato es el Mes (fecha) en formato MM
 9. Este dato es el Día (fecha) en formato DD
 10+. Estos son los datos cada hora. Valor y Estado. Empezando por la hora 0 hasta la 23
+
+##Hosting Backend:
+
+El script del backend esta alojado en [una Raspberry Pi dentro de un grifo de Murphy's](https://twitter.com/kom_256/status/625895707845771264)

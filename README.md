@@ -35,7 +35,6 @@ Los datos de la base de datos son descargados en [este portal](https://airemadri
 Este proyecto está abierto a colaboración y mejora por parte de cualquier persona interesada. No dudes en ponerte en contacto conmigo a través de este repositorio o mi [cuenta de Twitter](https://twitter.com/kom_256).
         
         
-        
-        
-        
-        
+## Anecdotas:
+Todo el backend se ejecuta (descargar, enriquecimiento y subida de datos a Firebase) desde [[una Raspberry Pi dentro de un grifo de Murphy's](https://twitter.com/kom_256/status/625895707845771264)
+![El grifo](https://airemadrid.firebaseapp.com/img/server.png)

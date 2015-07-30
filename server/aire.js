@@ -1,91 +1,79 @@
-/*
+var currentVersion = "1.0.0";
+/*  VERSION 1.0.0.
     === Estructura del Script ===
-Parte I - Librerías
-1.1 Librería -> Arduino
-1.2 Librería -> Websockets
-1.3 Librería -> Datos del sistema (cpu, mem, etc..)
-Parte II - Variables GLobales
-2.1 Globales -> Versión Script
-2.9.1 Globales -> Variables EduBasica
-2.9.1 Variables EduBasica -> Leds
-Parte III - Funciones
-3.1 Funciones Locales
-3.1.1 Local -> Determinar Adaptador de Red
-3.1.3 Local -> Consola (Bienvenida)
-3.1.3.1 Consola -> LcdEnable 
-3.1.3.4 Consola -> wsMode
-3.1.4 Local -> Escucha Arduino
-3.1.5 Local -> Arranca el servidor
-3.1.5.1 Servidor -> handler
-3.1.5.2 Servidor -> wsStart
-3.1.5.3 Servidor -> Apagando todo
-3.1.5.4 Servidor -> Primer envio de datos (Información tab)
-3.1.5.4.1 Primer Envio -> potenciometroValue
+    1. Librerías
+    2. Configuraciones y variables globales
+    3. Tareas Programadas (Pillarsjs)
+    4. Tareas al primer arranque
+    5. Funciones principales
 */
 
-
-/* Estrcutura de datos
-== CABECERA ==
-res[0] -> Comundiad autónoma
-res[1] -> Ciudad
-res[2] -> Número de Estación
-res[3] -> Parametro medido
-res[4] -> Técnica de analisis empleada
-res[5] -> Periodo de analisis
-res[6] -> Año
-res[7] -> Mes
-res[8] -> Día
-== DATOS ==
-res[9] -> Valor hora 00-01
-res[10] -> Estado
-res[11] -> Valor hora 01-02
-res[12] -> Estado
-res[13] -> Valor hora 02-03
-res[14] -> Estado
-res[15] -> Valor hora 03-04
-res[16] -> Estado
-res[17] -> Valor hora 04-05
-res[18] -> Estado
-res[19] -> Valor hora 05-06
-res[20] -> Estado
-res[21] -> Valor hora 06-07
-res[22] -> Estado
-res[23] -> Valor hora 07-08
-res[24] -> Estado
-res[25] -> Valor hora 08-09
-res[26] -> Estado
-res[27] -> Valor hora 09-10
-res[28] -> Estado
-res[29] -> Valor hora 10-11
-res[30] -> Estado
-res[31] -> Valor hora 11-12
-res[32] -> Estado
-res[33] -> Valor hora 12-13
-res[34] -> Estado
-res[35] -> Valor hora 13-14
-res[36] -> Estado
-res[37] -> Valor hora 15-16
-res[38] -> Estado
-res[39] -> Valor hora 16-17
-res[40] -> Estado
-res[41] -> Valor hora 17-18
-res[42] -> Estado
-res[43] -> Valor hora 18-19
-res[44] -> Estado
-res[45] -> Valor hora 19-20
-res[46] -> Estado
-res[47] -> Valor hora 20-21
-res[48] -> Estado
-res[49] -> Valor hora 21-22
-res[50] -> Estado
-res[51] -> Valor hora 22-23
-res[52] -> Estado
-res[53] -> Valor hora 23-00
-res[54] -> Estado
-res[55] -> Valor hora 00-01
-res[56] -> Estado
+/* 
+	=== Estrcutura de datos ===
+	
+	== CABECERA ==
+		res[0] -> Comundiad autónoma
+		res[1] -> Ciudad
+		res[2] -> Número de Estación
+		res[3] -> Parametro medido
+		res[4] -> Técnica de analisis empleada
+		res[5] -> Periodo de analisis
+		res[6] -> Año
+		res[7] -> Mes
+		res[8] -> Día
+	
+	== DATOS ==
+		res[9] -> Valor hora 00-01
+		res[10] -> Estado
+		res[11] -> Valor hora 01-02
+		res[12] -> Estado
+		res[13] -> Valor hora 02-03
+		res[14] -> Estado
+		res[15] -> Valor hora 03-04
+		res[16] -> Estado
+		res[17] -> Valor hora 04-05
+		res[18] -> Estado
+		res[19] -> Valor hora 05-06
+		res[20] -> Estado
+		res[21] -> Valor hora 06-07
+		res[22] -> Estado
+		res[23] -> Valor hora 07-08
+		res[24] -> Estado
+		res[25] -> Valor hora 08-09
+		res[26] -> Estado
+		res[27] -> Valor hora 09-10
+		res[28] -> Estado
+		res[29] -> Valor hora 10-11
+		res[30] -> Estado
+		res[31] -> Valor hora 11-12
+		res[32] -> Estado
+		res[33] -> Valor hora 12-13
+		res[34] -> Estado
+		res[35] -> Valor hora 13-14
+		res[36] -> Estado
+		res[37] -> Valor hora 15-16
+		res[38] -> Estado
+		res[39] -> Valor hora 16-17
+		res[40] -> Estado
+		res[41] -> Valor hora 17-18
+		res[42] -> Estado
+		res[43] -> Valor hora 18-19
+		res[44] -> Estado
+		res[45] -> Valor hora 19-20
+		res[46] -> Estado
+		res[47] -> Valor hora 20-21
+		res[48] -> Estado
+		res[49] -> Valor hora 21-22
+		res[50] -> Estado
+		res[51] -> Valor hora 22-23
+		res[52] -> Estado
+		res[53] -> Valor hora 23-00
+		res[54] -> Estado
+		res[55] -> Valor hora 00-01
+		res[56] -> Estado
 */
 
+/* ==== 1. Librerías ==== */
 var lineReader = require('line-reader');
 var http = require('http');
 var fs = require('fs');
@@ -96,33 +84,31 @@ var Scheduled = require('scheduled');
 var Firebase = require("firebase");
 // configuracion
 var config = require('./config');
+
+/* ==== 2. Configuraciones y variables globales ==== */
 // Modo Debug
 var debugMode = config.debugMode;
-
 // Firebase App config
 var myFirebaseRef = new Firebase("https://"+config.firebaseApp+".firebaseio.com/last");
 var lastKnownVal = 0;
 var dateFormat = 0;
-
 // Variables Globales
 var All=[{}];
 var AllRes = [];
-
-
+// Variables de Pillarsjs
 project.config.cors = true;
 project.config.cacheMaxSize = 25*1024*1024;
 
+
+/* ==== 3. Tareas Programadas (Pillarsjs) ==== */
 // LIMPIAR FIREBASE (CleanUpFBJob)
 var CleanUpFBJob = new Scheduled({
     id: "CleanUpFB",
-    pattern: "0 9 1-7 * 1 *", // EL primer lunes de cada mes a las 9am
+    pattern: "47 9 1-7 * 1 *", // EL primer lunes de cada mes a las 9:47am
     task: function(){
-    	if (debugMode) {
-        	console.log("Primer Lunes del mes, hora de limpiar FireBase");
-        };
+    	deleteFB();
     }
 }).start();
-
 
 // SUBIDA A FIREBASE CADA 6 HORAS (UpdateFBJob)
 var UpdateFBJob = new Scheduled({
@@ -153,7 +139,6 @@ var ConversionDatosJob = new Scheduled({
     }
 }).start();
 
-
 // Bajada de Datos de Internet
 var BajadaDatosJob = new Scheduled({
     id: "BajadaDatos",
@@ -163,13 +148,13 @@ var BajadaDatosJob = new Scheduled({
     }
 }).start();
 
-
+/* ==== 4. Tareas al primer arranque ==== */
 // Solo para asegurarnos que no se disparan los procesos del reloj con archivos vacios o fecha erronea
 getDateFormat();
 BajadaDatosJob.launch();
-//ConversionDatosJob.launch();
-//UpdateFBJob.launch();
 
+
+/* ==== 5. Funciones principales ==== */
 // Función para casar la fecha en este formato (DDMMYYYY)
 function getDateFormat () {
     var date = new Date();
@@ -183,26 +168,42 @@ function getDateFormat () {
     day = (day < 10 ? "0" : "") + day;
 
     dateFormat = ""+day-1+""+month+""+year; // DDMMYYYY
-}
-
+};
+// Función para vaciar todos los registros de la base de datos (prevenir alcanzar el limite)
+function deleteFB() {
+	var myFirebaseArchive = new Firebase("https://"+config.firebaseApp+".firebaseio.com/");
+    myFirebaseArchive.authWithCustomToken(config.token, function(error, authData) {
+		  if (error) {
+		    console.log("Login Fallido!", error);
+		  } else {
+		    
+		    myFirebaseArchive.set(null, onComplete);
+	    	if (debugMode) {
+	    		console.log("Login Exitoso!", authData);
+				console.log("INFO - Borrando la Base de datos... como cada primer Lunes del mes");
+			};
+		  }
+		});	
+};
+// Función para añadir los registros del dia bajo Firebase/DDMMYYYY
 function updateFBArchive () {
 	var myFirebaseArchive = new Firebase("https://"+config.firebaseApp+".firebaseio.com/"+dateFormat);
     
     myFirebaseArchive.authWithCustomToken(config.token, function(error, authData) {
 		  if (error) {
-		    console.log("Login Failed!", error);
+		    console.log("Login Fallido!", error);
 		  } else {
 		    
 		    myFirebaseArchive.set(All, onComplete);
 	    	if (debugMode) {
-	    		console.log("Login Succeeded!", authData);
-				console.log("INFO - Subiendo la última version al Archivo Firebase");
+	    		console.log("Login Exitoso!", authData);
+				console.log("INFO - Subiendo el resumen del día al Archivo de Firebase");
 			};
 		  }
 		});	
     	
 };
-
+// Función para comprobar la actualización de datos en Firebase
 var onComplete = function(error) {
   if (error) {
   	if (debugMode) {
@@ -214,7 +215,7 @@ var onComplete = function(error) {
     };
   }
 };
-
+// Función para subir datos a Firebase
 function updateFB () {
     if(All != lastKnownVal) {
     	lastKnownVal = All;
@@ -225,7 +226,7 @@ function updateFB () {
 			    console.log("Login Succeeded!", authData);
 			        	myFirebaseRef.set(All, onComplete);
 			    	if (debugMode) {
-						console.log("INFO - Subiendo la última version a Firebase");
+						console.log("INFO - Subiendo la última versión a Firebase");
 					};
 			  }
 		});
@@ -235,9 +236,8 @@ function updateFB () {
     	};
     };
 };
-
+// Función para guardar lso datos convertidos a un archivo (aire.json)
 function saveJsonToFile () {
-
 	fs.writeFile("aire.json", JSON.stringify(All, null, 4), function(err) {
 	    if(err) {
 	        return console.log(err);
@@ -247,7 +247,7 @@ function saveJsonToFile () {
 	    };
 	});  
 };
-
+// Función para descargar los datos de OpenData
 function download () {
 	var file = fs.createWriteStream("aire.txt");
 	var request = http.get("http://www.mambiente.munimadrid.es/opendata/horario.txt", function(response) {
@@ -257,7 +257,7 @@ function download () {
 		console.log("Iniciada la descarga de datos de Internet");
 	};
 };
-
+// Función para enriquecer los datos descargados de OpenData
 function fromTxtToJson () {
 	  
       console.log("Enriqueciendo y guardando los datos en para su exportación");
@@ -266,8 +266,6 @@ function fromTxtToJson () {
 	  lineReader.eachLine("aire.txt", function(line) {
 	  var res = line.split(",");
 	  
-	  
-		
 	  // Comunidad Autonoma
 	  if (res[0] == 28) {
 	  	res[0] = "Comunidad de Madrid";
@@ -310,7 +308,7 @@ function fromTxtToJson () {
 	  } else if(res[2] == 47){
 	  	res[2] = "Méndez Álvaro";	  
 	  } else if(res[2] == 48){
-	  	res[2] = "Pº. Castellana";
+	  	res[2] = "Castellana";
 	  } else if(res[2] == 49){
 	  	res[2] = "Retiro";
 	  } else if(res[2] == 50){
@@ -324,13 +322,12 @@ function fromTxtToJson () {
 	  } else if(res[2] == 57){
 	  	res[2] = "Sanchinarro";	  	
 	  } else if(res[2] == 58){
-	  	res[2] = "El Prado";	
+	  	res[2] = "El Pardo";	
 	  } else if(res[2] == 59){
 	  	res[2] = "Parque Juan Carlos I";
 	  } else if(res[2] == 60){
 	  	res[2] = "Tres Olivos";	  		  	  			  	 	
 	  };
-
 
 	  // Código de Parámetros
 	  if (res[3] == 1) {
@@ -376,7 +373,11 @@ function fromTxtToJson () {
 	  } else if(res[3] == 86) {
 	  	res[3] = "Humedad Relativa (HR)";	 
 	  } else if(res[3] == 87) {
-	  	res[3] = "Presión Barométrica (PRB)";	  	 		  		  	  		  			  		  		  		  	  	  	  		  			  					  	 	
+	  	res[3] = "Presión Barométrica (PRB)";	  
+	  } else if(res[3] == 88) { // Desde la Versión 1.0.0
+	  	res[3] = "Radiación Solar (RS)"; 
+	  } else if(res[3] == 89) { // Desde la versión 1.0.0
+	  	res[3] = "Precipitación (LL)";	
 	  };
 
 	  // Código de Técnica Analítica
@@ -550,19 +551,10 @@ function fromTxtToJson () {
 	  	res[56] = "Pendiente";
 	  }
 
-
 	  	AllRes.push(res);
 
-//	  console.log(All);
 	}).then(function () {
-	
 	All=[{}];
-	// console.log("I'm done!!");
-	 // console.log(All);
-
-	
-	//console.log(AllRes[0][1]);
-
 	for (i = 0; i < 241; i++) {
 
    	 	var myJsonString = JSON.stringify({
