@@ -61,22 +61,22 @@ Media de la Red | Dióxido de Nitrógeno (NO2) | [https://airemadrid.firebaseio.
 Media de la Red | Partículas en suspensión (-2.5) | [https://airemadrid.firebaseio.com/last/4](https://airemadrid.firebaseio.com/last/4)
 Media de la Red | Partículas en suspensión (-10) | [https://airemadrid.firebaseio.com/last/5](https://airemadrid.firebaseio.com/last/5)
 Media de la Red | Óxidos de Nitrógeno totales (NOx) | [https://airemadrid.firebaseio.com/last/6](https://airemadrid.firebaseio.com/last/6)
-Media de la Red | Ozono (O3) | [https://airemadrid.firebaseio.com/last/0](https://airemadrid.firebaseio.com/last/7)
-Media de la Red | Tolueno (C6H5CH3) | [https://airemadrid.firebaseio.com/last/0](https://airemadrid.firebaseio.com/last/8)
-Media de la Red | Benceno (C6H6) | [https://airemadrid.firebaseio.com/last/0](https://airemadrid.firebaseio.com/last/9)
-Media de la Red | Etilbenceno (C6H5CH2CH3) | [https://airemadrid.firebaseio.com/last/0](https://airemadrid.firebaseio.com/last/10)
-Media de la Red | Hidrocarburos Totales (HC) | [https://airemadrid.firebaseio.com/last/0](https://airemadrid.firebaseio.com/last/11)
-Media de la Red | Metano (CH4) | [https://airemadrid.firebaseio.com/last/0](https://airemadrid.firebaseio.com/last/12)
-Media de la Red | Hidrocarburos No Metánicos (NMH) | [https://airemadrid.firebaseio.com/last/0](https://airemadrid.firebaseio.com/last/13)
-Media de la Red | Radiación Ultravioleta (UV) | [https://airemadrid.firebaseio.com/last/0](https://airemadrid.firebaseio.com/last/14)
-Media de la Red | Velocidad del Viento (VV) | [https://airemadrid.firebaseio.com/last/0](https://airemadrid.firebaseio.com/last/15)
-Media de la Red | Dirección del Viento (DD) | [https://airemadrid.firebaseio.com/last/0](https://airemadrid.firebaseio.com/last/16)
-Media de la Red | Temperatura Media (TMP) | [https://airemadrid.firebaseio.com/last/0](https://airemadrid.firebaseio.com/last/17)
-Media de la Red | Temperatura Mínima (TMI) | [https://airemadrid.firebaseio.com/last/0](https://airemadrid.firebaseio.com/last/18)
-Media de la Red | Humedad Relativa (HR) | [https://airemadrid.firebaseio.com/last/0](https://airemadrid.firebaseio.com/last/19)
-Media de la Red | Presión Barométrica (PRB) | [https://airemadrid.firebaseio.com/last/0](https://airemadrid.firebaseio.com/last/20)
-Media de la Red | Radiación Solar (RS) | [https://airemadrid.firebaseio.com/last/0](https://airemadrid.firebaseio.com/last/21)
-Media de la Red | Precipitación (LL) | [https://airemadrid.firebaseio.com/last/0](https://airemadrid.firebaseio.com/last/22)
+Media de la Red | Ozono (O3) | [https://airemadrid.firebaseio.com/last/7](https://airemadrid.firebaseio.com/last/7)
+Media de la Red | Tolueno (C6H5CH3) | [https://airemadrid.firebaseio.com/last/8](https://airemadrid.firebaseio.com/last/8)
+Media de la Red | Benceno (C6H6) | [https://airemadrid.firebaseio.com/last/9](https://airemadrid.firebaseio.com/last/9)
+Media de la Red | Etilbenceno (C6H5CH2CH3) | [https://airemadrid.firebaseio.com/last/10](https://airemadrid.firebaseio.com/last/10)
+Media de la Red | Hidrocarburos Totales (HC) | [https://airemadrid.firebaseio.com/last/11](https://airemadrid.firebaseio.com/last/11)
+Media de la Red | Metano (CH4) | [https://airemadrid.firebaseio.com/last/12](https://airemadrid.firebaseio.com/last/12)
+Media de la Red | Hidrocarburos No Metánicos (NMH) | [https://airemadrid.firebaseio.com/last/13](https://airemadrid.firebaseio.com/last/13)
+Media de la Red | Radiación Ultravioleta (UV) | [https://airemadrid.firebaseio.com/last/14](https://airemadrid.firebaseio.com/last/14)
+Media de la Red | Velocidad del Viento (VV) | [https://airemadrid.firebaseio.com/last/15](https://airemadrid.firebaseio.com/last/15)
+Media de la Red | Dirección del Viento (DD) | [https://airemadrid.firebaseio.com/last/16](https://airemadrid.firebaseio.com/last/16)
+Media de la Red | Temperatura Media (TMP) | [https://airemadrid.firebaseio.com/last/17](https://airemadrid.firebaseio.com/last/17)
+Media de la Red | Temperatura Mínima (TMI) | [https://airemadrid.firebaseio.com/last/18](https://airemadrid.firebaseio.com/last/18)
+Media de la Red | Humedad Relativa (HR) | [https://airemadrid.firebaseio.com/last/19](https://airemadrid.firebaseio.com/last/19)
+Media de la Red | Presión Barométrica (PRB) | [https://airemadrid.firebaseio.com/last/20](https://airemadrid.firebaseio.com/last/20)
+Media de la Red | Radiación Solar (RS) | [https://airemadrid.firebaseio.com/last/21](https://airemadrid.firebaseio.com/last/21)
+Media de la Red | Precipitación (LL) | [https://airemadrid.firebaseio.com/last/22](https://airemadrid.firebaseio.com/last/22)
 Plaza España | Dióxido de Azufre (S02) | [https://airemadrid.firebaseio.com/last/23](https://airemadrid.firebaseio.com/last/23)
 Plaza España | Monóxido de Carbono (CO) | [https://airemadrid.firebaseio.com/last/24](https://airemadrid.firebaseio.com/last/24)
 Plaza España | Monóxido de Nitrógeno (NO) | [https://airemadrid.firebaseio.com/last/25](https://airemadrid.firebaseio.com/last/25)
@@ -301,14 +301,33 @@ Tres Olivos | Precipitación (LL) | *(Eliminado el 26/07/2015)*
 
 *El ayuntamiento confirma (ticket/referencia 85579) que el número de columnas que componen el archivo es fijo pero el de filas no, ya que si por algún motivo (analizador averiado, problemas de comunicaciones, etc.)  no hay datos de algún parámetro durante ese día la fila correspondiente no aparece.*
 
-Día 30/07/2015 (v1.0.0) 
-- Valores previamente desconocidos pasan a ser Radiación Solar y Precipitación.
-- Plaza Castilla (particulas en suspensión) restauradas.
-
-Día 26/07/2015 (Pre-Beta) -> Se eliminan los siquientes datos
+**Día 30/07/2015 (v1.0.0) -> Se restauraron/añadieron los siguientes datos** 
 
 Estación | Valor | Log
 ------------ | ------------- | -------------
-Plaza Castilla | Partículas en suspensión (-2.5) | (Eliminado 26/07/2015)*
-Plaza Castilla | Partículas en suspensión (-10) | (Eliminado 26/07/2015)*
-Tres Olivos | *Valor Desconocido* | (Eliminado 26/07/2015)*
+Plaza Castilla | Partículas en suspensión (-2.5) | (Restaurado - 30/07/2015)
+Plaza Castilla | Partículas en suspensión (-10) | (Restaurado - 30/07/2015)
+Media | Radiación Solar (RS) | (Añadido e identificado - 30/07/2015)
+Media | Precipitación (LL) | (Añadido e identificado - 30/07/2015)
+Plaza España | Precipitación (LL) | (Añadido e identificado - 30/07/2015)
+Ramón y Cajal | Precipitación (LL) | (Añadido e identificado - 30/07/2015)
+Arturo Soria | Precipitación (LL) | (Añadido e identificado - 30/07/2015)
+Farolillo | Precipitación (LL) | (Añadido e identificado - 30/07/2015)
+Casa de Campo | Radiación Solar (RS) | (Añadido e identificado - 30/07/2015)
+Casa de Campo | Precipitación (LL) | (Añadido e identificado - 30/07/2015)
+Moratalaz | Precipitación (LL) | (Añadido e identificado - 30/07/2015)
+Cuatro Caminos | Precipitación (LL) | (Añadido e identificado - 30/07/2015)
+Barrio del Pilar | Precipitación (LL) | (Añadido e identificado - 30/07/2015)
+Vallecas | Precipitación (LL) | (Añadido e identificado - 30/07/2015)
+Ensanche de Vallecas | Precipitación (LL) | (Añadido e identificado - 30/07/2015)
+Plaza Fernández Ladreda | Precipitación (LL) | (Añadido e identificado - 30/07/2015)
+Parque Juan Carlos I | Radiación Solar (RS) | (Añadido e identificado - 30/07/2015)
+Parque Juan Carlos I | Precipitación (LL) | (Añadido e identificado - 30/07/2015)
+
+**Día 26/07/2015 (Pre-Beta) -> Se eliminan los siguientes datos**
+
+Estación | Valor | Log
+------------ | ------------- | -------------
+Plaza Castilla | Partículas en suspensión (-2.5) | (Eliminado 26/07/2015)
+Plaza Castilla | Partículas en suspensión (-10) | (Eliminado 26/07/2015)
+Tres Olivos | Precipitación (LL) | (Eliminado 26/07/2015)
