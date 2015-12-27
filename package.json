@@ -1,0 +1,24 @@
+{
+  "name": "AireMadrid",
+  "version": "2.0.0",
+  "description": "Aire Madrid es una aplicación para poder ver los datos de la calidad del Aire de Madrid en tiempo real.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "Apache",
+  "dependencies": {
+    "bluebird": "^3.1.1",
+    "body-parser": "^1.14.2",
+    "express": "^4.13.3",
+    "firebase": "^2.3.2",
+    "jade": "^1.11.0",
+    "line-reader": "^0.2.4",
+    "method-override": "^2.3.5",
+    "path": "^0.12.7",
+    "pillars": "^0.3.1",
+    "scheduled": "^0.4.4",
+    "winston": "^2.1.1"
+  }
+}

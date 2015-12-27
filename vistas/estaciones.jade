@@ -1,0 +1,15 @@
+doctype html
+html(lang='es')
+  include ./includes/head.jade
+  body
+    include ./includes/menu.jade
+    .container.container-principal
+      include ./includes/detalles_estacion.jade
+      include ./includes/detalles_mediciones.jade
+      include ./includes/otras_estaciones.jade
+      include ./includes/datos_logos.jade
+    include ./includes/footer.jade
+    include ./includes/modals.jade
+    include ./includes/scripts.jade
+    script(src='js/estaciones.js')    
+    script(src='js/app.js')

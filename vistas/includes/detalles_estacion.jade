@@ -1,0 +1,34 @@
+.page-header
+        h1
+          span#estacionNombre #{datos_estacion[0].nombre_estacion} 
+          small
+            span#estacionNumero Estación #{datos_estacion[0].numero_estacion}
+.row
+        .col-lg-8
+          #mapa
+            div(style='position: relative; width: 100%; height: 100%;')
+        .col-lg-4
+          .panel.panel-default
+            .panel-heading
+              | Estación
+            #estacionFoto.panel-body
+              img.img-responsive(src='img/foto-estacion#{datos_estacion[0].numero_estacion}.jpg')
+          .panel.panel-default
+            .panel-heading
+              | Ubicación
+            .panel-body
+              p
+                | Dirección: 
+                span#estacionDireccion #{datos_estacion[0].direccion}
+              p
+                | Longitud: 
+                span#estacionLongitud #{datos_estacion[0].longitud}
+              p
+                | Latitud: 
+                span#estacionLatitud #{datos_estacion[0].latitud}
+              p
+                | Altitud: 
+                span#estacionAltitud #{datos_estacion[0].altitud}
+              p
+                | Tipo: 
+                span#estacionTipo #{datos_estacion[0].tipo}

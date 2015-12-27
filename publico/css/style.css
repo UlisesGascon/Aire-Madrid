@@ -1,0 +1,142 @@
+.navbar {
+min-height: 50px;
+}
+
+.container-principal {
+    margin-top: 50px;
+    min-height:820px;
+}
+
+.desc{
+    background-color: #F1F1F1;
+}
+
+.footer{
+    margin-top: 15px;
+    padding-top: 6px;
+    height: 40px;
+    background-color: #FCCD03;
+    color:#363636;
+    font-size: 30px;
+}
+.footer a {
+    color:#363636;
+}
+.footer img {
+    margin-top: -17px;
+}
+.pmt0{
+    margin-top: 20px;
+}
+
+
+#mapa { 
+    height: 520px;
+}
+
+.img-info{
+    width:250px;
+}
+
+#img404{
+    max-width:400px;
+}
+
+#ministerio-MA{
+    max-height:72px;
+}
+
+.banda-inferior{
+    max-height:75px;
+}
+
+#img-wikipedia{
+    margin-left: -20px;
+}
+
+.img-peligrosidad{
+    max-width:100px;
+    margin-right:10px;
+}
+
+
+
+.agradecimientos-footer {
+    margin-top: 230px;
+}
+
+.sobre-footer {
+    margin-top: 170px; 
+}
+/* Very small devices (tablets, 768px and up) */
+@media (max-width: 745px) { 
+    #allDatos{
+        display: none;
+    }
+    #allDatos_responsive{
+        display: inline;
+    }
+    #allDatos_responsive img{
+        max-width:100%;
+    }
+    #allConstruido{
+        display: none;
+    }
+    #allConstruido_responsive{
+        display: inline;
+    }
+    #allConstruido_responsive img{
+        max-width:100%;
+    }
+    #mapa { 
+    height: 220px;
+    }
+}
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 750px) { 
+    #allDatos{
+        display: none;
+    }
+    #allDatos_responsive{
+        display: inline;
+    }
+    #allConstruido{
+        display: none;
+    }
+    #allConstruido_responsive{
+        display: inline;
+    }
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 970px) {
+    #allDatos{
+        display: none;
+    }
+    #allDatos_responsive{
+        display: inline;
+    }
+    #allConstruido{
+        display: none;
+    }
+    #allConstruido_responsive{
+        display: inline;
+    }
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1170px) { 
+    #allDatos_responsive{
+        display: none;
+    }
+    #allDatos{
+        display: inline;
+    }
+    #allConstruido_responsive{
+        display: none;
+    }
+    #allConstruido{
+        display: inline;
+    }
+}

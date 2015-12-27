@@ -1,0 +1,91 @@
+doctype html
+html(lang='es')
+  include ./includes/head.jade
+  body
+    include ./includes/menu.jade
+    .container.container-principal
+      .page-header
+        h1 Agradecimientos
+        p
+          | Este proyecto no sería posible sin la ayuda de muchos desarrolladores y personas que día a día creen en el software libre y comparten su trabajo con la comunidad. Me gustaría desde aquí dar un agradecimiento muy especial a las siguientes personas.
+      .row
+        .col-lg-12
+          h3 Enriquecimiento de los datos:
+          p
+            a(href='https://www.linkedin.com/pub/nuria-sanz/56/89/668/es', target='_blank') Nuria Sanz
+            |  por las 
+            a(href='https://github.com/UlisesGascon/Aire-Madrid/commit/25d22885f8a49b1bddd646799daad793a0b2e975', target='_blank') correcciones en la nomenclatura técnica
+            |  de todos los componentes químicos mencionados.
+      .row
+        .col-lg-12
+          h3 Arquitectura y plugins:
+          p
+            a(href='https://twitter.com/mdo', target='_blank') Mark Otto
+            |  y 
+            a(href='https://twitter.com/fat', target='_blank') jacob
+            |  por desarrollar 
+            em
+              a(href='http://jade-lang.com/', target='_blank') Bootstrap
+          p
+            a(href='http://getbootstrap.com/', target='_blank') Forbes Lindesay
+            |  por desarrollar 
+            em
+              a(href='http://jade-lang.com/', target='_blank') Jade
+          p
+            a(href='https://strongloop.com/', target='_blank') StrongLoop, Inc.
+            |  por desarrollar 
+            em
+              a(href='https://github.com/strongloop/express/', target='_blank') Express
+          p
+            a(href='https://github.com/simonwhitaker', target='_blank') Simon Whitaker
+            |  por desarrollar 
+            em
+              a(href='https://github.com/simonwhitaker/github-fork-ribbon-css', target='_blank') Ribbon github
+          p
+            a(href='http://nickewing.net/', target='_blank') Nick Ewing
+            |  por desarrollar 
+            em
+              a(href='https://github.com/nickewing/line-reader', target='_blank') Line Reader para Nodejs
+          p
+            a(href='https://github.com/bifuer', target='_blank') Javier Gallego Martín
+            |  & 
+            a(href='https://github.com/lilxelo', target='_blank') Chelo Quilón
+            |  por desarrollar 
+            em
+              a(href='https://github.com/bifuer/pillars', target='_blank') Pillarjs
+      .row
+        .col-lg-12
+          h3 Datos e Imágenes:
+          p
+            a(target='_blank', href='https://gaelporlascalles.wordpress.com/') Gaël Berthon
+            |  por ceder la imagen 
+            em
+              a(target='_blank', href='https://www.facebook.com/gaelporlascalles?__mref=message_bubble') Las torres de Madrid
+            |  como parte del index.
+          p
+            a(href='http://www.madrid.es/', target='_blank') Ayuntamiento de Madrid
+            |  por facilitar los datos en tiempo real (cada hora) sobre la calidad del airea a través de su 
+            a(href='http://datos.madrid.es/portal/site/egob/menuitem.c05c1f754a33a9fbe4b2e4b284f1a5a0/?vgnextoid=41e01e007c9db410VgnVCM2000000c205a0aRCRD&vgnextchannel=374512b9ace9f310VgnVCM100000171f5a0aRCRD', target='_blank') página de datos abiertos
+          p
+            a(href='http://www.magrama.gob.es/es/', target='_blank') Ministerio de Medio Ambiente
+            |  por compartir la 
+            a(href='http://www.mambiente.munimadrid.es/opencms/opencms/calaire/SistIntegral/SistVigilancia/estaciones.html', target='_blank') información de las estaciones en su web
+          p
+            a(href='https://es.wikipedia.org/wiki/Wikipedia:Portada', target='_blank') Wikipedia
+            |  por facilitar detalles técnicos sobre los elementos químicos presentes en los datos sobre la calidad del aire
+      .row
+        .col-lg-12
+          h3 Versiones anteriores:
+          p
+            a(href='http://ryan.mcgeary.org/', target='_blank') Ryan McGeary
+            |  por desarrollar 
+            em
+              a(href='https://github.com/rmm5t/jquery-timeago', target='_blank') Jquery TimeAgo
+          p
+            a(href='https://github.com/Krule', target='_blank') Armin Pašalić
+            |  por traducir Jquery TimeAgo al 
+            em
+              a(href='https://github.com/rmm5t/jquery-timeago/blob/master/locales/jquery.timeago.es.js', target='_blank') español
+    include ./includes/footer.jade
+    include ./includes/scripts.jade
+    script(src='js/ga.js')

@@ -1,0 +1,495 @@
+doctype html
+html(lang='es')
+  include ./includes/head.jade
+  body
+    include ./includes/menu.jade
+    .container.container-principal
+        .page-header
+            h1 Historico de Aire Madrid
+            p
+              | El Sistema Integral de la Calidad del Aire del Ayuntamiento de Madrid nos permite acceder a los datos históricos sobre la contaminación atmosférica a través de su portal desde 2003 hasta 2015.
+            p
+              | Los datos históricos aún no han podido ser asimilados en esta versión de Aire Madrid, la idea en próximas versiones es incluir estos datos también en un formato enriquecido.
+            p
+              | Para el análisis de estos datos es necesario asimilar esta 
+              a(href='http://datos.madrid.es/FWProjects/egob/contenidos/datasets/ficheros/MedioAmbiente_CalidadAire/INTPHORA-DIA_V2.2.pdf', target='_blank') guía
+              |  ofrecida por el portal de datos abiertos, ya que todos los datos se encuentran en un formato codificado a bajo nivel.
+            p
+              | A lo largo de los años el Sistema Integral de la Calidad del Aire del Ayuntamiento de Madrid ha sufrido diversas actualizaciones y modificaciones que es necesario conocer para poder realizar una interpretación correcta de los datos.
+            p
+              | Voy a ir incluyendo aquellos cambios significativos que vaya descubriendo así como aquellos cambios que ya estuvieran reflejados en la documentación oficial. Si descubrieras algún cambio adicional que no esté reflejado aquí, por favor compártelo en el repositorio del Proyecto en Github.
+          .row
+            .col-lg-12
+              h3 2003, 2004 y 2005
+              p
+                b Estaciónes (disponibles):
+              ol
+                li Pº. Recoletos (Estación 1)
+                li Glta. de Carlos V (Estación 2)
+                li Pza. del Carmen  (Estación 3)
+                li Pza. de España (Estación 4)
+                li Barrio del Pilar (Estación 5)
+                li Pza. Dr. Marañón (Estación  6)
+                li Pza. M. de Salamanca (Estación 7)
+                li Escuelas Aguirre (Estación 8)
+                li Pza. Luca de Tena (Estación 9)
+                li Cuatro Caminos (Estación 10)
+                li Av. Ramón y Cajal (Estación 11)
+                li Pza. Manuel Becerra (Estación 12)
+                li Vallecas (Estación 13)
+                li Pza. Fdez. Ladreda (Estación 14)
+                li Pza. Castilla (Estación 15)
+                li Arturo Soria (Estación 16)
+                li Villaverde Alto (Estación 17)
+                li C/ Farolillo (Estación 18)
+                li Huerta Castañeda (Estación 19)
+                li Moratalaz (Estación 20)
+                li Pza. Cristo Rey (Estación 21)
+                li Pº. Pontones (Estación 22)
+                li Final C/ Alcalá (Estación 23)
+                li Casa de Campo (Estación 24)
+                li Santa Eugenia (Estación 25)
+                li Urb. Embajada (Estación 26)
+                li Barajas (Estación 27)
+                li Media de todas las Estaciónes (Estación 99)
+              p
+                b Estaciónes (No disponibles):
+              ol
+                li Pza. del Carmen (Estación 35)
+                li Moratalaz (Estación 36)
+                li Cuatro Caminos (Estación 38)
+                li Barrio del Pilar (Estación 39)
+                li Vallecas (Estación 40)
+                li Méndez Álvaro (Estación 47)
+                li Pº. Castellana (Estación 48)
+                li Retiro (Estación 49)
+                li Pza. Castilla (Estación 50)
+                li Ensanche Vallecas (Estación 54)
+                li Urb. Embajada (Estación 55)
+                li Pza. Fdez. Ladreda (Estación 56)
+                li Sanchinarro (Estación 57)
+                li El Pardo (Estación 58)
+                li Parque Juan Carlos I (Estación 59)
+                li Tres Olivos (Estación 60)
+                li Tres Olivos (Estación 86)
+              p
+                b Anomalias:
+              ul
+                li Los datos carecen de la división por coma.
+              p
+                b Datos:
+              p
+                a(href='http://datos.madrid.es/egob/catalogo/201200-13-calidad-aire-horario.zip', target='_blank') Año 2003 .zip (Original)
+              p
+                a(href='http://datos.madrid.es/egob/catalogo/201200-14-calidad-aire-horario.zip', target='_blank') Año 2004 .zip (Original)
+              p
+                a(href='http://datos.madrid.es/egob/catalogo/201200-15-calidad-aire-horario.zip', target='_blank') Año 2005 .zip (Original)
+          .row
+            .col-lg-12
+              h3 2006, 2007 y 2008
+              p
+                b Estaciónes (disponibles):
+              ol
+                li Pº. Recoletos (Estación 1)
+                li
+                  mark Glta. de Carlos V (Estación 2)
+                li Pza. del Carmen  (Estación 3)
+                li Pza. de España (Estación 4)
+                li Barrio del Pilar (Estación 5)
+                li Pza. Dr. Marañón (Estación  6)
+                li Pza. M. de Salamanca (Estación 7)
+                li Escuelas Aguirre (Estación 8)
+                li Pza. Luca de Tena (Estación 9)
+                li Cuatro Caminos (Estación 10)
+                li Av. Ramón y Cajal (Estación 11)
+                li Pza. Manuel Becerra (Estación 12)
+                li Vallecas (Estación 13)
+                li Pza. Fdez. Ladreda (Estación 14)
+                li
+                  mark Pza. Castilla (Estación 15)
+                li Arturo Soria (Estación 16)
+                li Villaverde Alto (Estación 17)
+                li C/ Farolillo (Estación 18)
+                li Huerta Castañeda (Estación 19)
+                li Moratalaz (Estación 20)
+                li Pza. Cristo Rey (Estación 21)
+                li Pº. Pontones (Estación 22)
+                li Final C/ Alcalá (Estación 23)
+                li Casa de Campo (Estación 24)
+                li Santa Eugenia (Estación 25)
+                li Urb. Embajada (Estación 26)
+                li Barajas (Estación 27)
+                li Media de todas las Estaciónes (Estación 99)
+              p
+                b Estaciónes (No disponibles):
+              ol
+                li Pza. del Carmen (Estación 35)
+                li Moratalaz (Estación 36)
+                li Cuatro Caminos (Estación 38)
+                li Barrio del Pilar (Estación 39)
+                li Vallecas (Estación 40)
+                li Méndez Álvaro (Estación 47)
+                li Pº. Castellana (Estación 48)
+                li Retiro (Estación 49)
+                li Pza. Castilla (Estación 50)
+                li Ensanche Vallecas (Estación 54)
+                li Urb. Embajada (Estación 55)
+                li Pza. Fdez. Ladreda (Estación 56)
+                li Sanchinarro (Estación 57)
+                li El Pardo (Estación 58)
+                li Parque Juan Carlos I (Estación 59)
+                li Tres Olivos (Estación 60)
+                li Tres Olivos (Estación 86)
+              p
+                b Anomalias:
+              ul
+                li Los datos carecen de la división por coma.
+              p
+                b Cambios:
+              ul
+                li La estación 2 (Glta. de Carlos V) funcionó hasta 04/12/2006 (11:00 h)
+                li La estación 15 (Pza. Castilla) funcionó hasta 17/10/2008 (11:00 h.)
+              p
+                b Datos:
+              p
+                a(href='http://datos.madrid.es/egob/catalogo/201200-16-calidad-aire-horario.zip', target='_blank') Año 2006 .zip (Original)
+              p
+                a(href='http://datos.madrid.es/egob/catalogo/201200-17-calidad-aire-horario.zip', target='_blank') Año 2007 .zip (Original)
+              p
+                a(href='http://datos.madrid.es/egob/catalogo/201200-18-calidad-aire-horario.zip', target='_blank') Año 2008 .zip (Original)
+          .row
+            .col-lg-12
+              h3 2009
+              p
+                b Estaciónes (disponibles):
+              ol
+                li
+                  mark Pº. Recoletos (Estación 1)
+                li Pza. del Carmen  (Estación 3)
+                li Pza. de España (Estación 4)
+                li Barrio del Pilar (Estación 5)
+                li
+                  mark Pza. Dr. Marañón (Estación  6)
+                li
+                  mark Pza. M. de Salamanca (Estación 7)
+                li Escuelas Aguirre (Estación 8)
+                li
+                  mark Pza. Luca de Tena (Estación 9)
+                li Cuatro Caminos (Estación 10)
+                li Av. Ramón y Cajal (Estación 11)
+                li
+                  mark Pza. Manuel Becerra (Estación 12)
+                li Vallecas (Estación 13)
+                li
+                  mark Pza. Fdez. Ladreda (Estación 14)
+                li Arturo Soria (Estación 16)
+                li Villaverde Alto (Estación 17)
+                li C/ Farolillo (Estación 18)
+                li
+                  mark Huerta Castañeda (Estación 19)
+                li Moratalaz (Estación 20)
+                li
+                  mark Pza. Cristo Rey (Estación 21)
+                li
+                  mark Pº. Pontones (Estación 22)
+                li
+                  mark Final C/ Alcalá (Estación 23)
+                li Casa de Campo (Estación 24)
+                li
+                  mark Santa Eugenia (Estación 25)
+                li Urb. Embajada (Estación 26)
+                li Barajas (Estación 27)
+                li
+                  mark Méndez Álvaro (Estación 47)
+                li
+                  mark Ensanche Vallecas (Estación 54)
+                li
+                  mark Sanchinarro (Estación 57)
+                li
+                  mark El Pardo (Estación 58)
+                li
+                  mark Parque Juan Carlos I (Estación 59)
+                li Media de todas las Estaciónes (Estación 99)
+              p
+                b Estaciónes (No disponibles):
+              ol
+                li Glta. de Carlos V (Estación 2)
+                li Pza. Castilla (Estación 15)
+                li Pza. del Carmen (Estación 35)
+                li Moratalaz (Estación 36)
+                li Cuatro Caminos (Estación 38)
+                li Barrio del Pilar (Estación 39)
+                li Vallecas (Estación 40)
+                li Pº. Castellana (Estación 48)
+                li Retiro (Estación 49)
+                li Pza. Castilla (Estación 50)
+                li Urb. Embajada (Estación 55)
+                li Pza. Fdez. Ladreda (Estación 56)
+                li Tres Olivos (Estación 60)
+                li Tres Olivos (Estación 86)
+              p
+                b Anomalias:
+              ul
+                li Los datos carecen de la división por coma.
+              p
+                b Cambios:
+              ul
+                li La estación 1 (Pº. Recoletos) funcionó hasta 04/05/2009 (14:00 h)
+                li La estación 6 (Pza. Dr. Marañón) funcionó hasta 27/11/2009 (08:00 h)
+                li La estación 7 (Pza. M. de Salamanca) funcionó hasta 30/12/2009 (14:00 h)
+                li La estación 9 (Pza. Luca de Tena) funcionó hasta 07/12/2009 (08:00 h)
+                li La estación 12 (Pza. Manuel Becerra) funcionó hasta 30/12/2009 (14:00 h)
+                li La estación 14 (Pza. Fdez. Ladreda) funcionó hasta 02/12/2009 (09:00 h)
+                li La estación 19 (Huerta Castañeda) funcionó hasta 30/12/2009 (13:00 h)
+                li La estación 21 (Pza. Cristo Rey) funcionó hasta 04/12/2009 (14:00 h)
+                li La estación 22 (Pº. Pontones) funcionó hasta 20/11/2009 (10:00 h)
+                li La estación 23 (Final C/ Alcalá) funcionó hasta 30/12/2009 (14:00 h)
+                li La estación 25 (Santa Eugenia) funcionó hasta 16/11/2009 (10:00 h)
+                li La estación 47 (Méndez Álvaro) funcionó desde 21/12/2009 (00:00 h)
+                li La estación 54 (Ensanche Vallecas) funcionó desde 11/12/2009 (00:00 h)
+                li La estación 57 (Sanchinarro) funcionó desde 24/11/2009 (00:00 h)
+                li La estación 58 (El Pardo) funcionó desde 30/11/2009 (13:00 h)
+                li La estación 59 (Parque Juan Carlos I) funcionó desde 14/12/2009 (00:00 h)
+              p
+                b Datos:
+              p
+                a(href='http://datos.madrid.es/egob/catalogo/201200-19-calidad-aire-horario.zip', target='_blank') Año 2009 .zip (Original)
+          .row
+            .col-lg-12
+              h3 2010
+              p
+                b Estaciónes (disponibles):
+              ol
+                li Pza. del Carmen  (Estación 3)
+                li Pza. de España (Estación 4)
+                li Barrio del Pilar (Estación 5)
+                li Escuelas Aguirre (Estación 8)
+                li Cuatro Caminos (Estación 10)
+                li Av. Ramón y Cajal (Estación 11)
+                li Vallecas (Estación 13)
+                li Arturo Soria (Estación 16)
+                li Villaverde Alto (Estación 17)
+                li C/ Farolillo (Estación 18)
+                li Moratalaz (Estación 20)
+                li Casa de Campo (Estación 24)
+                li
+                  mark Urb. Embajada (Estación 26)
+                li Barajas (Estación 27)
+                li Méndez Álvaro (Estación 47)
+                li
+                  mark Pº. Castellana (Estación 48)
+                li
+                  mark Retiro (Estación 49)
+                li
+                  mark Pza. Castilla (Estación 50)
+                li Ensanche Vallecas (Estación 54)
+                li
+                  mark Urb. Embajada (Estación 55)
+                li
+                  mark Pza. Fdez. Ladreda (Estación 56)
+                li Sanchinarro (Estación 57)
+                li El Pardo (Estación 58)
+                li Parque Juan Carlos I (Estación 59)
+                li
+                  mark Tres Olivos (Estación 86)
+                li Media de todas las Estaciónes (Estación 99)
+              p
+                b Estaciónes (No disponibles):
+              ol
+                li Pº. Recoletos (Estación 1)
+                li Pza. Dr. Marañón (Estación  6)
+                li Pza. M. de Salamanca (Estación 7)
+                li Pza. Luca de Tena (Estación 9)
+                li Pza. Manuel Becerra (Estación 12)
+                li Pza. Fdez. Ladreda (Estación 14)
+                li Glta. de Carlos V (Estación 2)
+                li Pza. Castilla (Estación 15)
+                li Huerta Castañeda (Estación 19)
+                li Pza. Cristo Rey (Estación 21)
+                li Pº. Pontones (Estación 22)
+                li Final C/ Alcalá (Estación 23)
+                li Santa Eugenia (Estación 25)
+                li Pza. del Carmen (Estación 35)
+                li Moratalaz (Estación 36)
+                li Cuatro Caminos (Estación 38)
+                li Barrio del Pilar (Estación 39)
+                li Vallecas (Estación 40)
+                li Tres Olivos (Estación 60)
+              p
+                b Anomalias:
+              ul
+                li Los datos carecen de la división por coma.
+              p
+                b Cambios:
+              ul
+                li La estación 26 (Urb. Embajada) funcionó hasta 11/01/2010 (09:00 h)
+                li La estación 48 (Pº. Castellana) funcionó desde 01/06/2010 (00:00 h)
+                li La estación 49 (Retiro) funcionó desde 01/01/2010 (00:00 h)
+                li La estación 50 (Pza. Castilla) funcionó desde 08/02/2010 (00:00 h)
+                li La estación 55 (Urb. Embajada) funcionó desde 20/01/2010 (15:00 h)
+                li La estación 56 (Pza. Fdez. Ladreda) funcionó desde 18/01/2010 (12:00 h)
+                li La estación 86 (Tres Olivos) funcionó desde 14/01/2010 (13:00 h)
+              p
+                b Datos:
+              p
+                a(href='http://datos.madrid.es/egob/catalogo/201200-20-calidad-aire-horario.zip', target='_blank') Año 2010 .zip (Original)
+          .row
+            .col-lg-12
+              h3 2011
+              p
+                b Estaciónes (disponibles):
+              ol
+                li
+                  mark Pza. del Carmen  (Estación 3)
+                li Pza. de España (Estación 4)
+                li
+                  mark Barrio del Pilar (Estación 5)
+                li Escuelas Aguirre (Estación 8)
+                li
+                  mark Cuatro Caminos (Estación 10)
+                li Av. Ramón y Cajal (Estación 11)
+                li
+                  mark Vallecas (Estación 13)
+                li Arturo Soria (Estación 16)
+                li Villaverde Alto (Estación 17)
+                li C/ Farolillo (Estación 18)
+                li
+                  mark Moratalaz (Estación 20)
+                li Casa de Campo (Estación 24)
+                li Barajas (Estación 27)
+                li Méndez Álvaro (Estación 47)
+                li Pº. Castellana (Estación 48)
+                li Retiro (Estación 49)
+                li Pza. Castilla (Estación 50)
+                li Ensanche Vallecas (Estación 54)
+                li Urb. Embajada (Estación 55)
+                li Pza. Fdez. Ladreda (Estación 56)
+                li Sanchinarro (Estación 57)
+                li El Pardo (Estación 58)
+                li Parque Juan Carlos I (Estación 59)
+                li
+                  mark Tres Olivos (Estación 86)
+                li Media de todas las Estaciónes (Estación 99)
+              p
+                b Estaciónes (No disponibles):
+              ol
+                li Pº. Recoletos (Estación 1)
+                li Pza. Dr. Marañón (Estación  6)
+                li Pza. M. de Salamanca (Estación 7)
+                li Pza. Luca de Tena (Estación 9)
+                li Pza. Manuel Becerra (Estación 12)
+                li Pza. Fdez. Ladreda (Estación 14)
+                li Glta. de Carlos V (Estación 2)
+                li Pza. Castilla (Estación 15)
+                li Huerta Castañeda (Estación 19)
+                li Pza. Cristo Rey (Estación 21)
+                li Pº. Pontones (Estación 22)
+                li Final C/ Alcalá (Estación 23)
+                li Santa Eugenia (Estación 25)
+                li Urb. Embajada (Estación 26)
+                li
+                  mark Pza. del Carmen (Estación 35)
+                li
+                  mark Moratalaz (Estación 36)
+                li
+                  mark Cuatro Caminos (Estación 38)
+                li
+                  mark Barrio del Pilar (Estación 39)
+                li
+                  mark Vallecas (Estación 40)
+                li
+                  mark Tres Olivos (Estación 60)
+              p
+                b Anomalias:
+              ul
+                li Los datos carecen de la división por coma.
+                li A partir de enero de 2011 no se incluye la media de la red en los ficheros.
+                li
+                  | Desde noviembre de 2011 en el fichero de datos diarios se incluye monóxido de nitrógeno (NO), en lugar de Óxidos de nitrógeno totales (NOX).
+              p
+                b Cambios:
+              ul
+                li La estación 3 (Pza. del Carmen) pasa a ser la estación 35 desde Eneros de 2011
+                li La estación 5 (Barrio del Pilar) pasa a ser la estación 39 desde Eneros de 2011
+                li La estación 10 (Cuatro Caminos) pasa a ser la estación 38 desde Eneros de 2011
+                li La estación 13 (Vallecas) pasa a ser la estación 40 desde Eneros de 2011
+                li La estación 20 (Moratalaz) pasa a ser la estación 36 desde Eneros de 2011
+                li La estación 86 (Tres Olivos) pasa a ser la estación 60 desde Eneros de 2011
+              p
+                b Datos:
+              p
+                a(href='http://datos.madrid.es/egob/catalogo/201200-21-calidad-aire-horario.zip', target='_blank') Año 2011 .zip (Original)
+          .row
+            .col-lg-12
+              h3 2012, 2013, 2014 y 2015
+              p
+                b Estaciónes (disponibles):
+              ol
+                li Pza. de España (Estación 4)
+                li Escuelas Aguirre (Estación 8)
+                li Av. Ramón y Cajal (Estación 11)
+                li Arturo Soria (Estación 16)
+                li Villaverde Alto (Estación 17)
+                li C/ Farolillo (Estación 18)
+                li Casa de Campo (Estación 24)
+                li Barajas (Estación 27)
+                li Pza. del Carmen (Estación 35)
+                li Moratalaz (Estación 36)
+                li Cuatro Caminos (Estación 38)
+                li Barrio del Pilar (Estación 39)
+                li Vallecas (Estación 40)
+                li Méndez Álvaro (Estación 47)
+                li Pº. Castellana (Estación 48)
+                li Retiro (Estación 49)
+                li Pza. Castilla (Estación 50)
+                li Ensanche Vallecas (Estación 54)
+                li Urb. Embajada (Estación 55)
+                li Pza. Fdez. Ladreda (Estación 56)
+                li Sanchinarro (Estación 57)
+                li El Pardo (Estación 58)
+                li Parque Juan Carlos I (Estación 59)
+                li Tres Olivos (Estación 60)
+                li Media de todas las Estaciónes (Estación 99)
+              p
+                b Estaciónes (No disponibles):
+              ol
+                li Pº. Recoletos (Estación 1)
+                li Glta. de Carlos V (Estación 2)
+                li Pza. del Carmen  (Estación 3)
+                li Barrio del Pilar (Estación 5)
+                li Pza. Dr. Marañón (Estación  6)
+                li Pza. M. de Salamanca (Estación 7)
+                li Pza. Luca de Tena (Estación 9)
+                li Cuatro Caminos (Estación 10)
+                li Pza. Manuel Becerra (Estación 12)
+                li Vallecas (Estación 13)
+                li Pza. Fdez. Ladreda (Estación 14)
+                li Pza. Castilla (Estación 15)
+                li Huerta Castañeda (Estación 19)
+                li Moratalaz (Estación 20)
+                li Pza. Cristo Rey (Estación 21)
+                li Pº. Pontones (Estación 22)
+                li Final C/ Alcalá (Estación 23)
+                li Santa Eugenia (Estación 25)
+                li Urb. Embajada (Estación 26)
+                li Tres Olivos (Estación 86)
+              p
+                b Anomalias:
+              ul
+                li Los datos carecen de la división por coma.
+                li A partir de enero de 2011 no se incluye la media de la red en los ficheros.
+                li
+                  | Desde noviembre de 2011 en el fichero de datos diarios se incluye monóxido de nitrógeno (NO), en lugar de Óxidos de nitrógeno totales (NOX).
+              p
+                b Datos:
+              p
+                a(href='http://datos.madrid.es/egob/catalogo/201200-22-calidad-aire-horario.zip', target='_blank') Año 2012 .zip (Original)
+              p
+                a(href='http://datos.madrid.es/egob/catalogo/201200-23-calidad-aire-horario.zip', target='_blank') Año 2013 .zip (Original)
+              p
+                a(href='http://datos.madrid.es/egob/catalogo/201200-26-calidad-aire-horario.zip', target='_blank') Año 2014 .zip (Original)
+              p
+                a(href='http://datos.madrid.es/egob/catalogo/201200-27-calidad-aire-horario.zip', target='_blank') Año 2015 .zip (Original)
+    include ./includes/footer.jade
+    include ./includes/scripts.jade
+    script(src='js/ga.js')

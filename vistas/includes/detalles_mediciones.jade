@@ -1,0 +1,233 @@
+.row
+        .col-lg-12
+          h3.pull-left Datos:
+          h3.pull-right#timestamp
+.row
+        .col-lg-6
+          .panel.panel-info
+            .panel-heading
+              | Contaminantes Medidos
+            #customContamintantesMedidos.panel-body
+              - var count = 0;
+                each item in datos
+                  - var dato = item[hora];
+                  if count < datos.length
+                    if item.parametro === "Dióxido de Azufre (S02)"
+                        p
+                            a(href='#', data-toggle='modal', data-target='#SO2Modal')
+                              | Dióxido de Azufre (S0
+                              sub 2
+                              | ): 
+                            span#SO2Valor #{parseFloat(dato.valor)}
+                            |  μg/m
+                            sup 3
+                            |  medido por 
+                            span#MEDSO2Valor #{item.tecnica}
+                    if item.parametro === "Monóxido de Carbono (CO)"
+                        p
+                            a(href='#', data-toggle='modal', data-target='#COModal') #{item.parametro}: 
+                            span#COValor #{parseFloat(dato.valor)}
+                            |  μg/m
+                            sup 3
+                            |  medido por 
+                            span#MEDCOValor #{item.tecnica}
+                    if item.parametro === "Monóxido de Nitrógeno (NO)"
+                        p
+                            a(href='#', data-toggle='modal', data-target='#NOModal') #{item.parametro}: 
+                            span#NOValor #{parseFloat(dato.valor)}
+                            |  μg/m
+                            sup 3
+                            |  medido por 
+                            span#MEDNOValor #{item.tecnica}
+                    if item.parametro === "Dióxido de Nitrógeno (NO2)"
+                        p
+                            a(href='#', data-toggle='modal', data-target='#NO2Modal')
+                              | Dióxido de Nitrógeno (NO
+                              sub 2
+                              | ): 
+                            span#NO2Valor #{parseFloat(dato.valor)}
+                            |  μg/m
+                            sup 3
+                            |  medido por 
+                            span#MEDNO2Valor #{item.tecnica}
+                    if item.parametro === "Partículas en suspensión (<2.5)"
+                        p
+                            | #{item.parametro}: 
+                            span#PS25Valor #{parseFloat(dato.valor)}
+                            |  μg/m
+                            sup 3
+                            |  medido por 
+                            span#MEDPS25Valor #{item.tecnica}
+                    if item.parametro === "Partículas en suspensión (<10)"
+                        p
+                            | #{item.parametro}: 
+                            span#PS10Valor #{parseFloat(dato.valor)}
+                            |  μg/m
+                            sup 3
+                            |  medido por 
+                            span#MEDPS10Valor #{item.tecnica}
+                    if item.parametro === "Óxidos de Nitrógeno totales (NOx)"
+                        p
+                            | #{item.parametro}: 
+                            span#NOXValor #{parseFloat(dato.valor)}
+                            |  μg/m
+                            sup 3
+                            |  medido por 
+                            span#MEDNOXValor #{item.tecnica}
+                    if item.parametro === "Ozono (O3)"
+                        p
+                            a(href='#', data-toggle='modal', data-target='#O3Modal')
+                              | Ozono (O
+                              sub 3
+                              | ): 
+                            span#O3Valor #{parseFloat(dato.valor)}
+                            |  μg/m
+                            sup 3
+                            |  medido por 
+                            span#MEDO3Valor #{item.tecnica}
+                    if item.parametro === "Tolueno (TOL)"
+                        p
+                            a(href='#', data-toggle='modal', data-target='#TOLModal')
+                              | Tolueno (C
+                              sub 6
+                              | H
+                              sub 5
+                              | CH
+                              sub 3
+                              | ): 
+                            span#TOLValor #{parseFloat(dato.valor)}
+                            |  μg/m
+                            sup 3
+                            |  medido por 
+                            span#MEDTOLValor #{item.tecnica}
+                    if item.parametro === "Benceno (BEN)"
+                        p
+                            a(href='#', data-toggle='modal', data-target='#BENModal')
+                              | Benceno (C
+                              sub 6
+                              | H
+                              sub 6
+                              | ): 
+                            span#BENValor #{parseFloat(dato.valor)}
+                            |  μg/m
+                            sup 3
+                            |  medido por 
+                            span#MEDBENValor #{item.tecnica}
+                    if item.parametro === "Etilbenceno (EBE)"
+                        p
+                            a(href='#', data-toggle='modal', data-target='#EBEModal')
+                              | Etilbenceno (C
+                              sub 6
+                              | H
+                              sub 5
+                              | CH
+                              sub 2
+                              | CH
+                              sub 3
+                              | ): 
+                            span#EBEValor #{parseFloat(dato.valor)}
+                            |  μg/m
+                            sup 3
+                            |  medido por 
+                            span#MEDEBEValor #{item.tecnica}
+                    if item.parametro === "Hidrocarburos Totales (HC)"
+                        p
+                            | #{item.parametro}: 
+                            span#HCValor #{parseFloat(dato.valor)}
+                            |  μg/m
+                            sup 3
+                            |  medido por 
+                            span#MEDHCValor #{item.tecnica}
+                    if item.parametro === "Metano (CH4)"
+                        p
+                            a(href='#', data-toggle='modal', data-target='#CH4Modal')
+                              | Metano (CH
+                              sub 4
+                              | ): 
+                            span#CH4Valor #{parseFloat(dato.valor)}
+                            |  μg/m
+                            sup 3
+                            |  medido por 
+                            span#MEDCH4Valor #{item.tecnica}
+                    if item.parametro === "Hidrocarburos No Metánicos (NMH)"
+                        p
+                            | #{item.parametro}: 
+                            span#NMHValor #{parseFloat(dato.valor)}
+                            |  μg/m
+                            sup 3
+                            |  medido por 
+                            span#MEDNMHValor #{item.tecnica}
+                  - count++;
+        .col-lg-6
+          .panel.panel-info
+            .panel-heading
+              | Parámetros Meteorológicos
+            #customParametrosMetereologicos.panel-body
+              - var count = 0;
+                each item in datos
+                  - var dato = item[hora];
+                  if count < datos.length
+                    if item.parametro === "Radiación Ultravioleta (UV)"
+                        p
+                            a(href='#', data-toggle='modal', data-target='#UVVModal') #{item.parametro}: 
+                            span#UVValor #{parseFloat(dato.valor)}
+                            |  medido por 
+                            span#MEDUVValor #{item.tecnica}
+                    if item.parametro === "Velocidad del Viento (VV)"                  
+                        p
+                            | #{item.parametro}: 
+                            span#VVValor #{parseFloat(dato.valor)}
+                            |  Km/h medido por 
+                            span#MEDVVValor #{item.tecnica}                 
+                    if item.parametro === "Dirección del Viento (DD)"                  
+                        p                  
+                            | #{item.parametro}: 
+                            if parseFloat(item.hora0.valor) <= 89
+                                span#DDValor #{parseFloat(dato.valor)}° (Norte)
+                            else if parseFloat(item.hora0.valor) <= 179
+                                span#DDValor #{parseFloat(dato.valor)}° (Este)
+                            else if parseFloat(item.hora0.valor) <= 269
+                                span#DDValor #{parseFloat(dato.valor)}° (Sur)
+                            else if parseFloat(item.hora0.valor) >= 270
+                                span#DDValor #{parseFloat(dato.valor)}° (Oeste)
+                            |  medido por 
+                            span#MEDDDValor #{item.tecnica}
+                    if item.parametro === "Temperatura Media (TMP)"                   
+                        p
+                            | #{item.parametro}: 
+                            span#TMPValor #{parseFloat(dato.valor)}
+                            | °C medido por 
+                            span#MEDTMPValor #{item.tecnica}                       
+                    if item.parametro === "Temperatura Minima (TMI)"                   
+                        p                  
+                            | #{item.parametro}: 
+                            span#TMIValor #{parseFloat(dato.valor)}
+                            | °C medido por 
+                            span#MEDTMIValor #{item.tecnica}
+                    if item.parametro === "Humedad Relativa (HR)"                   
+                        p
+                            | #{item.parametro}: 
+                            span#HRValor #{parseFloat(dato.valor)}
+                            | % medido por 
+                            span#MEDHRValor #{item.tecnica}
+                    if item.parametro === "Presión Barométrica (PRB)"                   
+                        p
+                            | #{item.parametro}: 
+                            span#PRBValor #{parseFloat(dato.valor)}
+                            |  hPa medido por 
+                            span#MEDPRBValor #{item.tecnica}
+                    if item.parametro === "Radiación Solar (RS)"                   
+                        p
+                            | #{item.parametro}: 
+                            span#RSValor #{parseFloat(dato.valor)} 
+                            | kW/m
+                            sup 2
+                            |  medido por 
+                            span#MEDRSValor #{item.tecnica}
+                    if item.parametro === "Precipitación (LL)"                   
+                        p
+                            | #{item.parametro}: 
+                            span#LLValor #{parseFloat(dato.valor)}
+                            |  mm medido por 
+                            span#MEDLLValor #{item.tecnica}
+                  - count++;
