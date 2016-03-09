@@ -163,4 +163,4 @@ Este proyecto está abierto a colaboración y mejora por parte de cualquier pers
         
 ## Anécdotas
 Todo el backend desde la versión Beta hasta la versión 2.0.0 se ejecutaba (descargar, enriquecimiento y subida de datos a Firebase) desde [una Raspberry Pi dentro de un grifo de Murphy's](https://twitter.com/kom_256/status/625895707845771264)
-![El grifo](https://airemadrid.firebaseapp.com/img/server.png)
+![El grifo](http://airemadrid.herokuapp.com/img/server.png)
