@@ -15,7 +15,7 @@
     "bluebird": "3.1.1",
     "body-parser": "1.14.2",
     "express": "4.13.3",
-    "firebase": "2.3.2",
+    "firebase": "3.7.1",
     "jade": "1.11.0",
     "line-reader": "0.2.4",
     "method-override": "2.3.5",
