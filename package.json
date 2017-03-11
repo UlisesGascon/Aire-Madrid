@@ -1,13 +1,16 @@
 {
   "name": "AireMadrid",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Aire Madrid es una aplicación para poder ver los datos de la calidad del Aire de Madrid en tiempo real.",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "Apache",
+  "author": {
+    "name": "Ulises Gascón",
+    "url": "https://github.com/ulisesGascon"
+  },
+  "license": "GPL-3.0",
   "dependencies": {
     "bluebird": "3.1.1",
     "body-parser": "1.14.2",
